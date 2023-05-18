@@ -1,0 +1,176 @@
+syntax = "proto3";
+
+package kanvascontract;
+
+import "koinos/options.proto"; 
+
+message empty_message {}
+
+message uint64 {
+   uint64 value = 1 [jstype = JS_STRING];
+}
+
+// @description Returns the token's name
+// @read-only true
+message name_arguments {}
+
+message name_result {
+   string value = 1;
+}
+
+// @description Returns the token's symbol
+// @read-only true
+message symbol_arguments {}
+
+message symbol_result {
+   string value = 1;
+}
+
+// @description Returns the token's decimals precision
+// @read-only true
+message decimals_arguments {}
+
+message decimals_result {
+   uint32 value = 1;
+}
+
+// @description Returns the token's total supply
+// @read-only true
+message total_supply_arguments {}
+
+message total_supply_result {
+   uint64 value = 1 [jstype = JS_STRING];
+}
+
+// @description Checks the balance at an address
+// @read-only true
+message balance_of_arguments {
+   bytes owner = 1 [(koinos.btype) = ADDRESS];
+}
+
+message balance_of_result {
+   uint64 value = 1 [jstype = JS_STRING];
+}
+
+// @description Transfers the token
+// @read-only false
+// @result empty_message
+message transfer_arguments {
+   bytes from = 1 [(koinos.btype) = ADDRESS];
+   bytes to = 2 [(koinos.btype) = ADDRESS];
+   uint64 value = 3 [jstype = JS_STRING];
+}
+
+// @description Mints the token
+// @read-only false
+// @result empty_message
+message mint_arguments {
+   bytes to = 1 [(koinos.btype) = ADDRESS];
+   uint64 value = 2 [jstype = JS_STRING];
+}
+
+// @description Burns the token
+// @read-only false
+// @result empty_message
+message burn_arguments {
+   bytes from = 1 [(koinos.btype) = ADDRESS];
+   uint64 value = 2 [jstype = JS_STRING];
+}
+
+// @description Checks the pixels balance at an address
+// @read-only true
+message pixel_count_of_arguments {
+   bytes owner = 1 [(koinos.btype) = ADDRESS];
+}
+
+message pixel_count_of_result {
+   uint64 value = 1 [jstype = JS_STRING];
+}
+
+// @description Place a new pixel
+// @read-only false
+message place_pixel_arguments {
+   bytes from = 1 [(koinos.btype) = ADDRESS];
+   uint64 posX = 2 [jstype = JS_STRING];
+   uint64 posY = 3 [jstype = JS_STRING];
+   uint64 red = 4 [jstype = JS_STRING];
+   uint64 green = 5 [jstype = JS_STRING];
+   uint64 blue = 6 [jstype = JS_STRING];
+   uint64 alpha = 7 [jstype = JS_STRING];
+   string metadata = 8;
+}
+
+message place_pixel_result {
+   pixel_count_object pixel_count_object = 1;
+   pixel_count_object old_pixel_count_object = 2;
+   balance_object balance_object = 3;
+}
+
+// @description Query a pixel at a specific position
+// @read-only true
+message pixel_at_arguments {
+   uint64 posX = 1 [jstype = JS_STRING];
+   uint64 posY = 2 [jstype = JS_STRING];
+}
+
+message pixel_at_result {
+   pixel_object pixel = 1;
+}
+
+// @description Query the canvas dimensions
+// @read-only true
+message canvas_dimensions_arguments {}
+
+message canvas_dimensions_result {
+   uint64 canvas_width = 1;
+   uint64 canvas_height = 2;
+}
+
+// @description Set the canvas dimensions
+// @read-only false
+// @result empty_message
+message set_canvas_dimensions_arguments {
+   uint64 canvas_width = 1;
+   uint64 canvas_height = 2;
+}
+
+message balance_object {
+   uint64 value = 1 [jstype = JS_STRING];
+}
+
+message pixel_count_object {
+   uint64 value = 1 [jstype = JS_STRING];
+}
+
+message pixel_object {
+   uint64 posX = 1 [jstype = JS_STRING];
+   uint64 posY = 2 [jstype = JS_STRING];
+   uint64 red = 3 [jstype = JS_STRING];
+   uint64 green = 4 [jstype = JS_STRING];
+   uint64 blue = 5 [jstype = JS_STRING];
+   uint64 alpha = 6 [jstype = JS_STRING];
+   string metadata = 7;
+   bytes owner = 8 [(koinos.btype) = ADDRESS];
+}
+
+message mint_event {
+   bytes to = 1 [(koinos.btype) = ADDRESS];
+   uint64 value = 2 [jstype = JS_STRING];
+}
+
+message burn_event {
+   bytes from = 1 [(koinos.btype) = ADDRESS];
+   uint64 value = 2 [jstype = JS_STRING];
+}
+
+message transfer_event {
+   bytes from = 1 [(koinos.btype) = ADDRESS];
+   bytes to = 2 [(koinos.btype) = ADDRESS];
+   uint64 value = 3 [jstype = JS_STRING];
+}
+
+message pixel_placed_event {
+   bytes from = 1 [(koinos.btype) = ADDRESS];
+   bytes previous_owner = 2 [(koinos.btype) = ADDRESS];
+   pixel_object pixel_placed = 3;
+}

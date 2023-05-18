@@ -1,0 +1,96 @@
+{
+    "methods": {
+        "name": {
+            "argument": "kanvascontract.name_arguments",
+            "return": "kanvascontract.name_result",
+            "description": "Returns the token's name",
+            "entry-point": "0x82a3537f",
+            "read-only": true
+        },
+        "symbol": {
+            "argument": "kanvascontract.symbol_arguments",
+            "return": "kanvascontract.symbol_result",
+            "description": "Returns the token's symbol",
+            "entry-point": "0xb76a7ca1",
+            "read-only": true
+        },
+        "decimals": {
+            "argument": "kanvascontract.decimals_arguments",
+            "return": "kanvascontract.decimals_result",
+            "description": "Returns the token's decimals precision",
+            "entry-point": "0xee80fd2f",
+            "read-only": true
+        },
+        "total_supply": {
+            "argument": "kanvascontract.total_supply_arguments",
+            "return": "kanvascontract.total_supply_result",
+            "description": "Returns the token's total supply",
+            "entry-point": "0xb0da3934",
+            "read-only": true
+        },
+        "balance_of": {
+            "argument": "kanvascontract.balance_of_arguments",
+            "return": "kanvascontract.balance_of_result",
+            "description": "Checks the balance at an address",
+            "entry-point": "0x5c721497",
+            "read-only": true
+        },
+        "transfer": {
+            "argument": "kanvascontract.transfer_arguments",
+            "return": "kanvascontract.empty_message",
+            "description": "Transfers the token",
+            "entry-point": "0x27f576ca",
+            "read-only": false
+        },
+        "mint": {
+            "argument": "kanvascontract.mint_arguments",
+            "return": "kanvascontract.empty_message",
+            "description": "Mints the token",
+            "entry-point": "0xdc6f17bb",
+            "read-only": false
+        },
+        "burn": {
+            "argument": "kanvascontract.burn_arguments",
+            "return": "kanvascontract.empty_message",
+            "description": "Burns the token",
+            "entry-point": "0x859facc5",
+            "read-only": false
+        },
+        "pixel_count_of": {
+            "argument": "kanvascontract.pixel_count_of_arguments",
+            "return": "kanvascontract.pixel_count_of_result",
+            "description": "Checks the pixels balance at an address",
+            "entry-point": "0x3c315b09",
+            "read-only": true
+        },
+        "place_pixel": {
+            "argument": "kanvascontract.place_pixel_arguments",
+            "return": "kanvascontract.place_pixel_result",
+            "description": "Place a new pixel",
+            "entry-point": "0xb20ac2e3",
+            "read-only": false
+        },
+        "pixel_at": {
+            "argument": "kanvascontract.pixel_at_arguments",
+            "return": "kanvascontract.pixel_at_result",
+            "description": "Query a pixel at a specific position",
+            "entry-point": "0x0d4a1a54",
+            "read-only": true
+        },
+        "canvas_dimensions": {
+            "argument": "kanvascontract.canvas_dimensions_arguments",
+            "return": "kanvascontract.canvas_dimensions_result",
+            "description": "Query the canvas dimensions",
+            "entry-point": "0x3489c55e",
+            "read-only": true
+        },
+        "set_canvas_dimensions": {
+            "argument": "kanvascontract.set_canvas_dimensions_arguments",
+            "return": "kanvascontract.empty_message",
+            "description": "Set the canvas dimensions",
+            "entry-point": "0xc3268afe",
+            "read-only": false
+        }
+    },
+    "types": "CtISCiNhc3NlbWJseS9wcm90by9rYW52YXNjb250cmFjdC5wcm90bxIOa2FudmFzY29udHJhY3QaFGtvaW5vcy9vcHRpb25zLnByb3RvIg8KDWVtcHR5X21lc3NhZ2UiIgoGdWludDY0EhgKBXZhbHVlGAEgASgEQgIwAVIFdmFsdWUiEAoObmFtZV9hcmd1bWVudHMiIwoLbmFtZV9yZXN1bHQSFAoFdmFsdWUYASABKAlSBXZhbHVlIhIKEHN5bWJvbF9hcmd1bWVudHMiJQoNc3ltYm9sX3Jlc3VsdBIUCgV2YWx1ZRgBIAEoCVIFdmFsdWUiFAoSZGVjaW1hbHNfYXJndW1lbnRzIicKD2RlY2ltYWxzX3Jlc3VsdBIUCgV2YWx1ZRgBIAEoDVIFdmFsdWUiGAoWdG90YWxfc3VwcGx5X2FyZ3VtZW50cyIvChN0b3RhbF9zdXBwbHlfcmVzdWx0EhgKBXZhbHVlGAEgASgEQgIwAVIFdmFsdWUiMgoUYmFsYW5jZV9vZl9hcmd1bWVudHMSGgoFb3duZXIYASABKAxCBIC1GAZSBW93bmVyIi0KEWJhbGFuY2Vfb2ZfcmVzdWx0EhgKBXZhbHVlGAEgASgEQgIwAVIFdmFsdWUiXgoSdHJhbnNmZXJfYXJndW1lbnRzEhgKBGZyb20YASABKAxCBIC1GAZSBGZyb20SFAoCdG8YAiABKAxCBIC1GAZSAnRvEhgKBXZhbHVlGAMgASgEQgIwAVIFdmFsdWUiQAoObWludF9hcmd1bWVudHMSFAoCdG8YASABKAxCBIC1GAZSAnRvEhgKBXZhbHVlGAIgASgEQgIwAVIFdmFsdWUiRAoOYnVybl9hcmd1bWVudHMSGAoEZnJvbRgBIAEoDEIEgLUYBlIEZnJvbRIYCgV2YWx1ZRgCIAEoBEICMAFSBXZhbHVlIjYKGHBpeGVsX2NvdW50X29mX2FyZ3VtZW50cxIaCgVvd25lchgBIAEoDEIEgLUYBlIFb3duZXIiMQoVcGl4ZWxfY291bnRfb2ZfcmVzdWx0EhgKBXZhbHVlGAEgASgEQgIwAVIFdmFsdWUi3wEKFXBsYWNlX3BpeGVsX2FyZ3VtZW50cxIYCgRmcm9tGAEgASgMQgSAtRgGUgRmcm9tEhYKBHBvc1gYAiABKARCAjABUgRwb3NYEhYKBHBvc1kYAyABKARCAjABUgRwb3NZEhQKA3JlZBgEIAEoBEICMAFSA3JlZBIYCgVncmVlbhgFIAEoBEICMAFSBWdyZWVuEhYKBGJsdWUYBiABKARCAjABUgRibHVlEhgKBWFscGhhGAcgASgEQgIwAVIFYWxwaGESGgoIbWV0YWRhdGEYCCABKAlSCG1ldGFkYXRhIoYCChJwbGFjZV9waXhlbF9yZXN1bHQSUAoScGl4ZWxfY291bnRfb2JqZWN0GAEgASgLMiIua2FudmFzY29udHJhY3QucGl4ZWxfY291bnRfb2JqZWN0UhBwaXhlbENvdW50T2JqZWN0ElcKFm9sZF9waXhlbF9jb3VudF9vYmplY3QYAiABKAsyIi5rYW52YXNjb250cmFjdC5waXhlbF9jb3VudF9vYmplY3RSE29sZFBpeGVsQ291bnRPYmplY3QSRQoOYmFsYW5jZV9vYmplY3QYAyABKAsyHi5rYW52YXNjb250cmFjdC5iYWxhbmNlX29iamVjdFINYmFsYW5jZU9iamVjdCJEChJwaXhlbF9hdF9hcmd1bWVudHMSFgoEcG9zWBgBIAEoBEICMAFSBHBvc1gSFgoEcG9zWRgCIAEoBEICMAFSBHBvc1kiRQoPcGl4ZWxfYXRfcmVzdWx0EjIKBXBpeGVsGAEgASgLMhwua2FudmFzY29udHJhY3QucGl4ZWxfb2JqZWN0UgVwaXhlbCIdChtjYW52YXNfZGltZW5zaW9uc19hcmd1bWVudHMiYgoYY2FudmFzX2RpbWVuc2lvbnNfcmVzdWx0EiEKDGNhbnZhc193aWR0aBgBIAEoBFILY2FudmFzV2lkdGgSIwoNY2FudmFzX2hlaWdodBgCIAEoBFIMY2FudmFzSGVpZ2h0ImkKH3NldF9jYW52YXNfZGltZW5zaW9uc19hcmd1bWVudHMSIQoMY2FudmFzX3dpZHRoGAEgASgEUgtjYW52YXNXaWR0aBIjCg1jYW52YXNfaGVpZ2h0GAIgASgEUgxjYW52YXNIZWlnaHQiKgoOYmFsYW5jZV9vYmplY3QSGAoFdmFsdWUYASABKARCAjABUgV2YWx1ZSIuChJwaXhlbF9jb3VudF9vYmplY3QSGAoFdmFsdWUYASABKARCAjABUgV2YWx1ZSLYAQoMcGl4ZWxfb2JqZWN0EhYKBHBvc1gYASABKARCAjABUgRwb3NYEhYKBHBvc1kYAiABKARCAjABUgRwb3NZEhQKA3JlZBgDIAEoBEICMAFSA3JlZBIYCgVncmVlbhgEIAEoBEICMAFSBWdyZWVuEhYKBGJsdWUYBSABKARCAjABUgRibHVlEhgKBWFscGhhGAYgASgEQgIwAVIFYWxwaGESGgoIbWV0YWRhdGEYByABKAlSCG1ldGFkYXRhEhoKBW93bmVyGAggASgMQgSAtRgGUgVvd25lciI8CgptaW50X2V2ZW50EhQKAnRvGAEgASgMQgSAtRgGUgJ0bxIYCgV2YWx1ZRgCIAEoBEICMAFSBXZhbHVlIkAKCmJ1cm5fZXZlbnQSGAoEZnJvbRgBIAEoDEIEgLUYBlIEZnJvbRIYCgV2YWx1ZRgCIAEoBEICMAFSBXZhbHVlIloKDnRyYW5zZmVyX2V2ZW50EhgKBGZyb20YASABKAxCBIC1GAZSBGZyb20SFAoCdG8YAiABKAxCBIC1GAZSAnRvEhgKBXZhbHVlGAMgASgEQgIwAVIFdmFsdWUinAEKEnBpeGVsX3BsYWNlZF9ldmVudBIYCgRmcm9tGAEgASgMQgSAtRgGUgRmcm9tEisKDnByZXZpb3VzX293bmVyGAIgASgMQgSAtRgGUg1wcmV2aW91c093bmVyEj8KDHBpeGVsX3BsYWNlZBgDIAEoCzIcLmthbnZhc2NvbnRyYWN0LnBpeGVsX29iamVjdFILcGl4ZWxQbGFjZWRiBnByb3RvMw=="
+}
