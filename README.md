@@ -35,3 +35,4 @@ yarn exec koinos-sdk-as-cli run-tests
 
 kanvas.wallet.3 : 1GTuQKSCNABLtomu8zSybWXsWXk7fxqfaE
 kanvas.wallet.5 : 1H85LgNsQ5RwdidsBG8A2r9Y5GZyTCWix2
+# kanvascontract
