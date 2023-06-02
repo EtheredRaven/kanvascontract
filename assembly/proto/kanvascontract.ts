@@ -1299,6 +1299,16 @@ export namespace kanvascontract {
         writer.uint32(24);
         writer.uint64(message.value);
       }
+
+      if (message.from_balance != 0) {
+        writer.uint32(32);
+        writer.uint64(message.from_balance);
+      }
+
+      if (message.to_balance != 0) {
+        writer.uint32(40);
+        writer.uint64(message.to_balance);
+      }
     }
 
     static decode(reader: Reader, length: i32): transfer_event {
@@ -1320,6 +1330,14 @@ export namespace kanvascontract {
             message.value = reader.uint64();
             break;
 
+          case 4:
+            message.from_balance = reader.uint64();
+            break;
+
+          case 5:
+            message.to_balance = reader.uint64();
+            break;
+
           default:
             reader.skipType(tag & 7);
             break;
@@ -1332,15 +1350,21 @@ export namespace kanvascontract {
     from: Uint8Array;
     to: Uint8Array;
     value: u64;
+    from_balance: u64;
+    to_balance: u64;
 
     constructor(
       from: Uint8Array = new Uint8Array(0),
       to: Uint8Array = new Uint8Array(0),
-      value: u64 = 0
+      value: u64 = 0,
+      from_balance: u64 = 0,
+      to_balance: u64 = 0
     ) {
       this.from = from;
       this.to = to;
       this.value = value;
+      this.from_balance = from_balance;
+      this.to_balance = to_balance;
     }
   }
 
@@ -1363,6 +1387,26 @@ export namespace kanvascontract {
         pixel_object.encode(unique_name_pixel_placed, writer);
         writer.ldelim();
       }
+
+      if (message.owner_pixel_count != 0) {
+        writer.uint32(32);
+        writer.uint64(message.owner_pixel_count);
+      }
+
+      if (message.previous_owner_pixel_count != 0) {
+        writer.uint32(40);
+        writer.uint64(message.previous_owner_pixel_count);
+      }
+
+      if (message.aComp != 0) {
+        writer.uint32(48);
+        writer.uint64(message.aComp);
+      }
+
+      if (message.bComp != 0) {
+        writer.uint32(56);
+        writer.uint64(message.bComp);
+      }
     }
 
     static decode(reader: Reader, length: i32): pixel_placed_event {
@@ -1384,6 +1428,22 @@ export namespace kanvascontract {
             message.pixel_placed = pixel_object.decode(reader, reader.uint32());
             break;
 
+          case 4:
+            message.owner_pixel_count = reader.uint64();
+            break;
+
+          case 5:
+            message.previous_owner_pixel_count = reader.uint64();
+            break;
+
+          case 6:
+            message.aComp = reader.uint64();
+            break;
+
+          case 7:
+            message.bComp = reader.uint64();
+            break;
+
           default:
             reader.skipType(tag & 7);
             break;
@@ -1396,15 +1456,27 @@ export namespace kanvascontract {
     from: Uint8Array;
     previous_owner: Uint8Array;
     pixel_placed: pixel_object | null;
+    owner_pixel_count: u64;
+    previous_owner_pixel_count: u64;
+    aComp: u64;
+    bComp: u64;
 
     constructor(
       from: Uint8Array = new Uint8Array(0),
       previous_owner: Uint8Array = new Uint8Array(0),
-      pixel_placed: pixel_object | null = null
+      pixel_placed: pixel_object | null = null,
+      owner_pixel_count: u64 = 0,
+      previous_owner_pixel_count: u64 = 0,
+      aComp: u64 = 0,
+      bComp: u64 = 0
     ) {
       this.from = from;
       this.previous_owner = previous_owner;
       this.pixel_placed = pixel_placed;
+      this.owner_pixel_count = owner_pixel_count;
+      this.previous_owner_pixel_count = previous_owner_pixel_count;
+      this.aComp = aComp;
+      this.bComp = bComp;
     }
   }
 }

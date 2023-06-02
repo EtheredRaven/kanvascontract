@@ -15788,6 +15788,56 @@
    call $~lib/as-proto/assembly/Writer/Writer#uint64@override
   end
   global.get $~lib/memory/__stack_pointer
+  local.get $0
+  i32.store $0
+  local.get $0
+  i64.load $0 offset=16
+  i64.const 0
+  i64.ne
+  if
+   global.get $~lib/memory/__stack_pointer
+   local.get $1
+   i32.store $0
+   local.get $1
+   i32.const 32
+   call $~lib/as-proto/assembly/Writer/Writer#uint32@override
+   global.get $~lib/memory/__stack_pointer
+   local.get $1
+   i32.store $0
+   global.get $~lib/memory/__stack_pointer
+   local.get $0
+   i32.store $0 offset=4
+   local.get $1
+   local.get $0
+   i64.load $0 offset=16
+   call $~lib/as-proto/assembly/Writer/Writer#uint64@override
+  end
+  global.get $~lib/memory/__stack_pointer
+  local.get $0
+  i32.store $0
+  local.get $0
+  i64.load $0 offset=24
+  i64.const 0
+  i64.ne
+  if
+   global.get $~lib/memory/__stack_pointer
+   local.get $1
+   i32.store $0
+   local.get $1
+   i32.const 40
+   call $~lib/as-proto/assembly/Writer/Writer#uint32@override
+   global.get $~lib/memory/__stack_pointer
+   local.get $1
+   i32.store $0
+   global.get $~lib/memory/__stack_pointer
+   local.get $0
+   i32.store $0 offset=4
+   local.get $1
+   local.get $0
+   i64.load $0 offset=24
+   call $~lib/as-proto/assembly/Writer/Writer#uint64@override
+  end
+  global.get $~lib/memory/__stack_pointer
   i32.const 12
   i32.add
   global.set $~lib/memory/__stack_pointer
@@ -16294,8 +16344,10 @@
   (local $2 i32)
   (local $3 i32)
   (local $4 i64)
-  (local $5 i32)
-  (local $6 i32)
+  (local $5 i64)
+  (local $6 i64)
+  (local $7 i32)
+  (local $8 i32)
   global.get $~lib/memory/__stack_pointer
   i32.const 44
   i32.sub
@@ -16307,73 +16359,73 @@
    unreachable
   end
   global.get $~lib/memory/__stack_pointer
-  local.tee $5
+  local.tee $7
   i64.const 0
   i64.store $0
-  local.get $5
+  local.get $7
   i64.const 0
   i64.store $0 offset=8
-  local.get $5
+  local.get $7
   i64.const 0
   i64.store $0 offset=16
-  local.get $5
+  local.get $7
   i64.const 0
   i64.store $0 offset=24
-  local.get $5
+  local.get $7
   i64.const 0
   i64.store $0 offset=32
-  local.get $5
+  local.get $7
   i32.const 0
   i32.store $0 offset=40
-  local.get $5
+  local.get $7
   local.get $1
   i32.store $0
-  local.get $5
+  local.get $7
   local.get $1
   i32.load $0
   local.tee $2
   i32.store $0 offset=4
-  local.get $5
+  local.get $7
   local.get $1
   i32.store $0
-  local.get $5
+  local.get $7
   local.get $1
   i32.load $0 offset=4
   local.tee $3
   i32.store $0 offset=8
-  local.get $5
+  local.get $7
   local.get $1
   i32.store $0
   local.get $1
   i64.load $0 offset=8
   local.set $4
-  local.get $5
+  local.get $7
   local.get $2
   i32.store $0 offset=12
-  local.get $5
+  local.get $7
   local.get $3
   i32.store $0 offset=16
   local.get $2
   local.get $3
   call $~lib/@koinos/sdk-as/assembly/util/arrays/Arrays.equal
   i32.eqz
-  local.set $5
+  local.set $7
   global.get $~lib/memory/__stack_pointer
   i32.const 2512
   i32.store $0 offset=12
-  local.get $5
+  local.get $7
   i32.const 2512
   i32.const 1
   call $~lib/@koinos/sdk-as/assembly/systemCalls/System.require<bool>
   call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getCaller
-  local.set $5
+  local.set $7
   global.get $~lib/memory/__stack_pointer
-  local.get $5
+  local.get $7
   i32.store $0 offset=20
   global.get $~lib/memory/__stack_pointer
-  local.get $5
+  local.get $7
   i32.load $0
-  local.tee $5
+  local.tee $7
   i32.store $0 offset=12
   global.get $~lib/memory/__stack_pointer
   local.get $1
@@ -16381,35 +16433,35 @@
   global.get $~lib/memory/__stack_pointer
   local.get $1
   i32.load $0
-  local.tee $6
+  local.tee $8
   i32.store $0 offset=16
-  local.get $5
-  local.get $6
+  local.get $7
+  local.get $8
   call $~lib/@koinos/sdk-as/assembly/util/arrays/Arrays.equal
   if (result i32)
    i32.const 1
   else
    global.get $~lib/memory/__stack_pointer
-   local.tee $5
+   local.tee $7
    local.get $1
    i32.store $0 offset=20
-   local.get $5
+   local.get $7
    local.get $1
    i32.load $0
    local.tee $1
    i32.store $0 offset=16
    call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArguments
-   local.set $5
+   local.set $7
    global.get $~lib/memory/__stack_pointer
-   local.get $5
+   local.get $7
    i32.store $0 offset=20
    global.get $~lib/memory/__stack_pointer
-   local.get $5
+   local.get $7
    i32.load $0 offset=4
-   local.tee $5
+   local.tee $7
    i32.store $0 offset=20
    local.get $1
-   local.get $5
+   local.get $7
    call $~lib/@koinos/sdk-as/assembly/systemCalls/System.checkAuthority
   end
   local.set $1
@@ -16469,11 +16521,11 @@
   local.get $1
   i64.load $0
   i64.le_u
-  local.set $5
+  local.set $7
   global.get $~lib/memory/__stack_pointer
   i32.const 2816
   i32.store $0 offset=12
-  local.get $5
+  local.get $7
   i32.const 2816
   i32.const 1
   call $~lib/@koinos/sdk-as/assembly/systemCalls/System.require<bool>
@@ -16491,15 +16543,15 @@
    unreachable
   end
   global.get $~lib/memory/__stack_pointer
-  local.tee $5
+  local.tee $7
   i32.const 0
   i32.store $0
-  local.get $5
+  local.get $7
   local.get $0
   i32.load $0 offset=20
-  local.tee $5
+  local.tee $7
   i32.store $0
-  local.get $5
+  local.get $7
   i32.eqz
   if
    unreachable
@@ -16509,15 +16561,15 @@
   i32.add
   global.set $~lib/memory/__stack_pointer
   global.get $~lib/memory/__stack_pointer
-  local.get $5
+  local.get $7
   i32.store $0
   global.get $~lib/memory/__stack_pointer
   local.get $3
   i32.store $0 offset=12
-  local.get $5
+  local.get $7
   local.get $3
   call $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/typedarray/Uint8Array,assembly/proto/kanvascontract/kanvascontract.balance_object>#get
-  local.tee $5
+  local.tee $7
   i32.eqz
   if
    unreachable
@@ -16528,17 +16580,17 @@
   local.get $4
   i64.sub
   i64.store $0
-  local.get $5
+  local.get $7
   local.get $4
-  local.get $5
+  local.get $7
   i64.load $0
   i64.add
   i64.store $0
   global.get $~lib/memory/__stack_pointer
-  local.tee $6
+  local.tee $8
   local.get $0
   i32.store $0 offset=16
-  local.get $6
+  local.get $8
   i32.const 4
   i32.sub
   global.set $~lib/memory/__stack_pointer
@@ -16549,15 +16601,15 @@
    unreachable
   end
   global.get $~lib/memory/__stack_pointer
-  local.tee $6
+  local.tee $8
   i32.const 0
   i32.store $0
-  local.get $6
+  local.get $8
   local.get $0
   i32.load $0 offset=20
-  local.tee $6
+  local.tee $8
   i32.store $0
-  local.get $6
+  local.get $8
   i32.eqz
   if
    unreachable
@@ -16567,12 +16619,12 @@
   i32.add
   global.set $~lib/memory/__stack_pointer
   global.get $~lib/memory/__stack_pointer
-  local.get $6
+  local.get $8
   i32.store $0
   global.get $~lib/memory/__stack_pointer
   local.get $2
   i32.store $0 offset=12
-  local.get $6
+  local.get $8
   local.get $2
   local.get $1
   call $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/typedarray/Uint8Array,assembly/proto/kanvascontract/kanvascontract.balance_object>#put
@@ -16590,10 +16642,10 @@
    unreachable
   end
   global.get $~lib/memory/__stack_pointer
-  local.tee $1
+  local.tee $8
   i32.const 0
   i32.store $0
-  local.get $1
+  local.get $8
   local.get $0
   i32.load $0 offset=20
   local.tee $0
@@ -16615,7 +16667,7 @@
   i32.store $0 offset=12
   local.get $0
   local.get $3
-  local.get $5
+  local.get $7
   call $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/typedarray/Uint8Array,assembly/proto/kanvascontract/kanvascontract.balance_object>#put
   global.get $~lib/memory/__stack_pointer
   local.set $0
@@ -16625,6 +16677,12 @@
   global.get $~lib/memory/__stack_pointer
   local.get $3
   i32.store $0 offset=16
+  local.get $1
+  i64.load $0
+  local.set $5
+  local.get $7
+  i64.load $0
+  local.set $6
   global.get $~lib/memory/__stack_pointer
   i32.const 12
   i32.sub
@@ -16643,7 +16701,7 @@
   i32.const 0
   i32.store $0 offset=8
   local.get $1
-  i32.const 16
+  i32.const 32
   i32.const 75
   call $~lib/rt/itcms/__new
   local.tee $1
@@ -16661,16 +16719,28 @@
   i32.const 0
   i32.store $0 offset=4
   global.get $~lib/memory/__stack_pointer
-  local.tee $5
+  local.tee $7
   local.get $1
   i32.store $0 offset=4
   local.get $1
   i64.const 0
   i64.store $0 offset=8
-  local.get $5
+  local.get $7
   local.get $1
   i32.store $0 offset=4
-  local.get $5
+  local.get $1
+  i64.const 0
+  i64.store $0 offset=16
+  local.get $7
+  local.get $1
+  i32.store $0 offset=4
+  local.get $1
+  i64.const 0
+  i64.store $0 offset=24
+  local.get $7
+  local.get $1
+  i32.store $0 offset=4
+  local.get $7
   local.get $2
   i32.store $0 offset=8
   local.get $1
@@ -16684,10 +16754,10 @@
    call $byn-split-outlined-A$~lib/rt/itcms/__link
   end
   global.get $~lib/memory/__stack_pointer
-  local.tee $5
+  local.tee $7
   local.get $1
   i32.store $0 offset=4
-  local.get $5
+  local.get $7
   local.get $3
   i32.store $0 offset=8
   local.get $1
@@ -16701,13 +16771,25 @@
    call $byn-split-outlined-A$~lib/rt/itcms/__link
   end
   global.get $~lib/memory/__stack_pointer
-  local.tee $5
+  local.tee $7
   local.get $1
   i32.store $0 offset=4
   local.get $1
   local.get $4
   i64.store $0 offset=8
+  local.get $7
+  local.get $1
+  i32.store $0 offset=4
+  local.get $1
   local.get $5
+  i64.store $0 offset=16
+  local.get $7
+  local.get $1
+  i32.store $0 offset=4
+  local.get $1
+  local.get $6
+  i64.store $0 offset=24
+  local.get $7
   i32.const 12
   i32.add
   global.set $~lib/memory/__stack_pointer
@@ -16721,22 +16803,22 @@
   i32.const 76
   i32.const 0
   call $~lib/rt/__newArray
-  local.tee $5
+  local.tee $7
   i32.store $0 offset=28
   global.get $~lib/memory/__stack_pointer
-  local.get $5
+  local.get $7
   i32.load $0 offset=4
   i32.store $0 offset=32
-  local.get $5
+  local.get $7
   i32.const 0
   local.get $3
   call $~lib/array/Array<~lib/typedarray/Uint8Array>#__set
-  local.get $5
+  local.get $7
   i32.const 1
   local.get $2
   call $~lib/array/Array<~lib/typedarray/Uint8Array>#__set
   local.get $0
-  local.get $5
+  local.get $7
   i32.store $0 offset=36
   global.get $~lib/memory/__stack_pointer
   i32.const 2944
@@ -16755,11 +16837,11 @@
   local.get $0
   i32.store $0 offset=12
   global.get $~lib/memory/__stack_pointer
-  local.get $5
+  local.get $7
   i32.store $0 offset=16
   i32.const 2944
   local.get $0
-  local.get $5
+  local.get $7
   call $~lib/@koinos/sdk-as/assembly/systemCalls/System.event
   global.get $~lib/rt/tlsf/ROOT
   i32.eqz
@@ -20957,9 +21039,9 @@
   local.get $2
   local.get $0
   i32.load $0 offset=8
-  local.tee $0
+  local.tee $2
   i32.store $0 offset=12
-  local.get $0
+  local.get $2
   if
    global.get $~lib/memory/__stack_pointer
    local.get $1
@@ -20973,12 +21055,12 @@
    local.get $1
    call $~lib/as-proto/assembly/Writer/Writer#fork@override
    global.get $~lib/memory/__stack_pointer
-   local.get $0
+   local.get $2
    i32.store $0
    global.get $~lib/memory/__stack_pointer
    local.get $1
    i32.store $0 offset=4
-   local.get $0
+   local.get $2
    local.get $1
    call $assembly/proto/kanvascontract/kanvascontract.pixel_object.encode
    global.get $~lib/memory/__stack_pointer
@@ -20988,28 +21070,132 @@
    call $~lib/as-proto/assembly/Writer/Writer#ldelim@override
   end
   global.get $~lib/memory/__stack_pointer
+  local.get $0
+  i32.store $0
+  local.get $0
+  i64.load $0 offset=16
+  i64.const 0
+  i64.ne
+  if
+   global.get $~lib/memory/__stack_pointer
+   local.get $1
+   i32.store $0
+   local.get $1
+   i32.const 32
+   call $~lib/as-proto/assembly/Writer/Writer#uint32@override
+   global.get $~lib/memory/__stack_pointer
+   local.get $1
+   i32.store $0
+   global.get $~lib/memory/__stack_pointer
+   local.get $0
+   i32.store $0 offset=4
+   local.get $1
+   local.get $0
+   i64.load $0 offset=16
+   call $~lib/as-proto/assembly/Writer/Writer#uint64@override
+  end
+  global.get $~lib/memory/__stack_pointer
+  local.get $0
+  i32.store $0
+  local.get $0
+  i64.load $0 offset=24
+  i64.const 0
+  i64.ne
+  if
+   global.get $~lib/memory/__stack_pointer
+   local.get $1
+   i32.store $0
+   local.get $1
+   i32.const 40
+   call $~lib/as-proto/assembly/Writer/Writer#uint32@override
+   global.get $~lib/memory/__stack_pointer
+   local.get $1
+   i32.store $0
+   global.get $~lib/memory/__stack_pointer
+   local.get $0
+   i32.store $0 offset=4
+   local.get $1
+   local.get $0
+   i64.load $0 offset=24
+   call $~lib/as-proto/assembly/Writer/Writer#uint64@override
+  end
+  global.get $~lib/memory/__stack_pointer
+  local.get $0
+  i32.store $0
+  local.get $0
+  i64.load $0 offset=32
+  i64.const 0
+  i64.ne
+  if
+   global.get $~lib/memory/__stack_pointer
+   local.get $1
+   i32.store $0
+   local.get $1
+   i32.const 48
+   call $~lib/as-proto/assembly/Writer/Writer#uint32@override
+   global.get $~lib/memory/__stack_pointer
+   local.get $1
+   i32.store $0
+   global.get $~lib/memory/__stack_pointer
+   local.get $0
+   i32.store $0 offset=4
+   local.get $1
+   local.get $0
+   i64.load $0 offset=32
+   call $~lib/as-proto/assembly/Writer/Writer#uint64@override
+  end
+  global.get $~lib/memory/__stack_pointer
+  local.get $0
+  i32.store $0
+  local.get $0
+  i64.load $0 offset=40
+  i64.const 0
+  i64.ne
+  if
+   global.get $~lib/memory/__stack_pointer
+   local.get $1
+   i32.store $0
+   local.get $1
+   i32.const 56
+   call $~lib/as-proto/assembly/Writer/Writer#uint32@override
+   global.get $~lib/memory/__stack_pointer
+   local.get $1
+   i32.store $0
+   global.get $~lib/memory/__stack_pointer
+   local.get $0
+   i32.store $0 offset=4
+   local.get $1
+   local.get $0
+   i64.load $0 offset=40
+   call $~lib/as-proto/assembly/Writer/Writer#uint64@override
+  end
+  global.get $~lib/memory/__stack_pointer
   i32.const 16
   i32.add
   global.set $~lib/memory/__stack_pointer
  )
  (func $assembly/Kanvascontract/Kanvascontract#place_pixel (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
-  (local $3 i32)
-  (local $4 i64)
+  (local $3 i64)
+  (local $4 i32)
   (local $5 i64)
   (local $6 i64)
-  (local $7 i64)
-  (local $8 i64)
-  (local $9 i64)
-  (local $10 i64)
-  (local $11 i64)
-  (local $12 i64)
-  (local $13 i32)
-  (local $14 i32)
-  (local $15 i32)
-  (local $16 i32)
-  (local $17 i32)
-  (local $18 i32)
+  (local $7 i32)
+  (local $8 i32)
+  (local $9 i32)
+  (local $10 i32)
+  (local $11 i32)
+  (local $12 i32)
+  (local $13 i64)
+  (local $14 i64)
+  (local $15 i64)
+  (local $16 i64)
+  (local $17 i64)
+  (local $18 i64)
+  (local $19 i32)
+  (local $20 i32)
+  (local $21 i64)
+  (local $22 i32)
   global.get $~lib/memory/__stack_pointer
   i32.const -64
   i32.add
@@ -21021,91 +21207,91 @@
    unreachable
   end
   global.get $~lib/memory/__stack_pointer
-  local.tee $13
+  local.tee $2
   i64.const 0
   i64.store $0
-  local.get $13
+  local.get $2
   i64.const 0
   i64.store $0 offset=8
-  local.get $13
+  local.get $2
   i64.const 0
   i64.store $0 offset=16
-  local.get $13
+  local.get $2
   i64.const 0
   i64.store $0 offset=24
-  local.get $13
+  local.get $2
   i64.const 0
   i64.store $0 offset=32
-  local.get $13
+  local.get $2
   i64.const 0
   i64.store $0 offset=40
-  local.get $13
+  local.get $2
   i64.const 0
   i64.store $0 offset=48
-  local.get $13
+  local.get $2
   i64.const 0
   i64.store $0 offset=56
-  local.get $13
+  local.get $2
   local.get $1
   i32.store $0
-  local.get $13
+  local.get $2
   local.get $1
   i32.load $0
-  local.tee $3
+  local.tee $22
   i32.store $0 offset=4
-  local.get $13
+  local.get $2
   local.get $1
   i32.store $0
   local.get $1
   i64.load $0 offset=8
-  local.set $5
-  local.get $13
+  local.set $16
+  local.get $2
   local.get $1
   i32.store $0
   local.get $1
   i64.load $0 offset=16
-  local.set $6
-  local.get $13
+  local.set $15
+  local.get $2
   local.get $1
   i32.store $0
   local.get $1
   i64.load $0 offset=24
-  local.set $7
-  local.get $13
+  local.set $14
+  local.get $2
   local.get $1
   i32.store $0
   local.get $1
   i64.load $0 offset=40
-  local.set $8
-  local.get $13
+  local.set $13
+  local.get $2
   local.get $1
   i32.store $0
   local.get $1
   i64.load $0 offset=32
-  local.set $9
-  local.get $13
+  local.set $6
+  local.get $2
   local.get $1
   i32.store $0
   local.get $1
   i64.load $0 offset=48
-  local.set $10
-  local.get $13
+  local.set $5
+  local.get $2
   local.get $1
   i32.store $0
-  local.get $13
+  local.get $2
   local.get $1
   i32.load $0 offset=56
-  local.tee $13
+  local.tee $7
   i32.store $0 offset=8
   call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getCaller
-  local.set $14
+  local.set $2
   global.get $~lib/memory/__stack_pointer
-  local.get $14
+  local.get $2
   i32.store $0 offset=20
   global.get $~lib/memory/__stack_pointer
-  local.get $14
+  local.get $2
   i32.load $0
-  local.tee $14
+  local.tee $4
   i32.store $0 offset=12
   global.get $~lib/memory/__stack_pointer
   local.get $1
@@ -21113,60 +21299,60 @@
   global.get $~lib/memory/__stack_pointer
   local.get $1
   i32.load $0
-  local.tee $15
+  local.tee $2
   i32.store $0 offset=16
-  local.get $14
-  local.get $15
+  local.get $4
+  local.get $2
   call $~lib/@koinos/sdk-as/assembly/util/arrays/Arrays.equal
   if (result i32)
    i32.const 1
   else
    global.get $~lib/memory/__stack_pointer
-   local.tee $14
+   local.tee $2
    local.get $1
    i32.store $0 offset=20
-   local.get $14
+   local.get $2
    local.get $1
    i32.load $0
-   local.tee $14
+   local.tee $4
    i32.store $0 offset=16
    call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArguments
-   local.set $15
+   local.set $2
    global.get $~lib/memory/__stack_pointer
-   local.get $15
+   local.get $2
    i32.store $0 offset=20
    global.get $~lib/memory/__stack_pointer
-   local.get $15
+   local.get $2
    i32.load $0 offset=4
-   local.tee $15
+   local.tee $2
    i32.store $0 offset=20
-   local.get $14
-   local.get $15
+   local.get $4
+   local.get $2
    call $~lib/@koinos/sdk-as/assembly/systemCalls/System.checkAuthority
   end
-  local.set $14
+  local.set $2
   global.get $~lib/memory/__stack_pointer
   i32.const 5568
   i32.store $0 offset=12
-  local.get $14
+  local.get $2
   i32.const 5568
   i32.const -200
   call $~lib/@koinos/sdk-as/assembly/systemCalls/System.require<bool>
   global.get $~lib/memory/__stack_pointer
   i32.const 5664
   i32.store $0 offset=12
-  local.get $8
+  local.get $13
   i64.const 255
   i64.le_u
-  local.get $7
-  i64.const 255
-  i64.le_u
-  i32.and
-  local.get $9
+  local.get $14
   i64.const 255
   i64.le_u
   i32.and
-  local.get $10
+  local.get $6
+  i64.const 255
+  i64.le_u
+  i32.and
+  local.get $5
   i64.const 255
   i64.le_u
   i32.and
@@ -21187,15 +21373,15 @@
    unreachable
   end
   global.get $~lib/memory/__stack_pointer
-  local.tee $14
+  local.tee $2
   i32.const 0
   i32.store $0
-  local.get $14
+  local.get $2
   local.get $0
   i32.load $0 offset=32
-  local.tee $14
+  local.tee $2
   i32.store $0
-  local.get $14
+  local.get $2
   i32.eqz
   if
    unreachable
@@ -21205,25 +21391,25 @@
   i32.add
   global.set $~lib/memory/__stack_pointer
   global.get $~lib/memory/__stack_pointer
-  local.get $14
+  local.get $2
   i32.store $0 offset=12
-  local.get $14
+  local.get $2
   call $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Obj<assembly/proto/kanvascontract/kanvascontract.balance_object>#get
-  local.tee $14
+  local.tee $2
   i32.eqz
   if
    unreachable
   end
-  local.get $5
-  local.get $14
+  local.get $16
+  local.get $2
   i64.load $0
   i64.lt_u
   if (result i32)
    global.get $~lib/memory/__stack_pointer
-   local.tee $14
+   local.tee $2
    local.get $0
    i32.store $0 offset=16
-   local.get $14
+   local.get $2
    i32.const 4
    i32.sub
    global.set $~lib/memory/__stack_pointer
@@ -21234,15 +21420,15 @@
     unreachable
    end
    global.get $~lib/memory/__stack_pointer
-   local.tee $14
+   local.tee $2
    i32.const 0
    i32.store $0
-   local.get $14
+   local.get $2
    local.get $0
    i32.load $0 offset=36
-   local.tee $14
+   local.tee $2
    i32.store $0
-   local.get $14
+   local.get $2
    i32.eqz
    if
     unreachable
@@ -21252,27 +21438,27 @@
    i32.add
    global.set $~lib/memory/__stack_pointer
    global.get $~lib/memory/__stack_pointer
-   local.get $14
+   local.get $2
    i32.store $0 offset=12
-   local.get $14
+   local.get $2
    call $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Obj<assembly/proto/kanvascontract/kanvascontract.balance_object>#get
-   local.tee $14
+   local.tee $2
    i32.eqz
    if
     unreachable
    end
-   local.get $6
-   local.get $14
+   local.get $15
+   local.get $2
    i64.load $0
    i64.lt_u
   else
    i32.const 0
   end
-  local.set $14
+  local.set $2
   global.get $~lib/memory/__stack_pointer
   i32.const 5744
   i32.store $0 offset=12
-  local.get $14
+  local.get $2
   i32.const 5744
   i32.const 1
   call $~lib/@koinos/sdk-as/assembly/systemCalls/System.require<bool>
@@ -21290,15 +21476,15 @@
    unreachable
   end
   global.get $~lib/memory/__stack_pointer
-  local.tee $14
+  local.tee $2
   i32.const 0
   i32.store $0
-  local.get $14
+  local.get $2
   local.get $0
   i32.load $0 offset=24
-  local.tee $14
+  local.tee $2
   i32.store $0
-  local.get $14
+  local.get $2
   i32.eqz
   if
    unreachable
@@ -21308,27 +21494,27 @@
   i32.add
   global.set $~lib/memory/__stack_pointer
   global.get $~lib/memory/__stack_pointer
-  local.get $14
+  local.get $2
   i32.store $0
   global.get $~lib/memory/__stack_pointer
-  local.get $3
+  local.get $22
   i32.store $0 offset=12
-  local.get $14
-  local.get $3
+  local.get $2
+  local.get $22
   call $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/typedarray/Uint8Array,assembly/proto/kanvascontract/kanvascontract.balance_object>#get
-  local.tee $14
+  local.tee $12
   i32.eqz
   if
    unreachable
   end
-  local.get $14
+  local.get $12
   i64.load $0
-  local.set $11
+  local.set $18
   global.get $~lib/memory/__stack_pointer
-  local.tee $15
+  local.tee $2
   local.get $0
   i32.store $0 offset=16
-  local.get $15
+  local.get $2
   i32.const 4
   i32.sub
   global.set $~lib/memory/__stack_pointer
@@ -21339,15 +21525,15 @@
    unreachable
   end
   global.get $~lib/memory/__stack_pointer
-  local.tee $15
+  local.tee $2
   i32.const 0
   i32.store $0
-  local.get $15
+  local.get $2
   local.get $0
   i32.load $0 offset=20
-  local.tee $15
+  local.tee $2
   i32.store $0
-  local.get $15
+  local.get $2
   i32.eqz
   if
    unreachable
@@ -21357,55 +21543,58 @@
   i32.add
   global.set $~lib/memory/__stack_pointer
   global.get $~lib/memory/__stack_pointer
-  local.get $15
+  local.get $2
   i32.store $0
   global.get $~lib/memory/__stack_pointer
-  local.get $3
+  local.get $22
   i32.store $0 offset=12
-  local.get $15
-  local.get $3
+  local.get $2
+  local.get $22
   call $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/typedarray/Uint8Array,assembly/proto/kanvascontract/kanvascontract.balance_object>#get
-  local.tee $15
+  local.tee $19
   i32.eqz
   if
    unreachable
   end
-  global.get $~lib/memory/__stack_pointer
-  local.tee $16
-  local.get $0
-  i32.store $0 offset=12
-  local.get $14
+  local.get $12
   i64.load $0
   i64.const 1
   i64.add
-  local.set $12
-  local.get $16
+  local.set $17
+  global.get $~lib/memory/__stack_pointer
+  local.tee $2
+  local.get $0
+  i32.store $0 offset=12
+  local.get $2
   local.get $0
   i32.store $0 offset=16
   local.get $0
-  i32.load $0 offset=12
-  local.set $16
+  i64.load32_u $0 offset=12
+  local.set $3
   i64.const 1
-  local.set $4
+  local.set $21
   loop $for-loop|0
-   local.get $2
-   local.get $16
-   i32.lt_u
+   local.get $8
+   i64.extend_i32_u
+   local.get $3
+   i64.lt_u
    if
-    local.get $4
-    local.get $12
+    local.get $21
+    i64.const 10
     i64.mul
-    local.set $4
-    local.get $2
+    local.set $21
+    local.get $8
     i32.const 1
     i32.add
-    local.set $2
+    local.set $8
     br $for-loop|0
    end
   end
-  local.get $15
+  local.get $19
   i64.load $0
-  local.get $4
+  local.get $17
+  local.get $21
+  i64.mul
   i64.ge_u
   local.set $2
   global.get $~lib/memory/__stack_pointer
@@ -21415,8 +21604,8 @@
   i32.const 5840
   i32.const 1
   call $~lib/@koinos/sdk-as/assembly/systemCalls/System.require<bool>
-  local.get $14
-  local.get $14
+  local.get $12
+  local.get $12
   i64.load $0
   i64.const 1
   i64.add
@@ -21456,11 +21645,11 @@
   local.get $2
   i32.store $0
   global.get $~lib/memory/__stack_pointer
-  local.get $3
+  local.get $22
   i32.store $0 offset=12
   local.get $2
-  local.get $3
-  local.get $14
+  local.get $22
+  local.get $12
   call $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/typedarray/Uint8Array,assembly/proto/kanvascontract/kanvascontract.balance_object>#put
   global.get $~lib/memory/__stack_pointer
   local.get $0
@@ -21470,48 +21659,56 @@
   i32.store $0 offset=12
   local.get $1
   i64.load $0 offset=8
-  local.set $4
+  local.set $3
   global.get $~lib/memory/__stack_pointer
   local.get $1
   i32.store $0 offset=12
   global.get $~lib/memory/__stack_pointer
   local.get $0
-  local.get $4
+  local.get $3
   local.get $1
   i64.load $0 offset=16
   call $assembly/Kanvascontract/Kanvascontract#_pixel_at
-  local.tee $1
+  local.tee $11
   i32.store $0 offset=24
   global.get $~lib/memory/__stack_pointer
-  local.set $2
+  local.set $1
   global.get $~lib/memory/__stack_pointer
   i32.const 1
   i32.const 76
   i32.const 0
   call $~lib/rt/__newArray
-  local.tee $14
+  local.tee $10
   i32.store $0 offset=28
   global.get $~lib/memory/__stack_pointer
-  local.get $14
+  local.get $10
   i32.load $0 offset=4
   i32.store $0 offset=32
-  local.get $14
+  local.get $10
   i32.const 0
-  local.get $3
+  local.get $22
   call $~lib/array/Array<~lib/typedarray/Uint8Array>#__set
-  local.get $2
-  local.get $14
+  local.get $1
+  local.get $10
   i32.store $0 offset=36
+  i64.const 0
+  call $assembly/proto/kanvascontract/kanvascontract.balance_object#constructor
+  local.set $20
   global.get $~lib/memory/__stack_pointer
-  local.get $1
+  local.get $11
   i32.store $0
-  local.get $1
+  local.get $11
   i32.load $0 offset=52
-  if
+  if (result i32)
    global.get $~lib/memory/__stack_pointer
    local.tee $2
-   local.get $0
-   i32.store $0 offset=16
+   local.get $11
+   i32.store $0 offset=12
+   local.get $2
+   local.get $11
+   i32.load $0 offset=52
+   local.tee $1
+   i32.store $0
    local.get $2
    i32.const 4
    i32.sub
@@ -21527,6 +21724,41 @@
    i32.const 0
    i32.store $0
    local.get $2
+   local.get $1
+   i32.store $0
+   local.get $1
+   i32.load $0 offset=8
+   local.set $1
+   local.get $2
+   i32.const 4
+   i32.add
+   global.set $~lib/memory/__stack_pointer
+   local.get $1
+   i32.const 0
+   i32.gt_s
+  else
+   i32.const 0
+  end
+  if
+   global.get $~lib/memory/__stack_pointer
+   local.tee $1
+   local.get $0
+   i32.store $0 offset=16
+   local.get $1
+   i32.const 4
+   i32.sub
+   global.set $~lib/memory/__stack_pointer
+   global.get $~lib/memory/__stack_pointer
+   i32.const 6920
+   i32.lt_s
+   if
+    unreachable
+   end
+   global.get $~lib/memory/__stack_pointer
+   local.tee $1
+   i32.const 0
+   i32.store $0
+   local.get $1
    local.get $0
    i32.load $0 offset=24
    local.tee $2
@@ -21544,32 +21776,32 @@
    local.get $2
    i32.store $0
    global.get $~lib/memory/__stack_pointer
-   local.get $1
+   local.get $11
    i32.store $0 offset=16
    global.get $~lib/memory/__stack_pointer
-   local.get $1
+   local.get $11
    i32.load $0 offset=52
-   local.tee $16
+   local.tee $1
    i32.store $0 offset=12
    local.get $2
-   local.get $16
+   local.get $1
    call $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/typedarray/Uint8Array,assembly/proto/kanvascontract/kanvascontract.balance_object>#get
-   local.tee $2
+   local.tee $20
    i32.eqz
    if
     unreachable
    end
-   local.get $2
-   local.get $2
+   local.get $20
+   local.get $20
    i64.load $0
    i64.const 1
    i64.sub
    i64.store $0
    global.get $~lib/memory/__stack_pointer
-   local.tee $16
+   local.tee $1
    local.get $0
    i32.store $0 offset=16
-   local.get $16
+   local.get $1
    i32.const 4
    i32.sub
    global.set $~lib/memory/__stack_pointer
@@ -21580,15 +21812,15 @@
     unreachable
    end
    global.get $~lib/memory/__stack_pointer
-   local.tee $16
+   local.tee $1
    i32.const 0
    i32.store $0
-   local.get $16
+   local.get $1
    local.get $0
    i32.load $0 offset=24
-   local.tee $16
+   local.tee $2
    i32.store $0
-   local.get $16
+   local.get $2
    i32.eqz
    if
     unreachable
@@ -21598,30 +21830,30 @@
    i32.add
    global.set $~lib/memory/__stack_pointer
    global.get $~lib/memory/__stack_pointer
-   local.get $16
+   local.get $2
    i32.store $0
    global.get $~lib/memory/__stack_pointer
-   local.get $1
+   local.get $11
    i32.store $0 offset=16
    global.get $~lib/memory/__stack_pointer
-   local.get $1
+   local.get $11
    i32.load $0 offset=52
-   local.tee $17
+   local.tee $1
    i32.store $0 offset=12
-   local.get $16
-   local.get $17
    local.get $2
+   local.get $1
+   local.get $20
    call $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/typedarray/Uint8Array,assembly/proto/kanvascontract/kanvascontract.balance_object>#put
    global.get $~lib/memory/__stack_pointer
-   local.get $14
+   local.get $10
    i32.store $0
    global.get $~lib/memory/__stack_pointer
-   local.get $1
+   local.get $11
    i32.store $0 offset=16
    global.get $~lib/memory/__stack_pointer
-   local.get $1
+   local.get $11
    i32.load $0 offset=52
-   local.tee $2
+   local.tee $4
    i32.store $0 offset=12
    global.get $~lib/memory/__stack_pointer
    i32.const 4
@@ -21634,98 +21866,98 @@
     unreachable
    end
    global.get $~lib/memory/__stack_pointer
-   local.tee $16
+   local.tee $1
    i32.const 0
    i32.store $0
-   local.get $16
-   local.get $14
+   local.get $1
+   local.get $10
    i32.store $0
-   local.get $14
-   local.get $14
+   local.get $10
+   local.get $10
    i32.load $0 offset=12
-   local.tee $16
+   local.tee $1
    i32.const 1
    i32.add
-   local.tee $17
+   local.tee $2
    i32.const 1
    call $~lib/array/ensureCapacity
    global.get $~lib/memory/__stack_pointer
-   local.get $14
+   local.get $10
    i32.store $0
-   local.get $14
+   local.get $10
    i32.load $0 offset=4
-   local.get $16
+   local.get $1
    i32.const 2
    i32.shl
    i32.add
-   local.get $2
+   local.get $4
    i32.store $0
-   local.get $2
+   local.get $4
    if
-    local.get $14
-    local.get $2
+    local.get $10
+    local.get $4
     i32.const 1
     call $byn-split-outlined-A$~lib/rt/itcms/__link
    end
    global.get $~lib/memory/__stack_pointer
-   local.tee $2
-   local.get $14
+   local.tee $1
+   local.get $10
    i32.store $0
-   local.get $14
-   local.get $17
-   i32.store $0 offset=12
+   local.get $10
    local.get $2
+   i32.store $0 offset=12
+   local.get $1
    i32.const 4
    i32.add
    global.set $~lib/memory/__stack_pointer
   end
   global.get $~lib/memory/__stack_pointer
-  local.set $2
-  local.get $5
-  call $~lib/number/U64#toString
-  local.set $16
-  global.get $~lib/memory/__stack_pointer
+  local.set $4
   local.get $16
+  call $~lib/number/U64#toString
+  local.set $1
+  global.get $~lib/memory/__stack_pointer
+  local.get $1
   i32.store $0 offset=16
   global.get $~lib/memory/__stack_pointer
   i32.const 5936
   i32.store $0 offset=20
-  local.get $16
+  local.get $1
   i32.const 5936
   call $~lib/string/String.__concat
-  local.set $16
+  local.set $2
   global.get $~lib/memory/__stack_pointer
-  local.get $16
-  i32.store $0
-  local.get $6
-  call $~lib/number/U64#toString
-  local.set $17
-  global.get $~lib/memory/__stack_pointer
-  local.get $17
-  i32.store $0 offset=12
   local.get $2
-  local.get $16
-  local.get $17
+  i32.store $0
+  local.get $15
+  call $~lib/number/U64#toString
+  local.set $1
+  global.get $~lib/memory/__stack_pointer
+  local.get $1
+  i32.store $0 offset=12
+  local.get $4
+  local.get $2
+  local.get $1
   call $~lib/string/String.__concat
-  local.tee $16
+  local.tee $8
   i32.store $0 offset=40
   global.get $~lib/memory/__stack_pointer
-  local.get $13
+  local.get $7
   i32.store $0 offset=44
   global.get $~lib/memory/__stack_pointer
-  local.get $3
+  local.get $22
   i32.store $0 offset=48
   global.get $~lib/memory/__stack_pointer
-  local.get $5
+  local.get $16
+  local.get $15
+  local.get $14
   local.get $6
-  local.get $7
-  local.get $9
-  local.get $8
-  local.get $10
   local.get $13
-  local.get $3
+  local.get $5
+  local.get $7
+  local.get $22
   call $assembly/proto/kanvascontract/kanvascontract.pixel_object#constructor
-  local.tee $13
+  local.tee $2
   i32.store $0 offset=52
   global.get $~lib/memory/__stack_pointer
   local.get $0
@@ -21741,15 +21973,15 @@
    unreachable
   end
   global.get $~lib/memory/__stack_pointer
-  local.tee $2
+  local.tee $1
   i32.const 0
   i32.store $0
-  local.get $2
+  local.get $1
   local.get $0
   i32.load $0 offset=28
-  local.tee $2
+  local.tee $4
   i32.store $0
-  local.get $2
+  local.get $4
   i32.eqz
   if
    unreachable
@@ -21759,13 +21991,13 @@
   i32.add
   global.set $~lib/memory/__stack_pointer
   global.get $~lib/memory/__stack_pointer
-  local.get $2
+  local.get $4
   i32.store $0
   global.get $~lib/memory/__stack_pointer
-  local.get $16
+  local.get $8
   i32.store $0 offset=12
   global.get $~lib/memory/__stack_pointer
-  local.get $13
+  local.get $2
   i32.store $0 offset=16
   global.get $~lib/memory/__stack_pointer
   i32.const 20
@@ -21778,38 +22010,38 @@
    unreachable
   end
   global.get $~lib/memory/__stack_pointer
-  local.tee $17
+  local.tee $1
   i64.const 0
   i64.store $0
-  local.get $17
+  local.get $1
   i64.const 0
   i64.store $0 offset=8
-  local.get $17
+  local.get $1
   i32.const 0
   i32.store $0 offset=16
-  local.get $17
-  local.get $2
+  local.get $1
+  local.get $4
   i32.store $0 offset=16
-  local.get $17
-  local.get $2
+  local.get $1
+  local.get $4
   i32.load $0
-  local.tee $18
+  local.tee $9
   i32.store $0
-  local.get $17
-  local.get $16
+  local.get $1
+  local.get $8
   i32.store $0 offset=4
-  local.get $17
-  local.get $13
+  local.get $1
+  local.get $2
   i32.store $0 offset=8
-  local.get $17
-  local.get $2
+  local.get $1
+  local.get $4
   i32.store $0 offset=16
-  local.get $17
-  local.get $2
+  local.get $1
+  local.get $4
   i32.load $0 offset=12
-  local.tee $2
+  local.tee $4
   i32.store $0 offset=12
-  local.get $17
+  local.get $1
   i32.const 16
   i32.sub
   global.set $~lib/memory/__stack_pointer
@@ -21820,32 +22052,32 @@
    unreachable
   end
   global.get $~lib/memory/__stack_pointer
-  local.tee $17
+  local.tee $1
   i64.const 0
   i64.store $0
-  local.get $17
+  local.get $1
   i64.const 0
   i64.store $0 offset=8
-  local.get $17
-  local.get $13
+  local.get $1
+  local.get $2
   i32.store $0
-  local.get $17
-  local.get $2
+  local.get $1
+  local.get $4
   i32.store $0 offset=4
-  local.get $17
-  local.get $13
+  local.get $1
   local.get $2
+  local.get $4
   call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.exit_arguments>
-  local.tee $17
+  local.tee $7
   i32.store $0 offset=8
   global.get $~lib/memory/__stack_pointer
-  local.get $18
+  local.get $9
   i32.store $0
   global.get $~lib/memory/__stack_pointer
-  local.get $16
+  local.get $8
   i32.store $0 offset=4
   global.get $~lib/memory/__stack_pointer
-  local.get $17
+  local.get $7
   i32.store $0 offset=12
   global.get $~lib/memory/__stack_pointer
   i32.const 28
@@ -21858,22 +22090,22 @@
    unreachable
   end
   global.get $~lib/memory/__stack_pointer
-  local.tee $2
+  local.tee $1
   i64.const 0
   i64.store $0
-  local.get $2
+  local.get $1
   i64.const 0
   i64.store $0 offset=8
-  local.get $2
+  local.get $1
   i64.const 0
   i64.store $0 offset=16
-  local.get $2
+  local.get $1
   i32.const 0
   i32.store $0 offset=24
-  local.get $2
+  local.get $1
   i32.const 0
   call $~lib/typedarray/Uint8Array#constructor
-  local.tee $2
+  local.tee $1
   i32.store $0
   global.get $~lib/memory/__stack_pointer
   i32.const 5968
@@ -21886,13 +22118,13 @@
   call $~lib/string/String.__eq
   if
    global.get $~lib/memory/__stack_pointer
-   local.tee $2
-   local.get $16
+   local.tee $1
+   local.get $8
    i32.store $0 offset=4
-   local.get $2
-   local.get $16
+   local.get $1
+   local.get $8
    call $~lib/@koinos/sdk-as/assembly/util/stringBytes/StringBytes.stringToBytes
-   local.tee $2
+   local.tee $1
    i32.store $0
   else
    global.get $~lib/memory/__stack_pointer
@@ -21900,82 +22132,82 @@
    i32.store $0 offset=8
    i32.const 6096
    call $~lib/@koinos/sdk-as/assembly/util/stringBytes/StringBytes.stringToBytes
-   local.set $16
+   local.set $4
    global.get $~lib/memory/__stack_pointer
-   local.get $16
+   local.get $4
    i32.store $0 offset=8
    i32.const 1
-   local.get $16
+   local.get $4
    call $~lib/@koinos/sdk-as/assembly/systemCalls/System.exit
   end
   global.get $~lib/memory/__stack_pointer
-  local.tee $16
-  local.get $18
+  local.tee $4
+  local.get $9
   i32.store $0 offset=8
-  local.get $16
-  local.get $2
+  local.get $4
+  local.get $1
   i32.store $0 offset=12
-  local.get $16
-  local.get $17
+  local.get $4
+  local.get $7
   i32.store $0 offset=16
-  local.get $16
-  local.get $18
-  local.get $2
-  local.get $17
+  local.get $4
+  local.get $9
+  local.get $1
+  local.get $7
   call $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.put_object_arguments#constructor
-  local.tee $2
+  local.tee $1
   i32.store $0 offset=20
   global.get $~lib/memory/__stack_pointer
-  local.get $2
+  local.get $1
   i32.store $0 offset=4
   global.get $~lib/memory/__stack_pointer
   i32.const 2912
   i32.store $0 offset=8
   global.get $~lib/memory/__stack_pointer
-  local.get $2
+  local.get $1
   i32.const 2912
   call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.exit_arguments>
-  local.tee $2
+  local.tee $4
   i32.store $0 offset=24
   global.get $~lib/memory/__stack_pointer
   global.get $~lib/@koinos/sdk-as/assembly/systemCalls/System.SYSTEM_CALL_BUFFER
-  local.tee $16
+  local.tee $1
   i32.store $0 offset=4
-  local.get $16
+  local.get $1
   i32.load $0 offset=4
-  local.set $16
+  local.set $8
   global.get $~lib/memory/__stack_pointer
-  local.get $2
+  local.get $4
   i32.store $0 offset=4
-  local.get $2
+  local.get $4
   i32.load $0 offset=4
-  local.set $17
+  local.set $7
   global.get $~lib/memory/__stack_pointer
-  local.get $2
+  local.get $4
   i32.store $0 offset=4
-  local.get $2
+  local.get $4
   i32.load $0 offset=8
-  local.set $2
+  local.set $4
   global.get $~lib/memory/__stack_pointer
   global.get $~lib/@koinos/sdk-as/assembly/systemCalls/System.RETURN_BYTES
-  local.tee $18
+  local.tee $1
   i32.store $0 offset=4
   i32.const 301
-  local.get $16
+  local.get $8
   global.get $~lib/@koinos/sdk-as/assembly/systemCalls/System.MAX_BUFFER_SIZE
-  local.get $17
-  local.get $2
-  local.get $18
+  local.get $7
+  local.get $4
+  local.get $1
   i32.load $0 offset=4
   call $~lib/@koinos/sdk-as/assembly/env/index/env.invokeSystemCall
-  local.set $2
+  local.set $9
   global.get $~lib/memory/__stack_pointer
   global.get $~lib/@koinos/sdk-as/assembly/systemCalls/System.SYSTEM_CALL_BUFFER
-  local.tee $16
+  local.tee $8
   i32.store $0 offset=8
   global.get $~lib/memory/__stack_pointer
   global.get $~lib/@koinos/sdk-as/assembly/systemCalls/System.RETURN_BYTES
-  local.tee $17
+  local.tee $7
   i32.store $0 offset=12
   global.get $~lib/memory/__stack_pointer
   i32.const 4
@@ -21988,13 +22220,13 @@
    unreachable
   end
   global.get $~lib/memory/__stack_pointer
-  local.tee $18
+  local.tee $1
   i32.const 0
   i32.store $0
-  local.get $18
-  local.get $17
+  local.get $1
+  local.get $7
   i32.store $0
-  local.get $17
+  local.get $7
   i32.load $0 offset=8
   i32.const 2
   i32.shr_u
@@ -22003,26 +22235,26 @@
    unreachable
   end
   global.get $~lib/memory/__stack_pointer
-  local.tee $18
-  local.get $17
+  local.tee $4
+  local.get $7
   i32.store $0
-  local.get $17
+  local.get $7
   i32.load $0 offset=4
   i32.load $0
-  local.set $17
-  local.get $18
+  local.set $1
+  local.get $4
   i32.const 4
   i32.add
   global.set $~lib/memory/__stack_pointer
-  local.get $16
-  local.get $17
+  local.get $8
+  local.get $1
   call $~lib/typedarray/Uint8Array#slice
-  local.set $16
+  local.set $1
   global.get $~lib/memory/__stack_pointer
-  local.get $16
+  local.get $1
   i32.store $0 offset=8
-  local.get $2
-  local.get $16
+  local.get $9
+  local.get $1
   call $~lib/@koinos/sdk-as/assembly/systemCalls/System.checkErrorCode
   global.get $~lib/memory/__stack_pointer
   i32.const 28
@@ -22037,21 +22269,60 @@
   i32.add
   global.set $~lib/memory/__stack_pointer
   global.get $~lib/memory/__stack_pointer
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  local.get $3
+  local.get $22
   i32.store $0 offset=12
   global.get $~lib/memory/__stack_pointer
-  local.get $1
+  local.get $11
   i32.store $0 offset=20
   global.get $~lib/memory/__stack_pointer
-  local.get $1
+  local.get $11
   i32.load $0 offset=52
-  local.tee $1
+  local.tee $8
   i32.store $0 offset=16
   global.get $~lib/memory/__stack_pointer
-  local.get $13
+  local.get $2
   i32.store $0 offset=20
+  global.get $~lib/memory/__stack_pointer
+  local.set $7
+  local.get $12
+  i64.load $0
+  local.set $6
+  local.get $20
+  i64.load $0
+  local.set $5
+  global.get $~lib/memory/__stack_pointer
+  local.get $0
+  i32.store $0 offset=20
+  global.get $~lib/memory/__stack_pointer
+  local.get $0
+  i32.store $0 offset=56
+  local.get $0
+  i64.load32_u $0 offset=12
+  local.set $3
+  i64.const 1
+  local.set $21
+  i32.const 0
+  local.set $1
+  loop $for-loop|01
+   local.get $1
+   i64.extend_i32_u
+   local.get $3
+   i64.lt_u
+   if
+    local.get $21
+    i64.const 10
+    i64.mul
+    local.set $21
+    local.get $1
+    i32.const 1
+    i32.add
+    local.set $1
+    br $for-loop|01
+   end
+  end
+  local.get $19
+  i64.load $0
+  local.set $3
   global.get $~lib/memory/__stack_pointer
   i32.const 12
   i32.sub
@@ -22063,104 +22334,158 @@
    unreachable
   end
   global.get $~lib/memory/__stack_pointer
-  local.tee $16
+  local.tee $1
   i64.const 0
   i64.store $0
-  local.get $16
+  local.get $1
   i32.const 0
   i32.store $0 offset=8
-  local.get $16
-  i32.const 12
+  local.get $1
+  i32.const 48
   i32.const 96
   call $~lib/rt/itcms/__new
-  local.tee $16
+  local.tee $4
   i32.store $0
   global.get $~lib/memory/__stack_pointer
-  local.get $16
+  local.get $4
   i32.store $0 offset=4
-  local.get $16
+  local.get $4
   i32.const 0
   i32.store $0
   global.get $~lib/memory/__stack_pointer
-  local.get $16
+  local.get $4
   i32.store $0 offset=4
-  local.get $16
+  local.get $4
   i32.const 0
   i32.store $0 offset=4
   global.get $~lib/memory/__stack_pointer
-  local.get $16
+  local.get $4
   i32.store $0 offset=4
-  local.get $16
+  local.get $4
   i32.const 0
   i32.store $0 offset=8
   global.get $~lib/memory/__stack_pointer
-  local.tee $17
-  local.get $16
+  local.tee $1
+  local.get $4
   i32.store $0 offset=4
-  local.get $17
-  local.get $3
+  local.get $4
+  i64.const 0
+  i64.store $0 offset=16
+  local.get $1
+  local.get $4
+  i32.store $0 offset=4
+  local.get $4
+  i64.const 0
+  i64.store $0 offset=24
+  local.get $1
+  local.get $4
+  i32.store $0 offset=4
+  local.get $4
+  i64.const 0
+  i64.store $0 offset=32
+  local.get $1
+  local.get $4
+  i32.store $0 offset=4
+  local.get $4
+  i64.const 0
+  i64.store $0 offset=40
+  local.get $1
+  local.get $4
+  i32.store $0 offset=4
+  local.get $1
+  local.get $22
   i32.store $0 offset=8
-  local.get $16
-  local.get $3
+  local.get $4
+  local.get $22
   i32.store $0
-  local.get $3
+  local.get $22
   if
-   local.get $16
-   local.get $3
-   i32.const 0
-   call $byn-split-outlined-A$~lib/rt/itcms/__link
-  end
-  global.get $~lib/memory/__stack_pointer
-  local.tee $17
-  local.get $16
-  i32.store $0 offset=4
-  local.get $17
-  local.get $1
-  i32.store $0 offset=8
-  local.get $16
-  local.get $1
-  i32.store $0 offset=4
-  local.get $1
-  if
-   local.get $16
-   local.get $1
+   local.get $4
+   local.get $22
    i32.const 0
    call $byn-split-outlined-A$~lib/rt/itcms/__link
   end
   global.get $~lib/memory/__stack_pointer
   local.tee $1
-  local.get $16
+  local.get $4
   i32.store $0 offset=4
   local.get $1
-  local.get $13
+  local.get $8
   i32.store $0 offset=8
-  local.get $16
-  local.get $13
-  i32.store $0 offset=8
-  local.get $13
+  local.get $4
+  local.get $8
+  i32.store $0 offset=4
+  local.get $8
   if
-   local.get $16
-   local.get $13
+   local.get $4
+   local.get $8
    i32.const 0
    call $byn-split-outlined-A$~lib/rt/itcms/__link
   end
   global.get $~lib/memory/__stack_pointer
+  local.tee $1
+  local.get $4
+  i32.store $0 offset=4
+  local.get $1
+  local.get $2
+  i32.store $0 offset=8
+  local.get $4
+  local.get $2
+  i32.store $0 offset=8
+  local.get $2
+  if
+   local.get $4
+   local.get $2
+   i32.const 0
+   call $byn-split-outlined-A$~lib/rt/itcms/__link
+  end
+  global.get $~lib/memory/__stack_pointer
+  local.tee $1
+  local.get $4
+  i32.store $0 offset=4
+  local.get $4
+  local.get $6
+  i64.store $0 offset=16
+  local.get $1
+  local.get $4
+  i32.store $0 offset=4
+  local.get $4
+  local.get $5
+  i64.store $0 offset=24
+  local.get $1
+  local.get $4
+  i32.store $0 offset=4
+  local.get $4
+  local.get $6
+  i64.const 1
+  i64.add
+  local.get $21
+  i64.mul
+  i64.store $0 offset=32
+  local.get $1
+  local.get $4
+  i32.store $0 offset=4
+  local.get $4
+  local.get $3
+  i64.store $0 offset=40
+  local.get $1
   i32.const 12
   i32.add
   global.set $~lib/memory/__stack_pointer
-  local.get $2
-  local.get $16
-  i32.store $0 offset=56
+  local.get $7
+  local.get $4
+  i32.store $0 offset=60
   global.get $~lib/memory/__stack_pointer
+  local.tee $1
   i32.const 6192
   i32.store $0
-  global.get $~lib/memory/__stack_pointer
-  local.get $16
+  local.get $1
+  local.get $4
   i32.store $0 offset=20
-  global.get $~lib/memory/__stack_pointer
+  local.get $1
   i32.const 6288
-  i32.store $0 offset=60
-  local.get $16
+  i32.store $0 offset=56
+  local.get $4
   i32.const 6288
   call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.exit_arguments>
   local.set $1
@@ -22168,11 +22493,11 @@
   local.get $1
   i32.store $0 offset=12
   global.get $~lib/memory/__stack_pointer
-  local.get $14
+  local.get $10
   i32.store $0 offset=16
   i32.const 6192
   local.get $1
-  local.get $14
+  local.get $10
   call $~lib/@koinos/sdk-as/assembly/systemCalls/System.event
   global.get $~lib/rt/tlsf/ROOT
   i32.eqz
@@ -22184,29 +22509,29 @@
   call $~lib/rt/tlsf/allocateBlock
   i32.const 4
   i32.add
-  local.tee $1
+  local.tee $2
   i32.const 0
   i32.store $0
-  local.get $1
+  local.get $2
   i32.const 0
   i32.store $0 offset=4
-  local.get $1
+  local.get $2
   i32.const 0
   i32.store $0 offset=8
-  local.get $1
+  local.get $2
   i32.const 0
   i32.store $0
-  local.get $1
+  local.get $2
   i32.const 0
   i32.store $0 offset=4
-  local.get $1
+  local.get $2
   i32.const 0
   i32.store $0 offset=8
   global.get $~lib/memory/__stack_pointer
-  local.tee $2
+  local.tee $1
   local.get $0
   i32.store $0 offset=16
-  local.get $2
+  local.get $1
   i32.const 4
   i32.sub
   global.set $~lib/memory/__stack_pointer
@@ -22217,10 +22542,10 @@
    unreachable
   end
   global.get $~lib/memory/__stack_pointer
-  local.tee $2
+  local.tee $1
   i32.const 0
   i32.store $0
-  local.get $2
+  local.get $1
   local.get $0
   i32.load $0 offset=24
   local.tee $0
@@ -22238,19 +22563,19 @@
   local.get $0
   i32.store $0
   global.get $~lib/memory/__stack_pointer
-  local.get $3
+  local.get $22
   i32.store $0 offset=12
-  local.get $1
+  local.get $2
   local.get $0
-  local.get $3
+  local.get $22
   call $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/typedarray/Uint8Array,assembly/proto/kanvascontract/kanvascontract.balance_object>#get
   i32.store $0
-  local.get $1
-  local.get $11
+  local.get $2
+  local.get $18
   call $assembly/proto/kanvascontract/kanvascontract.balance_object#constructor
   i32.store $0 offset=4
-  local.get $1
-  local.get $15
+  local.get $2
+  local.get $19
   i64.load $0
   call $assembly/proto/kanvascontract/kanvascontract.balance_object#constructor
   i32.store $0 offset=8
@@ -22258,7 +22583,7 @@
   i32.const -64
   i32.sub
   global.set $~lib/memory/__stack_pointer
-  local.get $1
+  local.get $2
  )
  (func $assembly/proto/kanvascontract/kanvascontract.place_pixel_result.encode (param $0 i32) (param $1 i32)
   (local $2 i32)

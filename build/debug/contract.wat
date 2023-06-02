@@ -17,17 +17,19 @@
  (type $i32_i64_i64_=>_i32 (func (param i32 i64 i64) (result i32)))
  (type $i32_i32_i32_i32_i32_=>_i32 (func (param i32 i32 i32 i32 i32) (result i32)))
  (type $i64_i32_=>_i32 (func (param i64 i32) (result i32)))
- (type $i32_i32_i32_i64_=>_i32 (func (param i32 i32 i32 i64) (result i32)))
  (type $i64_i64_=>_i32 (func (param i64 i64) (result i32)))
  (type $i32_i64_i32_=>_none (func (param i32 i64 i32)))
  (type $i32_i64_i64_i64_i64_i64_i64_i32_i32_=>_i32 (func (param i32 i64 i64 i64 i64 i64 i64 i32 i32) (result i32)))
+ (type $i32_i32_i32_i64_=>_i32 (func (param i32 i32 i32 i64) (result i32)))
  (type $i32_i32_i64_i64_i64_i64_i64_i64_i32_=>_i32 (func (param i32 i32 i64 i64 i64 i64 i64 i64 i32) (result i32)))
  (type $i32_i32_i32_i32_i32_i32_=>_i32 (func (param i32 i32 i32 i32 i32 i32) (result i32)))
  (type $i64_=>_i32 (func (param i64) (result i32)))
  (type $i32_i64_i32_i32_=>_none (func (param i32 i64 i32 i32)))
- (type $i32_i64_i32_=>_i64 (func (param i32 i64 i32) (result i64)))
+ (type $i32_i64_i64_=>_i64 (func (param i32 i64 i64) (result i64)))
+ (type $i32_i32_i32_i64_i64_i64_=>_i32 (func (param i32 i32 i32 i64 i64 i64) (result i32)))
  (type $i32_i64_i32_=>_i32 (func (param i32 i64 i32) (result i32)))
  (type $i64_i64_i32_=>_i64 (func (param i64 i64 i32) (result i64)))
+ (type $i32_i32_i32_i32_i64_i64_i64_i64_=>_i32 (func (param i32 i32 i32 i32 i64 i64 i64 i64) (result i32)))
  (import "env" "invoke_system_call" (func $~lib/@koinos/sdk-as/assembly/env/index/env.invokeSystemCall (param i32 i32 i32 i32 i32 i32) (result i32)))
  (global $~lib/as-proto/assembly/WireType/WireType.VARINT i32 (i32.const 0))
  (global $~lib/as-proto/assembly/WireType/WireType.FIXED_64 i32 (i32.const 1))
@@ -5851,6 +5853,16 @@
   local.get $value
   i64.store $0 offset=8
  )
+ (func $assembly/proto/kanvascontract/kanvascontract.transfer_event#set:from_balance (param $this i32) (param $from_balance i64)
+  local.get $this
+  local.get $from_balance
+  i64.store $0 offset=16
+ )
+ (func $assembly/proto/kanvascontract/kanvascontract.transfer_event#set:to_balance (param $this i32) (param $to_balance i64)
+  local.get $this
+  local.get $to_balance
+  i64.store $0 offset=24
+ )
  (func $~lib/array/Array<~lib/typedarray/Uint8Array>#get:length_ (param $this i32) (result i32)
   local.get $this
   i32.load $0 offset=12
@@ -5875,6 +5887,14 @@
  (func $assembly/proto/kanvascontract/kanvascontract.transfer_event#get:value (param $this i32) (result i64)
   local.get $this
   i64.load $0 offset=8
+ )
+ (func $assembly/proto/kanvascontract/kanvascontract.transfer_event#get:from_balance (param $this i32) (result i64)
+  local.get $this
+  i64.load $0 offset=16
+ )
+ (func $assembly/proto/kanvascontract/kanvascontract.transfer_event#get:to_balance (param $this i32) (result i64)
+  local.get $this
+  i64.load $0 offset=24
  )
  (func $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.event_arguments#set:name (param $this i32) (param $name i32)
   local.get $this
@@ -6876,7 +6896,7 @@
   local.get $this
   i32.load $0 offset=4
  )
- (func $assembly/Kanvascontract/Kanvascontract#_pow (param $this i32) (param $a i64) (param $b i32) (result i64)
+ (func $assembly/Kanvascontract/Kanvascontract#_pow (param $this i32) (param $a i64) (param $b i64) (result i64)
   (local $ret i64)
   (local $i i32)
   i64.const 1
@@ -6885,8 +6905,9 @@
   local.set $i
   loop $for-loop|0
    local.get $i
+   i64.extend_i32_u
    local.get $b
-   i32.lt_u
+   i64.lt_u
    if
     local.get $ret
     local.get $a
@@ -6949,6 +6970,26 @@
   i32.const 0
   call $~lib/rt/itcms/__link
  )
+ (func $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#set:owner_pixel_count (param $this i32) (param $owner_pixel_count i64)
+  local.get $this
+  local.get $owner_pixel_count
+  i64.store $0 offset=16
+ )
+ (func $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#set:previous_owner_pixel_count (param $this i32) (param $previous_owner_pixel_count i64)
+  local.get $this
+  local.get $previous_owner_pixel_count
+  i64.store $0 offset=24
+ )
+ (func $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#set:aComp (param $this i32) (param $aComp i64)
+  local.get $this
+  local.get $aComp
+  i64.store $0 offset=32
+ )
+ (func $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#set:bComp (param $this i32) (param $bComp i64)
+  local.get $this
+  local.get $bComp
+  i64.store $0 offset=40
+ )
  (func $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#get:from (param $this i32) (result i32)
   local.get $this
   i32.load $0
@@ -6960,6 +7001,22 @@
  (func $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#get:pixel_placed (param $this i32) (result i32)
   local.get $this
   i32.load $0 offset=8
+ )
+ (func $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#get:owner_pixel_count (param $this i32) (result i64)
+  local.get $this
+  i64.load $0 offset=16
+ )
+ (func $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#get:previous_owner_pixel_count (param $this i32) (result i64)
+  local.get $this
+  i64.load $0 offset=24
+ )
+ (func $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#get:aComp (param $this i32) (result i64)
+  local.get $this
+  i64.load $0 offset=32
+ )
+ (func $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#get:bComp (param $this i32) (result i64)
+  local.get $this
+  i64.load $0 offset=40
  )
  (func $assembly/proto/kanvascontract/kanvascontract.place_pixel_result#set:pixel_count_object (param $this i32) (param $pixel_count_object i32)
   local.get $this
@@ -22839,8 +22896,8 @@
   i32.add
   global.set $~lib/memory/__stack_pointer
  )
- (func $assembly/proto/kanvascontract/kanvascontract.transfer_event#constructor (param $this i32) (param $from i32) (param $to i32) (param $value i64) (result i32)
-  (local $4 i32)
+ (func $assembly/proto/kanvascontract/kanvascontract.transfer_event#constructor (param $this i32) (param $from i32) (param $to i32) (param $value i64) (param $from_balance i64) (param $to_balance i64) (result i32)
+  (local $6 i32)
   global.get $~lib/memory/__stack_pointer
   i32.const 12
   i32.sub
@@ -22856,77 +22913,109 @@
   i32.eqz
   if
    global.get $~lib/memory/__stack_pointer
-   i32.const 16
+   i32.const 32
    i32.const 75
    call $~lib/rt/itcms/__new
    local.tee $this
    i32.store $0
   end
   local.get $this
-  local.set $4
+  local.set $6
   global.get $~lib/memory/__stack_pointer
-  local.get $4
+  local.get $6
   i32.store $0 offset=4
-  local.get $4
+  local.get $6
   i32.const 0
   call $assembly/proto/kanvascontract/kanvascontract.transfer_event#set:from
   local.get $this
-  local.set $4
+  local.set $6
   global.get $~lib/memory/__stack_pointer
-  local.get $4
+  local.get $6
   i32.store $0 offset=4
-  local.get $4
+  local.get $6
   i32.const 0
   call $assembly/proto/kanvascontract/kanvascontract.transfer_event#set:to
   local.get $this
-  local.set $4
+  local.set $6
   global.get $~lib/memory/__stack_pointer
-  local.get $4
+  local.get $6
   i32.store $0 offset=4
-  local.get $4
+  local.get $6
   i64.const 0
   call $assembly/proto/kanvascontract/kanvascontract.transfer_event#set:value
   local.get $this
-  local.set $4
+  local.set $6
   global.get $~lib/memory/__stack_pointer
-  local.get $4
+  local.get $6
   i32.store $0 offset=4
-  local.get $4
-  local.get $from
-  local.set $4
+  local.get $6
+  i64.const 0
+  call $assembly/proto/kanvascontract/kanvascontract.transfer_event#set:from_balance
+  local.get $this
+  local.set $6
   global.get $~lib/memory/__stack_pointer
-  local.get $4
+  local.get $6
+  i32.store $0 offset=4
+  local.get $6
+  i64.const 0
+  call $assembly/proto/kanvascontract/kanvascontract.transfer_event#set:to_balance
+  local.get $this
+  local.set $6
+  global.get $~lib/memory/__stack_pointer
+  local.get $6
+  i32.store $0 offset=4
+  local.get $6
+  local.get $from
+  local.set $6
+  global.get $~lib/memory/__stack_pointer
+  local.get $6
   i32.store $0 offset=8
-  local.get $4
+  local.get $6
   call $assembly/proto/kanvascontract/kanvascontract.transfer_event#set:from
   local.get $this
-  local.set $4
+  local.set $6
   global.get $~lib/memory/__stack_pointer
-  local.get $4
+  local.get $6
   i32.store $0 offset=4
-  local.get $4
+  local.get $6
   local.get $to
-  local.set $4
+  local.set $6
   global.get $~lib/memory/__stack_pointer
-  local.get $4
+  local.get $6
   i32.store $0 offset=8
-  local.get $4
+  local.get $6
   call $assembly/proto/kanvascontract/kanvascontract.transfer_event#set:to
   local.get $this
-  local.set $4
+  local.set $6
   global.get $~lib/memory/__stack_pointer
-  local.get $4
+  local.get $6
   i32.store $0 offset=4
-  local.get $4
+  local.get $6
   local.get $value
   call $assembly/proto/kanvascontract/kanvascontract.transfer_event#set:value
   local.get $this
-  local.set $4
+  local.set $6
+  global.get $~lib/memory/__stack_pointer
+  local.get $6
+  i32.store $0 offset=4
+  local.get $6
+  local.get $from_balance
+  call $assembly/proto/kanvascontract/kanvascontract.transfer_event#set:from_balance
+  local.get $this
+  local.set $6
+  global.get $~lib/memory/__stack_pointer
+  local.get $6
+  i32.store $0 offset=4
+  local.get $6
+  local.get $to_balance
+  call $assembly/proto/kanvascontract/kanvascontract.transfer_event#set:to_balance
+  local.get $this
+  local.set $6
   global.get $~lib/memory/__stack_pointer
   i32.const 12
   i32.add
   global.set $~lib/memory/__stack_pointer
-  local.get $4
+  local.get $6
  )
  (func $~lib/array/Array<~lib/typedarray/Uint8Array>#__set (param $this i32) (param $index i32) (param $value i32)
   (local $3 i32)
@@ -23128,6 +23217,72 @@
    i32.store $0 offset=4
    local.get $2
    call $assembly/proto/kanvascontract/kanvascontract.transfer_event#get:value
+   call $~lib/as-proto/assembly/Writer/Writer#uint64@override
+  end
+  local.get $message
+  local.set $2
+  global.get $~lib/memory/__stack_pointer
+  local.get $2
+  i32.store $0
+  local.get $2
+  call $assembly/proto/kanvascontract/kanvascontract.transfer_event#get:from_balance
+  i64.const 0
+  i64.ne
+  if
+   local.get $writer
+   local.set $2
+   global.get $~lib/memory/__stack_pointer
+   local.get $2
+   i32.store $0
+   local.get $2
+   i32.const 32
+   call $~lib/as-proto/assembly/Writer/Writer#uint32@override
+   local.get $writer
+   local.set $2
+   global.get $~lib/memory/__stack_pointer
+   local.get $2
+   i32.store $0
+   local.get $2
+   local.get $message
+   local.set $2
+   global.get $~lib/memory/__stack_pointer
+   local.get $2
+   i32.store $0 offset=4
+   local.get $2
+   call $assembly/proto/kanvascontract/kanvascontract.transfer_event#get:from_balance
+   call $~lib/as-proto/assembly/Writer/Writer#uint64@override
+  end
+  local.get $message
+  local.set $2
+  global.get $~lib/memory/__stack_pointer
+  local.get $2
+  i32.store $0
+  local.get $2
+  call $assembly/proto/kanvascontract/kanvascontract.transfer_event#get:to_balance
+  i64.const 0
+  i64.ne
+  if
+   local.get $writer
+   local.set $2
+   global.get $~lib/memory/__stack_pointer
+   local.get $2
+   i32.store $0
+   local.get $2
+   i32.const 40
+   call $~lib/as-proto/assembly/Writer/Writer#uint32@override
+   local.get $writer
+   local.set $2
+   global.get $~lib/memory/__stack_pointer
+   local.get $2
+   i32.store $0
+   local.get $2
+   local.get $message
+   local.set $2
+   global.get $~lib/memory/__stack_pointer
+   local.get $2
+   i32.store $0 offset=4
+   local.get $2
+   call $assembly/proto/kanvascontract/kanvascontract.transfer_event#get:to_balance
    call $~lib/as-proto/assembly/Writer/Writer#uint64@override
   end
   global.get $~lib/memory/__stack_pointer
@@ -24065,6 +24220,10 @@
   i32.store $0 offset=16
   local.get $13
   local.get $value
+  local.get $fromBalance
+  call $assembly/proto/kanvascontract/kanvascontract.balance_object#get:value
+  local.get $toBalance
+  call $assembly/proto/kanvascontract/kanvascontract.balance_object#get:value
   call $assembly/proto/kanvascontract/kanvascontract.transfer_event#constructor
   local.tee $transferEvent
   i32.store $0 offset=24
@@ -30094,8 +30253,8 @@
   i32.add
   global.set $~lib/memory/__stack_pointer
  )
- (func $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#constructor (param $this i32) (param $from i32) (param $previous_owner i32) (param $pixel_placed i32) (result i32)
-  (local $4 i32)
+ (func $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#constructor (param $this i32) (param $from i32) (param $previous_owner i32) (param $pixel_placed i32) (param $owner_pixel_count i64) (param $previous_owner_pixel_count i64) (param $aComp i64) (param $bComp i64) (result i32)
+  (local $8 i32)
   global.get $~lib/memory/__stack_pointer
   i32.const 12
   i32.sub
@@ -30111,82 +30270,146 @@
   i32.eqz
   if
    global.get $~lib/memory/__stack_pointer
-   i32.const 12
+   i32.const 48
    i32.const 96
    call $~lib/rt/itcms/__new
    local.tee $this
    i32.store $0
   end
   local.get $this
-  local.set $4
+  local.set $8
   global.get $~lib/memory/__stack_pointer
-  local.get $4
+  local.get $8
   i32.store $0 offset=4
-  local.get $4
+  local.get $8
   i32.const 0
   call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#set:from
   local.get $this
-  local.set $4
+  local.set $8
   global.get $~lib/memory/__stack_pointer
-  local.get $4
+  local.get $8
   i32.store $0 offset=4
-  local.get $4
+  local.get $8
   i32.const 0
   call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#set:previous_owner
   local.get $this
-  local.set $4
+  local.set $8
   global.get $~lib/memory/__stack_pointer
-  local.get $4
+  local.get $8
   i32.store $0 offset=4
-  local.get $4
+  local.get $8
   i32.const 0
   call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#set:pixel_placed
   local.get $this
-  local.set $4
+  local.set $8
   global.get $~lib/memory/__stack_pointer
-  local.get $4
+  local.get $8
   i32.store $0 offset=4
-  local.get $4
+  local.get $8
+  i64.const 0
+  call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#set:owner_pixel_count
+  local.get $this
+  local.set $8
+  global.get $~lib/memory/__stack_pointer
+  local.get $8
+  i32.store $0 offset=4
+  local.get $8
+  i64.const 0
+  call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#set:previous_owner_pixel_count
+  local.get $this
+  local.set $8
+  global.get $~lib/memory/__stack_pointer
+  local.get $8
+  i32.store $0 offset=4
+  local.get $8
+  i64.const 0
+  call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#set:aComp
+  local.get $this
+  local.set $8
+  global.get $~lib/memory/__stack_pointer
+  local.get $8
+  i32.store $0 offset=4
+  local.get $8
+  i64.const 0
+  call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#set:bComp
+  local.get $this
+  local.set $8
+  global.get $~lib/memory/__stack_pointer
+  local.get $8
+  i32.store $0 offset=4
+  local.get $8
   local.get $from
-  local.set $4
+  local.set $8
   global.get $~lib/memory/__stack_pointer
-  local.get $4
+  local.get $8
   i32.store $0 offset=8
-  local.get $4
+  local.get $8
   call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#set:from
   local.get $this
-  local.set $4
+  local.set $8
   global.get $~lib/memory/__stack_pointer
-  local.get $4
+  local.get $8
   i32.store $0 offset=4
-  local.get $4
+  local.get $8
   local.get $previous_owner
-  local.set $4
+  local.set $8
   global.get $~lib/memory/__stack_pointer
-  local.get $4
+  local.get $8
   i32.store $0 offset=8
-  local.get $4
+  local.get $8
   call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#set:previous_owner
   local.get $this
-  local.set $4
+  local.set $8
   global.get $~lib/memory/__stack_pointer
-  local.get $4
+  local.get $8
   i32.store $0 offset=4
-  local.get $4
+  local.get $8
   local.get $pixel_placed
-  local.set $4
+  local.set $8
   global.get $~lib/memory/__stack_pointer
-  local.get $4
+  local.get $8
   i32.store $0 offset=8
-  local.get $4
+  local.get $8
   call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#set:pixel_placed
   local.get $this
-  local.set $4
+  local.set $8
+  global.get $~lib/memory/__stack_pointer
+  local.get $8
+  i32.store $0 offset=4
+  local.get $8
+  local.get $owner_pixel_count
+  call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#set:owner_pixel_count
+  local.get $this
+  local.set $8
+  global.get $~lib/memory/__stack_pointer
+  local.get $8
+  i32.store $0 offset=4
+  local.get $8
+  local.get $previous_owner_pixel_count
+  call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#set:previous_owner_pixel_count
+  local.get $this
+  local.set $8
+  global.get $~lib/memory/__stack_pointer
+  local.get $8
+  i32.store $0 offset=4
+  local.get $8
+  local.get $aComp
+  call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#set:aComp
+  local.get $this
+  local.set $8
+  global.get $~lib/memory/__stack_pointer
+  local.get $8
+  i32.store $0 offset=4
+  local.get $8
+  local.get $bComp
+  call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#set:bComp
+  local.get $this
+  local.set $8
   global.get $~lib/memory/__stack_pointer
   i32.const 12
   i32.add
   global.set $~lib/memory/__stack_pointer
-  local.get $4
+  local.get $8
  )
  (func $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event.encode (param $message i32) (param $writer i32)
   (local $unique_name_pixel_placed i32)
@@ -30340,6 +30563,138 @@
    local.get $3
    call $~lib/as-proto/assembly/Writer/Writer#ldelim@override
   end
+  local.get $message
+  local.set $3
+  global.get $~lib/memory/__stack_pointer
+  local.get $3
+  i32.store $0
+  local.get $3
+  call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#get:owner_pixel_count
+  i64.const 0
+  i64.ne
+  if
+   local.get $writer
+   local.set $3
+   global.get $~lib/memory/__stack_pointer
+   local.get $3
+   i32.store $0
+   local.get $3
+   i32.const 32
+   call $~lib/as-proto/assembly/Writer/Writer#uint32@override
+   local.get $writer
+   local.set $3
+   global.get $~lib/memory/__stack_pointer
+   local.get $3
+   i32.store $0
+   local.get $3
+   local.get $message
+   local.set $3
+   global.get $~lib/memory/__stack_pointer
+   local.get $3
+   i32.store $0 offset=4
+   local.get $3
+   call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#get:owner_pixel_count
+   call $~lib/as-proto/assembly/Writer/Writer#uint64@override
+  end
+  local.get $message
+  local.set $3
+  global.get $~lib/memory/__stack_pointer
+  local.get $3
+  i32.store $0
+  local.get $3
+  call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#get:previous_owner_pixel_count
+  i64.const 0
+  i64.ne
+  if
+   local.get $writer
+   local.set $3
+   global.get $~lib/memory/__stack_pointer
+   local.get $3
+   i32.store $0
+   local.get $3
+   i32.const 40
+   call $~lib/as-proto/assembly/Writer/Writer#uint32@override
+   local.get $writer
+   local.set $3
+   global.get $~lib/memory/__stack_pointer
+   local.get $3
+   i32.store $0
+   local.get $3
+   local.get $message
+   local.set $3
+   global.get $~lib/memory/__stack_pointer
+   local.get $3
+   i32.store $0 offset=4
+   local.get $3
+   call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#get:previous_owner_pixel_count
+   call $~lib/as-proto/assembly/Writer/Writer#uint64@override
+  end
+  local.get $message
+  local.set $3
+  global.get $~lib/memory/__stack_pointer
+  local.get $3
+  i32.store $0
+  local.get $3
+  call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#get:aComp
+  i64.const 0
+  i64.ne
+  if
+   local.get $writer
+   local.set $3
+   global.get $~lib/memory/__stack_pointer
+   local.get $3
+   i32.store $0
+   local.get $3
+   i32.const 48
+   call $~lib/as-proto/assembly/Writer/Writer#uint32@override
+   local.get $writer
+   local.set $3
+   global.get $~lib/memory/__stack_pointer
+   local.get $3
+   i32.store $0
+   local.get $3
+   local.get $message
+   local.set $3
+   global.get $~lib/memory/__stack_pointer
+   local.get $3
+   i32.store $0 offset=4
+   local.get $3
+   call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#get:aComp
+   call $~lib/as-proto/assembly/Writer/Writer#uint64@override
+  end
+  local.get $message
+  local.set $3
+  global.get $~lib/memory/__stack_pointer
+  local.get $3
+  i32.store $0
+  local.get $3
+  call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#get:bComp
+  i64.const 0
+  i64.ne
+  if
+   local.get $writer
+   local.set $3
+   global.get $~lib/memory/__stack_pointer
+   local.get $3
+   i32.store $0
+   local.get $3
+   i32.const 56
+   call $~lib/as-proto/assembly/Writer/Writer#uint32@override
+   local.get $writer
+   local.set $3
+   global.get $~lib/memory/__stack_pointer
+   local.get $3
+   i32.store $0
+   local.get $3
+   local.get $message
+   local.set $3
+   global.get $~lib/memory/__stack_pointer
+   local.get $3
+   i32.store $0 offset=4
+   local.get $3
+   call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#get:bComp
+   call $~lib/as-proto/assembly/Writer/Writer#uint64@override
+  end
   global.get $~lib/memory/__stack_pointer
   i32.const 16
   i32.add
@@ -30453,8 +30808,8 @@
   (local $18 i32)
   (local $19 i32)
   (local $impacted i32)
-  (local $21 i32)
   (local $previousOwnerPixelCount i32)
+  (local $22 i32)
   (local $position i32)
   (local $newPixel i32)
   (local $pixelPlacedEvent i32)
@@ -30808,12 +31163,6 @@
    unreachable
   end
   local.set $kanvasBalance
-  local.get $this
-  local.set $27
-  global.get $~lib/memory/__stack_pointer
-  local.get $27
-  i32.store $0 offset=12
-  local.get $27
   local.get $pixelCount
   call $assembly/proto/kanvascontract/kanvascontract.pixel_count_object#get:value
   i64.const 1
@@ -30822,10 +31171,19 @@
   local.set $27
   global.get $~lib/memory/__stack_pointer
   local.get $27
+  i32.store $0 offset=12
+  local.get $27
+  i64.const 10
+  local.get $this
+  local.set $27
+  global.get $~lib/memory/__stack_pointer
+  local.get $27
   i32.store $0 offset=16
   local.get $27
   call $assembly/Kanvascontract/Kanvascontract#get:_decimals
+  i64.extend_i32_u
   call $assembly/Kanvascontract/Kanvascontract#_pow
+  i64.mul
   local.get $kanvasBalance
   call $assembly/proto/kanvascontract/kanvascontract.balance_object#get:value
   i64.le_u
@@ -30909,6 +31267,10 @@
   local.get $18
   local.tee $impacted
   i32.store $0 offset=36
+  i32.const 0
+  i64.const 0
+  call $assembly/proto/kanvascontract/kanvascontract.pixel_count_object#constructor
+  local.set $previousOwnerPixelCount
   local.get $pixelAtPosition
   local.set $27
   global.get $~lib/memory/__stack_pointer
@@ -30916,6 +31278,25 @@
   i32.store $0
   local.get $27
   call $assembly/proto/kanvascontract/kanvascontract.pixel_object#get:owner
+  if (result i32)
+   local.get $pixelAtPosition
+   local.set $27
+   global.get $~lib/memory/__stack_pointer
+   local.get $27
+   i32.store $0 offset=12
+   local.get $27
+   call $assembly/proto/kanvascontract/kanvascontract.pixel_object#get:owner
+   local.set $27
+   global.get $~lib/memory/__stack_pointer
+   local.get $27
+   i32.store $0
+   local.get $27
+   call $~lib/typedarray/Uint8Array#get:length
+   i32.const 0
+   i32.gt_s
+  else
+   i32.const 0
+  end
   if
    local.get $this
    local.set $27
@@ -30942,9 +31323,9 @@
    i32.store $0 offset=12
    local.get $27
    call $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/typedarray/Uint8Array,assembly/proto/kanvascontract/kanvascontract.pixel_count_object>#get
-   local.tee $21
+   local.tee $22
    if (result i32)
-    local.get $21
+    local.get $22
    else
     unreachable
    end
@@ -31108,9 +31489,36 @@
   local.get $27
   i32.store $0 offset=20
   local.get $27
+  local.get $pixelCount
+  call $assembly/proto/kanvascontract/kanvascontract.pixel_count_object#get:value
+  local.get $previousOwnerPixelCount
+  call $assembly/proto/kanvascontract/kanvascontract.pixel_count_object#get:value
+  local.get $pixelCount
+  call $assembly/proto/kanvascontract/kanvascontract.pixel_count_object#get:value
+  i64.const 1
+  i64.add
+  local.get $this
+  local.set $27
+  global.get $~lib/memory/__stack_pointer
+  local.get $27
+  i32.store $0 offset=20
+  local.get $27
+  i64.const 10
+  local.get $this
+  local.set $27
+  global.get $~lib/memory/__stack_pointer
+  local.get $27
+  i32.store $0 offset=56
+  local.get $27
+  call $assembly/Kanvascontract/Kanvascontract#get:_decimals
+  i64.extend_i32_u
+  call $assembly/Kanvascontract/Kanvascontract#_pow
+  i64.mul
+  local.get $kanvasBalance
+  call $assembly/proto/kanvascontract/kanvascontract.balance_object#get:value
   call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event#constructor
   local.tee $pixelPlacedEvent
-  i32.store $0 offset=56
+  i32.store $0 offset=60
   i32.const 5184
   local.set $27
   global.get $~lib/memory/__stack_pointer
@@ -31127,7 +31535,7 @@
   local.set $27
   global.get $~lib/memory/__stack_pointer
   local.get $27
-  i32.store $0 offset=60
+  i32.store $0 offset=56
   local.get $27
   call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.pixel_placed_event>
   local.set $27

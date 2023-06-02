@@ -1,5 +1,5 @@
 
-Ò
+Â
 #assembly/proto/kanvascontract.protokanvascontractkoinos/options.proto"
 empty_message""
 uint64
@@ -79,12 +79,19 @@ mint_event
 
 burn_event
 from (B€µRfrom
-value (B0Rvalue"Z
+value (B0Rvalue"¤
 transfer_event
 from (B€µRfrom
 to (B€µRto
-value (B0Rvalue"œ
+value (B0Rvalue%
+from_balance (B0RfromBalance!
+
+to_balance (B0R	toBalance"Á
 pixel_placed_event
 from (B€µRfrom+
 previous_owner (B€µRpreviousOwner?
-pixel_placed (2.kanvascontract.pixel_objectRpixelPlacedbproto3
+pixel_placed (2.kanvascontract.pixel_objectRpixelPlaced.
+owner_pixel_count (B0RownerPixelCount?
+previous_owner_pixel_count (B0RpreviousOwnerPixelCount
+aComp (B0RaComp
+bComp (B0RbCompbproto3

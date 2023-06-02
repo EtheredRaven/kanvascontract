@@ -179,7 +179,13 @@ export class Kanvascontract {
     this._balances.put(from, fromBalance);
     this._balances.put(to, toBalance);
 
-    const transferEvent = new kanvascontract.transfer_event(from, to, value);
+    const transferEvent = new kanvascontract.transfer_event(
+      from,
+      to,
+      value,
+      fromBalance.value,
+      toBalance.value
+    );
     const impacted = [to, from];
 
     System.event(
@@ -396,10 +402,9 @@ export class Kanvascontract {
     const pixelAtPosition = this._pixel_at(args.posX, args.posY);
 
     const impacted = [from];
+    let previousOwnerPixelCount = new kanvascontract.pixel_count_object(0);
     if (pixelAtPosition.owner && pixelAtPosition.owner.length > 0) {
-      const previousOwnerPixelCount = this._pixelCounts.get(
-        pixelAtPosition.owner
-      )!;
+      previousOwnerPixelCount = this._pixelCounts.get(pixelAtPosition.owner)!;
       previousOwnerPixelCount.value -= 1;
       this._pixelCounts.put(pixelAtPosition.owner, previousOwnerPixelCount);
       impacted.push(pixelAtPosition.owner);
@@ -422,7 +427,11 @@ export class Kanvascontract {
     const pixelPlacedEvent = new kanvascontract.pixel_placed_event(
       from,
       pixelAtPosition.owner,
-      newPixel
+      newPixel,
+      pixelCount.value,
+      previousOwnerPixelCount.value,
+      (pixelCount.value + 1) * this._pow(10, this._decimals),
+      kanvasBalance.value
     );
     System.event(
       "kanvascontract.pixel_placed_event",

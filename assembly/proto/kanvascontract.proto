@@ -167,10 +167,16 @@ message transfer_event {
    bytes from = 1 [(koinos.btype) = ADDRESS];
    bytes to = 2 [(koinos.btype) = ADDRESS];
    uint64 value = 3 [jstype = JS_STRING];
+   uint64 from_balance = 4 [jstype = JS_STRING];
+   uint64 to_balance = 5 [jstype = JS_STRING];
 }
 
 message pixel_placed_event {
    bytes from = 1 [(koinos.btype) = ADDRESS];
    bytes previous_owner = 2 [(koinos.btype) = ADDRESS];
    pixel_object pixel_placed = 3;
+   uint64 owner_pixel_count = 4 [jstype = JS_STRING];
+   uint64 previous_owner_pixel_count = 5 [jstype = JS_STRING];
+   uint64 aComp = 6 [jstype = JS_STRING];
+   uint64 bComp = 7 [jstype = JS_STRING];
 }
