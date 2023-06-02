@@ -506,6 +506,20 @@ describe("kanvas", () => {
     );
     expect(canvas_dimensions.canvas_width).toBe(998);
     expect(canvas_dimensions.canvas_height).toBe(999);
+
+    const events = MockVM.getEvents();
+    expect(events.length).toBe(1);
+    expect(events[0].name).toBe(
+      "kanvascontract.canvas_dimensions_changed_event"
+    );
+    expect(events[0].impacted.length).toBe(0);
+    const dimensionsChangedEvent =
+      Protobuf.decode<kanvascontract.canvas_dimensions_changed_event>(
+        events[0].data!,
+        kanvascontract.canvas_dimensions_changed_event.decode
+      );
+    expect(dimensionsChangedEvent.canvas_width).toBe(998);
+    expect(dimensionsChangedEvent.canvas_height).toBe(999);
   });
 
   it("should not modify the canvas dimensions if not contract account", () => {

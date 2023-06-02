@@ -591,6 +591,24 @@
                                 }
                             }
                         }
+                    },
+                    "canvas_dimensions_changed_event": {
+                        "fields": {
+                            "canvas_width": {
+                                "type": "uint64",
+                                "id": 1,
+                                "options": {
+                                    "jstype": "JS_STRING"
+                                }
+                            },
+                            "canvas_height": {
+                                "type": "uint64",
+                                "id": 2,
+                                "options": {
+                                    "jstype": "JS_STRING"
+                                }
+                            }
+                        }
                     }
                 }
             }

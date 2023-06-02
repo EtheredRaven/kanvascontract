@@ -1479,4 +1479,57 @@ export namespace kanvascontract {
       this.bComp = bComp;
     }
   }
+
+  @unmanaged
+  export class canvas_dimensions_changed_event {
+    static encode(
+      message: canvas_dimensions_changed_event,
+      writer: Writer
+    ): void {
+      if (message.canvas_width != 0) {
+        writer.uint32(8);
+        writer.uint64(message.canvas_width);
+      }
+
+      if (message.canvas_height != 0) {
+        writer.uint32(16);
+        writer.uint64(message.canvas_height);
+      }
+    }
+
+    static decode(
+      reader: Reader,
+      length: i32
+    ): canvas_dimensions_changed_event {
+      const end: usize = length < 0 ? reader.end : reader.ptr + length;
+      const message = new canvas_dimensions_changed_event();
+
+      while (reader.ptr < end) {
+        const tag = reader.uint32();
+        switch (tag >>> 3) {
+          case 1:
+            message.canvas_width = reader.uint64();
+            break;
+
+          case 2:
+            message.canvas_height = reader.uint64();
+            break;
+
+          default:
+            reader.skipType(tag & 7);
+            break;
+        }
+      }
+
+      return message;
+    }
+
+    canvas_width: u64;
+    canvas_height: u64;
+
+    constructor(canvas_width: u64 = 0, canvas_height: u64 = 0) {
+      this.canvas_width = canvas_width;
+      this.canvas_height = canvas_height;
+    }
+  }
 }

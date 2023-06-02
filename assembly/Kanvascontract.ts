@@ -475,6 +475,20 @@ export class Kanvascontract {
     this._canvasWidth.put(new kanvascontract.uint64(canvas_width));
     this._canvasHeight.put(new kanvascontract.uint64(canvas_height));
 
+    const canvasDimensionsChangedEvent =
+      new kanvascontract.canvas_dimensions_changed_event(
+        canvas_width,
+        canvas_height
+      );
+    System.event(
+      "kanvascontract.canvas_dimensions_changed_event",
+      Protobuf.encode(
+        canvasDimensionsChangedEvent,
+        kanvascontract.canvas_dimensions_changed_event.encode
+      ),
+      []
+    );
+
     const res = new kanvascontract.empty_message();
 
     return res;

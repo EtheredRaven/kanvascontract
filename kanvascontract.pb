@@ -1,5 +1,5 @@
 
-Â
+µ
 #assembly/proto/kanvascontract.protokanvascontractkoinos/options.proto"
 empty_message""
 uint64
@@ -94,4 +94,7 @@ to_balance (B0R	toBalance"Á
 owner_pixel_count (B0RownerPixelCount?
 previous_owner_pixel_count (B0RpreviousOwnerPixelCount
 aComp (B0RaComp
-bComp (B0RbCompbproto3
+bComp (B0RbComp"q
+canvas_dimensions_changed_event%
+canvas_width (B0RcanvasWidth'
+canvas_height (B0RcanvasHeightbproto3
