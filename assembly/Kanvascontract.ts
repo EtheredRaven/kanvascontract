@@ -349,13 +349,14 @@ export class Kanvascontract {
     args: kanvascontract.place_pixel_arguments
   ): kanvascontract.place_pixel_result {
     const from = args.from!;
-    const posX = args.posX;
-    const posY = args.posY;
-    const red = args.red;
-    const blue = args.blue;
-    const green = args.green;
-    const alpha = args.alpha;
-    const metadata = args.metadata;
+    const pixel_to_place = args.pixel_to_place!;
+    const posX = pixel_to_place.posX;
+    const posY = pixel_to_place.posY;
+    const red = pixel_to_place.red;
+    const blue = pixel_to_place.blue;
+    const green = pixel_to_place.green;
+    const alpha = pixel_to_place.alpha;
+    const metadata = pixel_to_place.metadata;
 
     System.require(
       Arrays.equal(System.getCaller().caller, args.from!) ||
@@ -399,7 +400,7 @@ export class Kanvascontract {
 
     pixelCount.value += 1;
     this._pixelCounts.put(from, pixelCount);
-    const pixelAtPosition = this._pixel_at(args.posX, args.posY);
+    const pixelAtPosition = this._pixel_at(posX, posY);
 
     const impacted = [from];
     let previousOwnerPixelCount = new kanvascontract.pixel_count_object(0);
@@ -448,6 +449,26 @@ export class Kanvascontract {
       oldPixelCountValue
     );
     res.balance_object = new kanvascontract.balance_object(kanvasBalance.value);
+    return res;
+  }
+
+  /**
+   * Place a bunch of new pixels on the map
+   * @external
+   */
+  place_pixels(
+    args: kanvascontract.place_pixels_arguments
+  ): kanvascontract.place_pixels_result {
+    let place_pixels_arguments = args.place_pixel_arguments!;
+    const res = new kanvascontract.place_pixels_result();
+    res.place_pixel_results = [];
+
+    for (let i = 0; i < place_pixels_arguments.length; i++) {
+      let place_pixel_arguments = place_pixels_arguments[i];
+      let place_pixel_results = this.place_pixel(place_pixel_arguments);
+      res.place_pixel_results.push(place_pixel_results);
+    }
+
     return res;
   }
 

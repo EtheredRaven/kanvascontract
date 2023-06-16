@@ -1,5 +1,5 @@
 
-µ
+ª
 #assembly/proto/kanvascontract.protokanvascontractkoinos/options.proto"
 empty_message""
 uint64
@@ -33,20 +33,18 @@
 pixel_count_of_arguments
 owner (B€µRowner"1
 pixel_count_of_result
-value (B0Rvalue"ß
+value (B0Rvalue"u
 place_pixel_arguments
-from (B€µRfrom
-posX (B0RposX
-posY (B0RposY
-red (B0Rred
-green (B0Rgreen
-blue (B0Rblue
-alpha (B0Ralpha
-metadata (	Rmetadata"†
+from (B€µRfromB
+pixel_to_place (2.kanvascontract.pixel_objectRpixelToPlace"†
 place_pixel_resultP
 pixel_count_object (2".kanvascontract.pixel_count_objectRpixelCountObjectW
 old_pixel_count_object (2".kanvascontract.pixel_count_objectRoldPixelCountObjectE
-balance_object (2.kanvascontract.balance_objectRbalanceObject"D
+balance_object (2.kanvascontract.balance_objectRbalanceObject"s
+place_pixels_argumentsY
+place_pixel_arguments (2%.kanvascontract.place_pixel_argumentsRplacePixelArguments"i
+place_pixels_resultR
+place_pixel_results (2".kanvascontract.place_pixel_resultRplacePixelResults"D
 pixel_at_arguments
 posX (B0RposX
 posY (B0RposY"E

@@ -70,6 +70,13 @@
             "entry_point": 2987049699,
             "read_only": false
         },
+        "place_pixels": {
+            "argument": "kanvascontract.place_pixels_arguments",
+            "return": "kanvascontract.place_pixels_result",
+            "description": "Place a pack of new pixels",
+            "entry_point": 3464235413,
+            "read_only": false
+        },
         "pixel_at": {
             "argument": "kanvascontract.pixel_at_arguments",
             "return": "kanvascontract.pixel_at_result",
@@ -271,51 +278,9 @@
                                     "(koinos.btype)": "ADDRESS"
                                 }
                             },
-                            "posX": {
-                                "type": "uint64",
-                                "id": 2,
-                                "options": {
-                                    "jstype": "JS_STRING"
-                                }
-                            },
-                            "posY": {
-                                "type": "uint64",
-                                "id": 3,
-                                "options": {
-                                    "jstype": "JS_STRING"
-                                }
-                            },
-                            "red": {
-                                "type": "uint64",
-                                "id": 4,
-                                "options": {
-                                    "jstype": "JS_STRING"
-                                }
-                            },
-                            "green": {
-                                "type": "uint64",
-                                "id": 5,
-                                "options": {
-                                    "jstype": "JS_STRING"
-                                }
-                            },
-                            "blue": {
-                                "type": "uint64",
-                                "id": 6,
-                                "options": {
-                                    "jstype": "JS_STRING"
-                                }
-                            },
-                            "alpha": {
-                                "type": "uint64",
-                                "id": 7,
-                                "options": {
-                                    "jstype": "JS_STRING"
-                                }
-                            },
-                            "metadata": {
-                                "type": "string",
-                                "id": 8
+                            "pixel_to_place": {
+                                "type": "pixel_object",
+                                "id": 2
                             }
                         }
                     },
@@ -332,6 +297,24 @@
                             "balance_object": {
                                 "type": "balance_object",
                                 "id": 3
+                            }
+                        }
+                    },
+                    "place_pixels_arguments": {
+                        "fields": {
+                            "place_pixel_arguments": {
+                                "rule": "repeated",
+                                "type": "place_pixel_arguments",
+                                "id": 1
+                            }
+                        }
+                    },
+                    "place_pixels_result": {
+                        "fields": {
+                            "place_pixel_results": {
+                                "rule": "repeated",
+                                "type": "place_pixel_result",
+                                "id": 1
                             }
                         }
                     },

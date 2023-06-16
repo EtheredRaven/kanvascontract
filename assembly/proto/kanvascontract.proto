@@ -91,13 +91,7 @@ message pixel_count_of_result {
 // @read-only false
 message place_pixel_arguments {
    bytes from = 1 [(koinos.btype) = ADDRESS];
-   uint64 posX = 2 [jstype = JS_STRING];
-   uint64 posY = 3 [jstype = JS_STRING];
-   uint64 red = 4 [jstype = JS_STRING];
-   uint64 green = 5 [jstype = JS_STRING];
-   uint64 blue = 6 [jstype = JS_STRING];
-   uint64 alpha = 7 [jstype = JS_STRING];
-   string metadata = 8;
+   pixel_object pixel_to_place = 2;
 }
 
 message place_pixel_result {
@@ -105,6 +99,17 @@ message place_pixel_result {
    pixel_count_object old_pixel_count_object = 2;
    balance_object balance_object = 3;
 }
+
+// @description Place a pack of new pixels
+// @read-only false
+message place_pixels_arguments {
+   repeated place_pixel_arguments place_pixel_arguments = 1;
+}
+
+message place_pixels_result {
+   repeated place_pixel_result place_pixel_results = 1;
+}
+
 
 // @description Query a pixel at a specific position
 // @read-only true

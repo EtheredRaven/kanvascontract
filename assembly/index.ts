@@ -112,6 +112,16 @@ export function main(): i32 {
       break;
     }
 
+    case 0xce7c0995: {
+      const args = Protobuf.decode<ProtoNamespace.place_pixels_arguments>(
+        contractArgs.args,
+        ProtoNamespace.place_pixels_arguments.decode
+      );
+      const res = c.place_pixels(args);
+      retbuf = Protobuf.encode(res, ProtoNamespace.place_pixels_result.encode);
+      break;
+    }
+
     case 0x0d4a1a54: {
       const args = Protobuf.decode<ProtoNamespace.pixel_at_arguments>(
         contractArgs.args,

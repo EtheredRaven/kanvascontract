@@ -108,13 +108,7 @@ export class Kanvascontract {
     args: kanvascontract.place_pixel_arguments
   ): kanvascontract.place_pixel_result {
     // const from = args.from;
-    // const posX = args.posX;
-    // const posY = args.posY;
-    // const red = args.red;
-    // const green = args.green;
-    // const blue = args.blue;
-    // const alpha = args.alpha;
-    // const metadata = args.metadata;
+    // const pixel_to_place = args.pixel_to_place;
 
     // YOUR CODE HERE
 
@@ -122,6 +116,19 @@ export class Kanvascontract {
     // res.pixel_count_object = ;
     // res.old_pixel_count_object = ;
     // res.balance_object = ;
+
+    return res;
+  }
+
+  place_pixels(
+    args: kanvascontract.place_pixels_arguments
+  ): kanvascontract.place_pixels_result {
+    // const place_pixel_arguments = args.place_pixel_arguments;
+
+    // YOUR CODE HERE
+
+    const res = new kanvascontract.place_pixels_result();
+    // res.place_pixel_results = ;
 
     return res;
   }

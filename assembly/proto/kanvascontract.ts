@@ -596,39 +596,12 @@ export namespace kanvascontract {
         writer.bytes(message.from);
       }
 
-      if (message.posX != 0) {
-        writer.uint32(16);
-        writer.uint64(message.posX);
-      }
-
-      if (message.posY != 0) {
-        writer.uint32(24);
-        writer.uint64(message.posY);
-      }
-
-      if (message.red != 0) {
-        writer.uint32(32);
-        writer.uint64(message.red);
-      }
-
-      if (message.green != 0) {
-        writer.uint32(40);
-        writer.uint64(message.green);
-      }
-
-      if (message.blue != 0) {
-        writer.uint32(48);
-        writer.uint64(message.blue);
-      }
-
-      if (message.alpha != 0) {
-        writer.uint32(56);
-        writer.uint64(message.alpha);
-      }
-
-      if (message.metadata.length != 0) {
-        writer.uint32(66);
-        writer.string(message.metadata);
+      const unique_name_pixel_to_place = message.pixel_to_place;
+      if (unique_name_pixel_to_place !== null) {
+        writer.uint32(18);
+        writer.fork();
+        pixel_object.encode(unique_name_pixel_to_place, writer);
+        writer.ldelim();
       }
     }
 
@@ -644,31 +617,10 @@ export namespace kanvascontract {
             break;
 
           case 2:
-            message.posX = reader.uint64();
-            break;
-
-          case 3:
-            message.posY = reader.uint64();
-            break;
-
-          case 4:
-            message.red = reader.uint64();
-            break;
-
-          case 5:
-            message.green = reader.uint64();
-            break;
-
-          case 6:
-            message.blue = reader.uint64();
-            break;
-
-          case 7:
-            message.alpha = reader.uint64();
-            break;
-
-          case 8:
-            message.metadata = reader.string();
+            message.pixel_to_place = pixel_object.decode(
+              reader,
+              reader.uint32()
+            );
             break;
 
           default:
@@ -681,32 +633,14 @@ export namespace kanvascontract {
     }
 
     from: Uint8Array;
-    posX: u64;
-    posY: u64;
-    red: u64;
-    green: u64;
-    blue: u64;
-    alpha: u64;
-    metadata: string;
+    pixel_to_place: pixel_object | null;
 
     constructor(
       from: Uint8Array = new Uint8Array(0),
-      posX: u64 = 0,
-      posY: u64 = 0,
-      red: u64 = 0,
-      green: u64 = 0,
-      blue: u64 = 0,
-      alpha: u64 = 0,
-      metadata: string = ""
+      pixel_to_place: pixel_object | null = null
     ) {
       this.from = from;
-      this.posX = posX;
-      this.posY = posY;
-      this.red = red;
-      this.green = green;
-      this.blue = blue;
-      this.alpha = alpha;
-      this.metadata = metadata;
+      this.pixel_to_place = pixel_to_place;
     }
   }
 
@@ -787,6 +721,89 @@ export namespace kanvascontract {
       this.pixel_count_object = pixel_count_object;
       this.old_pixel_count_object = old_pixel_count_object;
       this.balance_object = balance_object;
+    }
+  }
+
+  export class place_pixels_arguments {
+    static encode(message: place_pixels_arguments, writer: Writer): void {
+      const unique_name_place_pixel_arguments = message.place_pixel_arguments;
+      for (let i = 0; i < unique_name_place_pixel_arguments.length; ++i) {
+        writer.uint32(10);
+        writer.fork();
+        place_pixel_arguments.encode(
+          unique_name_place_pixel_arguments[i],
+          writer
+        );
+        writer.ldelim();
+      }
+    }
+
+    static decode(reader: Reader, length: i32): place_pixels_arguments {
+      const end: usize = length < 0 ? reader.end : reader.ptr + length;
+      const message = new place_pixels_arguments();
+
+      while (reader.ptr < end) {
+        const tag = reader.uint32();
+        switch (tag >>> 3) {
+          case 1:
+            message.place_pixel_arguments.push(
+              place_pixel_arguments.decode(reader, reader.uint32())
+            );
+            break;
+
+          default:
+            reader.skipType(tag & 7);
+            break;
+        }
+      }
+
+      return message;
+    }
+
+    place_pixel_arguments: Array<place_pixel_arguments>;
+
+    constructor(place_pixel_arguments: Array<place_pixel_arguments> = []) {
+      this.place_pixel_arguments = place_pixel_arguments;
+    }
+  }
+
+  export class place_pixels_result {
+    static encode(message: place_pixels_result, writer: Writer): void {
+      const unique_name_place_pixel_results = message.place_pixel_results;
+      for (let i = 0; i < unique_name_place_pixel_results.length; ++i) {
+        writer.uint32(10);
+        writer.fork();
+        place_pixel_result.encode(unique_name_place_pixel_results[i], writer);
+        writer.ldelim();
+      }
+    }
+
+    static decode(reader: Reader, length: i32): place_pixels_result {
+      const end: usize = length < 0 ? reader.end : reader.ptr + length;
+      const message = new place_pixels_result();
+
+      while (reader.ptr < end) {
+        const tag = reader.uint32();
+        switch (tag >>> 3) {
+          case 1:
+            message.place_pixel_results.push(
+              place_pixel_result.decode(reader, reader.uint32())
+            );
+            break;
+
+          default:
+            reader.skipType(tag & 7);
+            break;
+        }
+      }
+
+      return message;
+    }
+
+    place_pixel_results: Array<place_pixel_result>;
+
+    constructor(place_pixel_results: Array<place_pixel_result> = []) {
+      this.place_pixel_results = place_pixel_results;
     }
   }
 

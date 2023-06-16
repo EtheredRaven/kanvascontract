@@ -579,13 +579,7 @@ describe("kanvas", () => {
     // Place pixel
     const args = new kanvascontract.place_pixel_arguments(
       MOCK_ACCT1,
-      998,
-      999,
-      101,
-      102,
-      103,
-      104,
-      "test"
+      new kanvascontract.pixel_object(998, 999, 101, 102, 103, 104, "test")
     );
     const res = knv.place_pixel(args);
     expect(res.balance_object!.value).toBe(100000000);
@@ -636,6 +630,155 @@ describe("kanvas", () => {
     );
   });
 
+  it("should place several pixel and get the right pixel counts", () => {
+    const knv = new Kanvascontract();
+
+    MockVM.setContractArguments(new Uint8Array(0));
+    MockVM.setEntryPoint(1);
+
+    const authContractId = new MockVM.MockAuthority(
+      authority.authorization_type.contract_call,
+      CONTRACT_ID,
+      true
+    );
+
+    const authMockAcct1 = new MockVM.MockAuthority(
+      authority.authorization_type.contract_call,
+      MOCK_ACCT1,
+      true
+    );
+    MockVM.setAuthorities([authContractId, authMockAcct1]);
+
+    const mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT1, 200000000);
+    knv.mint(mintArgs);
+
+    const pixelCountArgs = new kanvascontract.pixel_count_of_arguments(
+      MOCK_ACCT1
+    );
+    const pixelCountRes = knv.pixel_count_of(pixelCountArgs);
+    expect(pixelCountRes.value).toBe(0);
+
+    // Place pixels
+    const args = new kanvascontract.place_pixels_arguments([
+      new kanvascontract.place_pixel_arguments(
+        MOCK_ACCT1,
+        new kanvascontract.pixel_object(998, 999, 101, 102, 103, 104, "test")
+      ),
+      new kanvascontract.place_pixel_arguments(
+        MOCK_ACCT1,
+        new kanvascontract.pixel_object(996, 997, 105, 106, 107, 108, "test1")
+      ),
+    ]);
+    const res = knv.place_pixels(args);
+    expect(res.place_pixel_results[0].balance_object!.value).toBe(200000000);
+    expect(res.place_pixel_results[0].old_pixel_count_object!.value).toBe(0);
+    expect(res.place_pixel_results[0].pixel_count_object!.value).toBe(1);
+    expect(res.place_pixel_results[1].balance_object!.value).toBe(200000000);
+    expect(res.place_pixel_results[1].old_pixel_count_object!.value).toBe(1);
+    expect(res.place_pixel_results[1].pixel_count_object!.value).toBe(2);
+
+    const pixelCountArgs1 = new kanvascontract.pixel_count_of_arguments(
+      MOCK_ACCT1
+    );
+    const pixelCountRes1 = knv.pixel_count_of(pixelCountArgs1);
+    expect(pixelCountRes1.value).toBe(2);
+
+    const pixelAtArgs = new kanvascontract.pixel_at_arguments(998, 999);
+    const pixelAtRes = knv.pixel_at(pixelAtArgs);
+    const pixelAt = pixelAtRes.pixel!;
+    expect(pixelAt.posX).toBe(998);
+    expect(pixelAt.posY).toBe(999);
+    expect(pixelAt.red).toBe(101);
+    expect(pixelAt.green).toBe(102);
+    expect(pixelAt.blue).toBe(103);
+    expect(pixelAt.alpha).toBe(104);
+    expect(pixelAt.metadata).toBe("test");
+    expect(Arrays.equal(pixelAt.owner, MOCK_ACCT1)).toBe(true);
+
+    const pixelAtArgs1 = new kanvascontract.pixel_at_arguments(996, 997);
+    const pixelAtRes1 = knv.pixel_at(pixelAtArgs1);
+    const pixelAt1 = pixelAtRes1.pixel!;
+    expect(pixelAt1.posX).toBe(996);
+    expect(pixelAt1.posY).toBe(997);
+    expect(pixelAt1.red).toBe(105);
+    expect(pixelAt1.green).toBe(106);
+    expect(pixelAt1.blue).toBe(107);
+    expect(pixelAt1.alpha).toBe(108);
+    expect(pixelAt1.metadata).toBe("test1");
+    expect(Arrays.equal(pixelAt1.owner, MOCK_ACCT1)).toBe(true);
+
+    const events = MockVM.getEvents();
+    expect(events.length).toBe(3);
+    expect(events[1].name).toBe("kanvascontract.pixel_placed_event");
+    expect(events[1].impacted.length).toBe(1);
+    expect(Arrays.equal(events[1].impacted[0], MOCK_ACCT1)).toBe(true);
+    expect(events[2].name).toBe("kanvascontract.pixel_placed_event");
+    expect(events[2].impacted.length).toBe(1);
+    expect(Arrays.equal(events[2].impacted[0], MOCK_ACCT1)).toBe(true);
+  });
+
+  it("should not place pixels in a bunch if conditions are not met", () => {
+    const knv = new Kanvascontract();
+
+    MockVM.setContractArguments(new Uint8Array(0));
+    MockVM.setEntryPoint(1);
+
+    const authContractId = new MockVM.MockAuthority(
+      authority.authorization_type.contract_call,
+      CONTRACT_ID,
+      true
+    );
+    const authMockAcct1 = new MockVM.MockAuthority(
+      authority.authorization_type.contract_call,
+      MOCK_ACCT1,
+      true
+    );
+
+    MockVM.setAuthorities([authContractId, authMockAcct1]);
+
+    const mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT1, 200000000);
+    knv.mint(mintArgs);
+
+    expect(() => {
+      const knv = new Kanvascontract();
+      const args = new kanvascontract.place_pixels_arguments([
+        new kanvascontract.place_pixel_arguments(
+          MOCK_ACCT1,
+          new kanvascontract.pixel_object(998, 999, 101, 102, 103, 104, "test")
+        ),
+        new kanvascontract.place_pixel_arguments(
+          MOCK_ACCT1,
+          new kanvascontract.pixel_object(996, 997, 105, 106, 107, 108, "test1")
+        ),
+        new kanvascontract.place_pixel_arguments(
+          MOCK_ACCT1,
+          new kanvascontract.pixel_object(996, 997, 105, 106, 107, 108, "test2")
+        ),
+      ]);
+      knv.place_pixels(args);
+    }).toThrow();
+
+    expect(MockVM.getErrorMessage()).toStrictEqual(
+      "You need more KAN to place a new pixel"
+    );
+
+    const pixelAtArgs = new kanvascontract.pixel_at_arguments(998, 999);
+    const pixelAtRes = knv.pixel_at(pixelAtArgs);
+    const pixelAt = pixelAtRes.pixel!;
+    expect(Arrays.equal(pixelAt.owner, new Uint8Array(0))).toBe(true);
+
+    const pixelAtArgs1 = new kanvascontract.pixel_at_arguments(996, 997);
+    const pixelAtRes1 = knv.pixel_at(pixelAtArgs1);
+    const pixelAt1 = pixelAtRes1.pixel!;
+    expect(Arrays.equal(pixelAt1.owner, new Uint8Array(0))).toBe(true);
+
+    const pixelCountArgs = new kanvascontract.pixel_count_of_arguments(
+      MOCK_ACCT1
+    );
+    const pixelCountRes = knv.pixel_count_of(pixelCountArgs);
+    expect(pixelCountRes.value).toBe(0);
+  });
+
   it("should not place a pixel if it is out of bound", () => {
     const knv = new Kanvascontract();
 
@@ -662,13 +805,7 @@ describe("kanvas", () => {
       const knv = new Kanvascontract();
       const args = new kanvascontract.place_pixel_arguments(
         MOCK_ACCT1,
-        1001,
-        1002,
-        101,
-        102,
-        103,
-        104,
-        "test"
+        new kanvascontract.pixel_object(1001, 1002, 101, 102, 103, 104, "test")
       );
       knv.place_pixel(args);
     }).toThrow();
@@ -709,13 +846,7 @@ describe("kanvas", () => {
       const knv = new Kanvascontract();
       const args = new kanvascontract.place_pixel_arguments(
         MOCK_ACCT1,
-        999,
-        999,
-        -1,
-        256,
-        256,
-        256,
-        "test"
+        new kanvascontract.pixel_object(999, 999, -1, 256, 256, 256, "test")
       );
       knv.place_pixel(args);
     }).toThrow();
@@ -749,13 +880,7 @@ describe("kanvas", () => {
       const knv = new Kanvascontract();
       const args = new kanvascontract.place_pixel_arguments(
         MOCK_ACCT1,
-        998,
-        999,
-        101,
-        102,
-        103,
-        104,
-        "test"
+        new kanvascontract.pixel_object(998, 999, 101, 102, 103, 104, "test")
       );
       knv.place_pixel(args);
     }).toThrow();
@@ -800,13 +925,7 @@ describe("kanvas", () => {
       const knv = new Kanvascontract();
       const args = new kanvascontract.place_pixel_arguments(
         MOCK_ACCT1,
-        1,
-        2,
-        101,
-        102,
-        103,
-        104,
-        "test"
+        new kanvascontract.pixel_object(1, 2, 101, 102, 103, 104, "test")
       );
       knv.place_pixel(args);
     }).toThrow();
@@ -824,13 +943,7 @@ describe("kanvas", () => {
     knv.mint(mintArgs1);
     const args = new kanvascontract.place_pixel_arguments(
       MOCK_ACCT1,
-      1,
-      2,
-      101,
-      102,
-      103,
-      104,
-      "test"
+      new kanvascontract.pixel_object(1, 2, 101, 102, 103, 104, "test")
     );
     knv.place_pixel(args);
 
@@ -871,13 +984,7 @@ describe("kanvas", () => {
     // ACCT1 place a first pixel
     const placePixelArgs = new kanvascontract.place_pixel_arguments(
       MOCK_ACCT1,
-      1,
-      2,
-      100,
-      101,
-      102,
-      103,
-      "test"
+      new kanvascontract.pixel_object(1, 2, 100, 101, 102, 103, "test")
     );
     const res = knv.place_pixel(placePixelArgs);
     expect(res.old_pixel_count_object!.value).toBe(0);
@@ -892,13 +999,7 @@ describe("kanvas", () => {
     // ACCT2 place a pixel on the same position
     const placePixelArgs2 = new kanvascontract.place_pixel_arguments(
       MOCK_ACCT2,
-      1,
-      2,
-      200,
-      201,
-      202,
-      203,
-      "test2"
+      new kanvascontract.pixel_object(1, 2, 200, 201, 202, 203, "test2")
     );
     const res2 = knv.place_pixel(placePixelArgs2);
     expect(res2.old_pixel_count_object!.value).toBe(0);
