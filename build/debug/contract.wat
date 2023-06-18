@@ -199,10 +199,10 @@
  (global $~lib/@koinos/sdk-as/assembly/util/base58/Base58.ALPHABET i32 (i32.const 2192))
  (global $~lib/@koinos/sdk-as/assembly/util/base58/Base58.BASE i32 (i32.const 58))
  (global $~lib/builtins/u32.MAX_VALUE i32 (i32.const -1))
- (global $~lib/rt/__rtti_base i32 (i32.const 5824))
- (global $~lib/memory/__data_end i32 (i32.const 6276))
- (global $~lib/memory/__stack_pointer (mut i32) (i32.const 39044))
- (global $~lib/memory/__heap_base i32 (i32.const 39044))
+ (global $~lib/rt/__rtti_base i32 (i32.const 5664))
+ (global $~lib/memory/__data_end i32 (i32.const 6092))
+ (global $~lib/memory/__stack_pointer (mut i32) (i32.const 38860))
+ (global $~lib/memory/__heap_base i32 (i32.const 38860))
  (global $~started (mut i32) (i32.const 0))
  (memory $0 1)
  (data $0 (i32.const 16) "\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
@@ -291,22 +291,17 @@
  (data $83 (i32.const 5164) "\\\00\00\00\00\00\00\00\00\00\00\00\02\00\00\00B\00\00\00k\00a\00n\00v\00a\00s\00c\00o\00n\00t\00r\00a\00c\00t\00.\00p\00i\00x\00e\00l\00_\00p\00l\00a\00c\00e\00d\00_\00e\00v\00e\00n\00t\00\00\00\00\00\00\00\00\00\00\00")
  (data $84 (i32.const 5260) "\1c\00\00\00\00\00\00\00\00\00\00\00a\00\00\00\08\00\00\001\00\00\00\00\00\00\00\00\00\00\00")
  (data $85 (i32.const 5292) "\1c\00\00\00\00\00\00\00\00\00\00\00b\00\00\00\08\00\00\002\00\00\00\00\00\00\00\00\00\00\00")
- (data $86 (i32.const 5324) "\1c\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
- (data $87 (i32.const 5356) "\1c\00\00\00\00\00\00\00\00\00\00\00e\00\00\00\08\00\00\003\00\00\00\00\00\00\00\00\00\00\00")
- (data $88 (i32.const 5388) "\1c\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
- (data $89 (i32.const 5420) "\1c\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
- (data $90 (i32.const 5452) "\1c\00\00\00\00\00\00\00\00\00\00\00h\00\00\00\08\00\00\004\00\00\00\00\00\00\00\00\00\00\00")
- (data $91 (i32.const 5484) "\1c\00\00\00\00\00\00\00\00\00\00\00i\00\00\00\08\00\00\005\00\00\00\00\00\00\00\00\00\00\00")
- (data $92 (i32.const 5516) "\1c\00\00\00\00\00\00\00\00\00\00\00k\00\00\00\08\00\00\006\00\00\00\00\00\00\00\00\00\00\00")
- (data $93 (i32.const 5548) "\1c\00\00\00\00\00\00\00\00\00\00\00l\00\00\00\08\00\00\007\00\00\00\00\00\00\00\00\00\00\00")
- (data $94 (i32.const 5580) "\1c\00\00\00\00\00\00\00\00\00\00\00m\00\00\00\08\00\00\008\00\00\00\00\00\00\00\00\00\00\00")
- (data $95 (i32.const 5612) "\1c\00\00\00\00\00\00\00\00\00\00\00n\00\00\00\08\00\00\009\00\00\00\00\00\00\00\00\00\00\00")
- (data $96 (i32.const 5644) "l\00\00\00\00\00\00\00\00\00\00\00\02\00\00\00\\\00\00\00k\00a\00n\00v\00a\00s\00c\00o\00n\00t\00r\00a\00c\00t\00.\00c\00a\00n\00v\00a\00s\00_\00d\00i\00m\00e\00n\00s\00i\00o\00n\00s\00_\00c\00h\00a\00n\00g\00e\00d\00_\00e\00v\00e\00n\00t\00")
- (data $97 (i32.const 5756) "\1c\00\00\00\00\00\00\00\00\00\00\00o\00\00\00\08\00\00\00:\00\00\00\00\00\00\00\00\00\00\00")
- (data $98 (i32.const 5788) "\1c\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
- (data $99 (i32.const 5824) "p\00\00\00 \00\00\00 \00\00\00 \00\00\00\00\00\00\00\00\00\00\00 \00\00\00\00\00\00\00\02\01\00\00\02\t\00\00A\00\00\00\00\00\00\00 \00\00\00\00\00\00\00\01\01\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02A\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00 \00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\04A\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02A\00\00\00\00\00\00\00\00\00\00\02\01\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
- (table $0 59 59 funcref)
- (elem $0 (i32.const 1) $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_arguments_arguments.encode $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.error_data.decode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.exit_arguments.encode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_arguments_result.decode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_contract_id_arguments.encode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_contract_id_result.decode $assembly/proto/kanvascontract/kanvascontract.balance_object.decode $assembly/proto/kanvascontract/kanvascontract.balance_object.encode $assembly/Kanvascontract/Kanvascontract#constructor~anonymous|0 $assembly/Kanvascontract/Kanvascontract#constructor~anonymous|1 $assembly/proto/kanvascontract/kanvascontract.pixel_count_object.decode $assembly/proto/kanvascontract/kanvascontract.pixel_count_object.encode $assembly/Kanvascontract/Kanvascontract#constructor~anonymous|2 $assembly/proto/kanvascontract/kanvascontract.pixel_object.decode $assembly/proto/kanvascontract/kanvascontract.pixel_object.encode $assembly/Kanvascontract/Kanvascontract#constructor~anonymous|3 $assembly/proto/kanvascontract/kanvascontract.uint64.decode $assembly/proto/kanvascontract/kanvascontract.uint64.encode $assembly/Kanvascontract/Kanvascontract#constructor~anonymous|4 $assembly/Kanvascontract/Kanvascontract#constructor~anonymous|5 $assembly/proto/kanvascontract/kanvascontract.name_arguments.decode $assembly/proto/kanvascontract/kanvascontract.name_result.encode $assembly/proto/kanvascontract/kanvascontract.symbol_arguments.decode $assembly/proto/kanvascontract/kanvascontract.symbol_result.encode $assembly/proto/kanvascontract/kanvascontract.decimals_arguments.decode $assembly/proto/kanvascontract/kanvascontract.decimals_result.encode $assembly/proto/kanvascontract/kanvascontract.total_supply_arguments.decode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_arguments.encode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_result.decode $assembly/proto/kanvascontract/kanvascontract.total_supply_result.encode $assembly/proto/kanvascontract/kanvascontract.balance_of_arguments.decode $assembly/proto/kanvascontract/kanvascontract.balance_of_result.encode $assembly/proto/kanvascontract/kanvascontract.transfer_arguments.decode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_caller_arguments.encode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_caller_result.decode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.check_authority_arguments.encode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.check_authority_result.decode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.put_object_arguments.encode $assembly/proto/kanvascontract/kanvascontract.transfer_event.encode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.event_arguments.encode $assembly/proto/kanvascontract/kanvascontract.empty_message.encode $assembly/proto/kanvascontract/kanvascontract.mint_arguments.decode $assembly/proto/kanvascontract/kanvascontract.mint_event.encode $assembly/proto/kanvascontract/kanvascontract.burn_arguments.decode $assembly/proto/kanvascontract/kanvascontract.burn_event.encode $assembly/proto/kanvascontract/kanvascontract.pixel_count_of_arguments.decode $assembly/proto/kanvascontract/kanvascontract.pixel_count_of_result.encode $assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments.decode $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event.encode $assembly/proto/kanvascontract/kanvascontract.place_pixel_result.encode $assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments.decode $assembly/proto/kanvascontract/kanvascontract.place_pixels_result.encode $assembly/proto/kanvascontract/kanvascontract.pixel_at_arguments.decode $assembly/proto/kanvascontract/kanvascontract.pixel_at_result.encode $assembly/proto/kanvascontract/kanvascontract.canvas_dimensions_arguments.decode $assembly/proto/kanvascontract/kanvascontract.canvas_dimensions_result.encode $assembly/proto/kanvascontract/kanvascontract.set_canvas_dimensions_arguments.decode $assembly/proto/kanvascontract/kanvascontract.canvas_dimensions_changed_event.encode)
+ (data $86 (i32.const 5324) "\1c\00\00\00\00\00\00\00\00\00\00\00c\00\00\00\08\00\00\003\00\00\00\00\00\00\00\00\00\00\00")
+ (data $87 (i32.const 5356) "\1c\00\00\00\00\00\00\00\00\00\00\00e\00\00\00\08\00\00\004\00\00\00\00\00\00\00\00\00\00\00")
+ (data $88 (i32.const 5388) "\1c\00\00\00\00\00\00\00\00\00\00\00f\00\00\00\08\00\00\005\00\00\00\00\00\00\00\00\00\00\00")
+ (data $89 (i32.const 5420) "\1c\00\00\00\00\00\00\00\00\00\00\00g\00\00\00\08\00\00\006\00\00\00\00\00\00\00\00\00\00\00")
+ (data $90 (i32.const 5452) "\1c\00\00\00\00\00\00\00\00\00\00\00h\00\00\00\08\00\00\007\00\00\00\00\00\00\00\00\00\00\00")
+ (data $91 (i32.const 5484) "l\00\00\00\00\00\00\00\00\00\00\00\02\00\00\00\\\00\00\00k\00a\00n\00v\00a\00s\00c\00o\00n\00t\00r\00a\00c\00t\00.\00c\00a\00n\00v\00a\00s\00_\00d\00i\00m\00e\00n\00s\00i\00o\00n\00s\00_\00c\00h\00a\00n\00g\00e\00d\00_\00e\00v\00e\00n\00t\00")
+ (data $92 (i32.const 5596) "\1c\00\00\00\00\00\00\00\00\00\00\00i\00\00\00\08\00\00\008\00\00\00\00\00\00\00\00\00\00\00")
+ (data $93 (i32.const 5628) "\1c\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
+ (data $94 (i32.const 5664) "j\00\00\00 \00\00\00 \00\00\00 \00\00\00\00\00\00\00\00\00\00\00 \00\00\00\00\00\00\00\02\01\00\00\02\t\00\00A\00\00\00\00\00\00\00 \00\00\00\00\00\00\00\01\01\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02A\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00 \00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\04A\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
+ (table $0 57 57 funcref)
+ (elem $0 (i32.const 1) $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_arguments_arguments.encode $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.error_data.decode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.exit_arguments.encode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_arguments_result.decode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_contract_id_arguments.encode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_contract_id_result.decode $assembly/proto/kanvascontract/kanvascontract.balance_object.decode $assembly/proto/kanvascontract/kanvascontract.balance_object.encode $assembly/Kanvascontract/Kanvascontract#constructor~anonymous|0 $assembly/Kanvascontract/Kanvascontract#constructor~anonymous|1 $assembly/proto/kanvascontract/kanvascontract.pixel_count_object.decode $assembly/proto/kanvascontract/kanvascontract.pixel_count_object.encode $assembly/Kanvascontract/Kanvascontract#constructor~anonymous|2 $assembly/proto/kanvascontract/kanvascontract.pixel_object.decode $assembly/proto/kanvascontract/kanvascontract.pixel_object.encode $assembly/Kanvascontract/Kanvascontract#constructor~anonymous|3 $assembly/proto/kanvascontract/kanvascontract.uint64.decode $assembly/proto/kanvascontract/kanvascontract.uint64.encode $assembly/Kanvascontract/Kanvascontract#constructor~anonymous|4 $assembly/Kanvascontract/Kanvascontract#constructor~anonymous|5 $assembly/proto/kanvascontract/kanvascontract.name_arguments.decode $assembly/proto/kanvascontract/kanvascontract.name_result.encode $assembly/proto/kanvascontract/kanvascontract.symbol_arguments.decode $assembly/proto/kanvascontract/kanvascontract.symbol_result.encode $assembly/proto/kanvascontract/kanvascontract.decimals_arguments.decode $assembly/proto/kanvascontract/kanvascontract.decimals_result.encode $assembly/proto/kanvascontract/kanvascontract.total_supply_arguments.decode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_arguments.encode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_result.decode $assembly/proto/kanvascontract/kanvascontract.total_supply_result.encode $assembly/proto/kanvascontract/kanvascontract.balance_of_arguments.decode $assembly/proto/kanvascontract/kanvascontract.balance_of_result.encode $assembly/proto/kanvascontract/kanvascontract.transfer_arguments.decode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_caller_arguments.encode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_caller_result.decode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.check_authority_arguments.encode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.check_authority_result.decode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.put_object_arguments.encode $assembly/proto/kanvascontract/kanvascontract.transfer_event.encode $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.event_arguments.encode $assembly/proto/kanvascontract/kanvascontract.empty_message.encode $assembly/proto/kanvascontract/kanvascontract.mint_arguments.decode $assembly/proto/kanvascontract/kanvascontract.mint_event.encode $assembly/proto/kanvascontract/kanvascontract.burn_arguments.decode $assembly/proto/kanvascontract/kanvascontract.burn_event.encode $assembly/proto/kanvascontract/kanvascontract.pixel_count_of_arguments.decode $assembly/proto/kanvascontract/kanvascontract.pixel_count_of_result.encode $assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments.decode $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event.encode $assembly/proto/kanvascontract/kanvascontract.place_pixel_result.encode $assembly/proto/kanvascontract/kanvascontract.pixel_at_arguments.decode $assembly/proto/kanvascontract/kanvascontract.pixel_at_result.encode $assembly/proto/kanvascontract/kanvascontract.canvas_dimensions_arguments.decode $assembly/proto/kanvascontract/kanvascontract.canvas_dimensions_result.encode $assembly/proto/kanvascontract/kanvascontract.set_canvas_dimensions_arguments.decode $assembly/proto/kanvascontract/kanvascontract.canvas_dimensions_changed_event.encode)
  (export "main" (func $assembly/index/main))
  (export "memory" (memory $0))
  (export "_start" (func $~start))
@@ -7026,58 +7021,6 @@
   local.get $this
   i32.load $0 offset=8
  )
- (func $assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments#set:place_pixel_arguments (param $this i32) (param $place_pixel_arguments i32)
-  local.get $this
-  local.get $place_pixel_arguments
-  i32.store $0
-  local.get $this
-  local.get $place_pixel_arguments
-  i32.const 0
-  call $~lib/rt/itcms/__link
- )
- (func $assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments#get:place_pixel_arguments (param $this i32) (result i32)
-  local.get $this
-  i32.load $0
- )
- (func $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>#get:length_ (param $this i32) (result i32)
-  local.get $this
-  i32.load $0 offset=12
- )
- (func $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>#get:dataStart (param $this i32) (result i32)
-  local.get $this
-  i32.load $0 offset=4
- )
- (func $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>#set:length_ (param $this i32) (param $length_ i32)
-  local.get $this
-  local.get $length_
-  i32.store $0 offset=12
- )
- (func $assembly/proto/kanvascontract/kanvascontract.place_pixels_result#set:place_pixel_results (param $this i32) (param $place_pixel_results i32)
-  local.get $this
-  local.get $place_pixel_results
-  i32.store $0
-  local.get $this
-  local.get $place_pixel_results
-  i32.const 0
-  call $~lib/rt/itcms/__link
- )
- (func $assembly/proto/kanvascontract/kanvascontract.place_pixels_result#get:place_pixel_results (param $this i32) (result i32)
-  local.get $this
-  i32.load $0
- )
- (func $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>#get:length_ (param $this i32) (result i32)
-  local.get $this
-  i32.load $0 offset=12
- )
- (func $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>#get:dataStart (param $this i32) (result i32)
-  local.get $this
-  i32.load $0 offset=4
- )
- (func $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>#set:length_ (param $this i32) (param $length_ i32)
-  local.get $this
-  local.get $length_
-  i32.store $0 offset=12
- )
  (func $assembly/proto/kanvascontract/kanvascontract.pixel_at_arguments#set:posX (param $this i32) (param $posX i64)
   local.get $this
   local.get $posX
@@ -9333,82 +9276,6 @@
   local.get $1
   call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.place_pixel_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>#__visit
  )
- (func $assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments~visit (param $0 i32) (param $1 i32)
-  (local $2 i32)
-  local.get $0
-  local.get $1
-  call $~lib/object/Object~visit
-  local.get $0
-  i32.load $0
-  local.tee $2
-  if
-   local.get $2
-   local.get $1
-   call $~lib/rt/itcms/__visit
-  end
- )
- (func $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>#get:buffer (param $this i32) (result i32)
-  local.get $this
-  i32.load $0
- )
- (func $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>~visit (param $0 i32) (param $1 i32)
-  local.get $0
-  local.get $1
-  call $~lib/object/Object~visit
-  local.get $0
-  local.get $1
-  call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>#__visit
- )
- (func $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments>#get:_env (param $this i32) (result i32)
-  local.get $this
-  i32.load $0 offset=4
- )
- (func $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments>~visit (param $0 i32) (param $1 i32)
-  local.get $0
-  local.get $1
-  call $~lib/object/Object~visit
-  local.get $0
-  local.get $1
-  call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments>#__visit
- )
- (func $assembly/proto/kanvascontract/kanvascontract.place_pixels_result~visit (param $0 i32) (param $1 i32)
-  (local $2 i32)
-  local.get $0
-  local.get $1
-  call $~lib/object/Object~visit
-  local.get $0
-  i32.load $0
-  local.tee $2
-  if
-   local.get $2
-   local.get $1
-   call $~lib/rt/itcms/__visit
-  end
- )
- (func $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>#get:buffer (param $this i32) (result i32)
-  local.get $this
-  i32.load $0
- )
- (func $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>~visit (param $0 i32) (param $1 i32)
-  local.get $0
-  local.get $1
-  call $~lib/object/Object~visit
-  local.get $0
-  local.get $1
-  call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>#__visit
- )
- (func $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.place_pixels_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>#get:_env (param $this i32) (result i32)
-  local.get $this
-  i32.load $0 offset=4
- )
- (func $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.place_pixels_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit (param $0 i32) (param $1 i32)
-  local.get $0
-  local.get $1
-  call $~lib/object/Object~visit
-  local.get $0
-  local.get $1
-  call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.place_pixels_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>#__visit
- )
  (func $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.pixel_at_arguments>#get:_env (param $this i32) (result i32)
   local.get $this
   i32.load $0 offset=4
@@ -9504,622 +9371,586 @@
        block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_at_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
         block $assembly/proto/kanvascontract/kanvascontract.pixel_at_result
          block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.pixel_at_arguments>
-          block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.place_pixels_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-           block $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>
-            block $assembly/proto/kanvascontract/kanvascontract.place_pixels_result
-             block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments>
-              block $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>
-               block $assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments
-                block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.place_pixel_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                 block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_placed_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                  block $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event
-                   block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>
-                    block $assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments
-                     block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_count_of_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                      block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.pixel_count_of_arguments>
-                       block $assembly/proto/kanvascontract/kanvascontract.pixel_count_of_arguments
-                        block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.burn_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                         block $assembly/proto/kanvascontract/kanvascontract.burn_event
-                          block $~lib/staticarray/StaticArray<~lib/string/String>
-                           block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.burn_arguments>
-                            block $assembly/proto/kanvascontract/kanvascontract.burn_arguments
-                             block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.mint_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                              block $assembly/proto/kanvascontract/kanvascontract.mint_event
-                               block $~lib/@koinos/sdk-as/assembly/util/safeMath/SafeMath.SafeInteger<u64>
-                                block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.mint_arguments>
-                                 block $assembly/proto/kanvascontract/kanvascontract.mint_arguments
-                                  block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.empty_message%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                                   block $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.event_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                                    block $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.event_arguments
-                                     block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.transfer_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                                      block $~lib/array/Array<~lib/typedarray/Uint8Array>
-                                       block $assembly/proto/kanvascontract/kanvascontract.transfer_event
-                                        block $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.put_object_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                                         block $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.put_object_arguments
-                                          block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.check_authority_result>
-                                           block $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.check_authority_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                                            block $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.check_authority_arguments
-                                             block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_caller_result>
-                                              block $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_caller_result
-                                               block $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_caller_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                                                block $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.caller_data
-                                                 block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.transfer_arguments>
-                                                  block $assembly/proto/kanvascontract/kanvascontract.transfer_arguments
-                                                   block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.balance_of_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                                                    block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.balance_of_arguments>
-                                                     block $assembly/proto/kanvascontract/kanvascontract.balance_of_arguments
-                                                      block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.total_supply_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                                                       block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_result>
-                                                        block $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.database_object
-                                                         block $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_result
-                                                          block $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                                                           block $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_arguments
-                                                            block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.total_supply_arguments>
-                                                             block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.decimals_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                                                              block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.decimals_arguments>
-                                                               block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.symbol_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                                                                block $assembly/proto/kanvascontract/kanvascontract.symbol_result
-                                                                 block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.symbol_arguments>
-                                                                  block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.name_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                                                                   block $assembly/proto/kanvascontract/kanvascontract.name_result
-                                                                    block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.name_arguments>
-                                                                     block $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.uint64|null>
-                                                                      block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.uint64%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                                                                       block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.uint64>
-                                                                        block $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.pixel_object|null>
-                                                                         block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_object%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                                                                          block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.pixel_object>
-                                                                           block $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.pixel_count_object|null>
-                                                                            block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_count_object%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                                                                             block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.pixel_count_object>
-                                                                              block $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.balance_object|null>
-                                                                               block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.balance_object%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                                                                                block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.balance_object>
-                                                                                 block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_contract_id_result>
-                                                                                  block $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_contract_id_result
-                                                                                   block $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_contract_id_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                                                                                    block $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Obj<assembly/proto/kanvascontract/kanvascontract.uint64>
-                                                                                     block $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/string/String,assembly/proto/kanvascontract/kanvascontract.pixel_object>
-                                                                                      block $assembly/proto/kanvascontract/kanvascontract.pixel_object
-                                                                                       block $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/typedarray/Uint8Array,assembly/proto/kanvascontract/kanvascontract.pixel_count_object>
-                                                                                        block $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/typedarray/Uint8Array,assembly/proto/kanvascontract/kanvascontract.balance_object>
-                                                                                         block $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Obj<assembly/proto/kanvascontract/kanvascontract.balance_object>
-                                                                                          block $assembly/Kanvascontract/Kanvascontract
-                                                                                           block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_arguments_result>
-                                                                                            block $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.argument_data
-                                                                                             block $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_arguments_result
-                                                                                              block $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.exit_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                                                                                               block $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.result
-                                                                                                block $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.exit_arguments
-                                                                                                 block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.error_data>
-                                                                                                  block $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.error_data
-                                                                                                   block $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_arguments_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
-                                                                                                    block $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArgumentsReturn
-                                                                                                     block $~lib/typedarray/Uint32Array
-                                                                                                      block $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.object_space
-                                                                                                       block $~lib/as-proto/assembly/Reader/Reader
-                                                                                                        block $~lib/as-proto/assembly/internal/FixedReader/FixedReader
-                                                                                                         block $~lib/typedarray/Uint8Array
-                                                                                                          block $~lib/array/Array<i32>
-                                                                                                           block $~lib/array/Array<u32>
-                                                                                                            block $~lib/as-proto/assembly/internal/FixedSizer/FixedSizer
-                                                                                                             block $~lib/as-proto/assembly/Writer/Writer
-                                                                                                              block $~lib/as-proto/assembly/internal/FixedWriter/FixedWriter
-                                                                                                               block $~lib/arraybuffer/ArrayBufferView
-                                                                                                                block $~lib/string/String
-                                                                                                                 block $~lib/arraybuffer/ArrayBuffer
-                                                                                                                  block $~lib/object/Object
-                                                                                                                   local.get $0
-                                                                                                                   i32.const 8
-                                                                                                                   i32.sub
-                                                                                                                   i32.load $0
-                                                                                                                   br_table $~lib/object/Object $~lib/arraybuffer/ArrayBuffer $~lib/string/String $~lib/arraybuffer/ArrayBufferView $~lib/as-proto/assembly/internal/FixedWriter/FixedWriter $~lib/as-proto/assembly/Writer/Writer $~lib/as-proto/assembly/internal/FixedSizer/FixedSizer $~lib/array/Array<u32> $~lib/array/Array<i32> $~lib/typedarray/Uint8Array $~lib/as-proto/assembly/internal/FixedReader/FixedReader $~lib/as-proto/assembly/Reader/Reader $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.object_space $~lib/typedarray/Uint32Array $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArgumentsReturn $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_arguments_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.error_data $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.error_data> $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.exit_arguments $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.result $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.exit_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_arguments_result $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.argument_data $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_arguments_result> $assembly/Kanvascontract/Kanvascontract $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Obj<assembly/proto/kanvascontract/kanvascontract.balance_object> $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/typedarray/Uint8Array,assembly/proto/kanvascontract/kanvascontract.balance_object> $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/typedarray/Uint8Array,assembly/proto/kanvascontract/kanvascontract.pixel_count_object> $assembly/proto/kanvascontract/kanvascontract.pixel_object $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/string/String,assembly/proto/kanvascontract/kanvascontract.pixel_object> $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Obj<assembly/proto/kanvascontract/kanvascontract.uint64> $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_contract_id_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_contract_id_result $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_contract_id_result> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.balance_object> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.balance_object%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.balance_object|null> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.pixel_count_object> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_count_object%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.pixel_count_object|null> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.pixel_object> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_object%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.pixel_object|null> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.uint64> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.uint64%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.uint64|null> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.name_arguments> $assembly/proto/kanvascontract/kanvascontract.name_result $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.name_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.symbol_arguments> $assembly/proto/kanvascontract/kanvascontract.symbol_result $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.symbol_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.decimals_arguments> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.decimals_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.total_supply_arguments> $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_arguments $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_result $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.database_object $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_result> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.total_supply_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $assembly/proto/kanvascontract/kanvascontract.balance_of_arguments $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.balance_of_arguments> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.balance_of_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $assembly/proto/kanvascontract/kanvascontract.transfer_arguments $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.transfer_arguments> $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.caller_data $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_caller_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_caller_result $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_caller_result> $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.check_authority_arguments $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.check_authority_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.check_authority_result> $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.put_object_arguments $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.put_object_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $assembly/proto/kanvascontract/kanvascontract.transfer_event $~lib/array/Array<~lib/typedarray/Uint8Array> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.transfer_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.event_arguments $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.event_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.empty_message%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $assembly/proto/kanvascontract/kanvascontract.mint_arguments $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.mint_arguments> $~lib/@koinos/sdk-as/assembly/util/safeMath/SafeMath.SafeInteger<u64> $assembly/proto/kanvascontract/kanvascontract.mint_event $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.mint_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $assembly/proto/kanvascontract/kanvascontract.burn_arguments $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.burn_arguments> $~lib/staticarray/StaticArray<~lib/string/String> $assembly/proto/kanvascontract/kanvascontract.burn_event $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.burn_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $assembly/proto/kanvascontract/kanvascontract.pixel_count_of_arguments $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.pixel_count_of_arguments> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_count_of_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments> $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_placed_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.place_pixel_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments> $assembly/proto/kanvascontract/kanvascontract.place_pixels_result $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.place_pixels_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.pixel_at_arguments> $assembly/proto/kanvascontract/kanvascontract.pixel_at_result $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_at_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.canvas_dimensions_arguments> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.canvas_dimensions_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.set_canvas_dimensions_arguments> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.canvas_dimensions_changed_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $invalid
-                                                                                                                  end
-                                                                                                                  return
-                                                                                                                 end
-                                                                                                                 return
-                                                                                                                end
-                                                                                                                return
-                                                                                                               end
-                                                                                                               local.get $0
-                                                                                                               local.get $1
-                                                                                                               call $~lib/arraybuffer/ArrayBufferView~visit
-                                                                                                               return
-                                                                                                              end
-                                                                                                              local.get $0
-                                                                                                              local.get $1
-                                                                                                              call $~lib/as-proto/assembly/internal/FixedWriter/FixedWriter~visit
-                                                                                                              return
-                                                                                                             end
-                                                                                                             return
+          block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.place_pixel_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+           block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_placed_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+            block $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event
+             block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>
+              block $assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments
+               block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_count_of_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+                block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.pixel_count_of_arguments>
+                 block $assembly/proto/kanvascontract/kanvascontract.pixel_count_of_arguments
+                  block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.burn_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+                   block $assembly/proto/kanvascontract/kanvascontract.burn_event
+                    block $~lib/staticarray/StaticArray<~lib/string/String>
+                     block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.burn_arguments>
+                      block $assembly/proto/kanvascontract/kanvascontract.burn_arguments
+                       block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.mint_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+                        block $assembly/proto/kanvascontract/kanvascontract.mint_event
+                         block $~lib/@koinos/sdk-as/assembly/util/safeMath/SafeMath.SafeInteger<u64>
+                          block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.mint_arguments>
+                           block $assembly/proto/kanvascontract/kanvascontract.mint_arguments
+                            block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.empty_message%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+                             block $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.event_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+                              block $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.event_arguments
+                               block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.transfer_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+                                block $~lib/array/Array<~lib/typedarray/Uint8Array>
+                                 block $assembly/proto/kanvascontract/kanvascontract.transfer_event
+                                  block $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.put_object_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+                                   block $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.put_object_arguments
+                                    block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.check_authority_result>
+                                     block $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.check_authority_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+                                      block $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.check_authority_arguments
+                                       block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_caller_result>
+                                        block $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_caller_result
+                                         block $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_caller_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+                                          block $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.caller_data
+                                           block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.transfer_arguments>
+                                            block $assembly/proto/kanvascontract/kanvascontract.transfer_arguments
+                                             block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.balance_of_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+                                              block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.balance_of_arguments>
+                                               block $assembly/proto/kanvascontract/kanvascontract.balance_of_arguments
+                                                block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.total_supply_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+                                                 block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_result>
+                                                  block $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.database_object
+                                                   block $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_result
+                                                    block $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+                                                     block $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_arguments
+                                                      block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.total_supply_arguments>
+                                                       block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.decimals_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+                                                        block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.decimals_arguments>
+                                                         block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.symbol_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+                                                          block $assembly/proto/kanvascontract/kanvascontract.symbol_result
+                                                           block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.symbol_arguments>
+                                                            block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.name_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+                                                             block $assembly/proto/kanvascontract/kanvascontract.name_result
+                                                              block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.name_arguments>
+                                                               block $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.uint64|null>
+                                                                block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.uint64%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+                                                                 block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.uint64>
+                                                                  block $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.pixel_object|null>
+                                                                   block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_object%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+                                                                    block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.pixel_object>
+                                                                     block $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.pixel_count_object|null>
+                                                                      block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_count_object%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+                                                                       block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.pixel_count_object>
+                                                                        block $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.balance_object|null>
+                                                                         block $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.balance_object%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+                                                                          block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.balance_object>
+                                                                           block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_contract_id_result>
+                                                                            block $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_contract_id_result
+                                                                             block $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_contract_id_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+                                                                              block $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Obj<assembly/proto/kanvascontract/kanvascontract.uint64>
+                                                                               block $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/string/String,assembly/proto/kanvascontract/kanvascontract.pixel_object>
+                                                                                block $assembly/proto/kanvascontract/kanvascontract.pixel_object
+                                                                                 block $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/typedarray/Uint8Array,assembly/proto/kanvascontract/kanvascontract.pixel_count_object>
+                                                                                  block $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/typedarray/Uint8Array,assembly/proto/kanvascontract/kanvascontract.balance_object>
+                                                                                   block $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Obj<assembly/proto/kanvascontract/kanvascontract.balance_object>
+                                                                                    block $assembly/Kanvascontract/Kanvascontract
+                                                                                     block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_arguments_result>
+                                                                                      block $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.argument_data
+                                                                                       block $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_arguments_result
+                                                                                        block $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.exit_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+                                                                                         block $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.result
+                                                                                          block $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.exit_arguments
+                                                                                           block $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.error_data>
+                                                                                            block $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.error_data
+                                                                                             block $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_arguments_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>
+                                                                                              block $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArgumentsReturn
+                                                                                               block $~lib/typedarray/Uint32Array
+                                                                                                block $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.object_space
+                                                                                                 block $~lib/as-proto/assembly/Reader/Reader
+                                                                                                  block $~lib/as-proto/assembly/internal/FixedReader/FixedReader
+                                                                                                   block $~lib/typedarray/Uint8Array
+                                                                                                    block $~lib/array/Array<i32>
+                                                                                                     block $~lib/array/Array<u32>
+                                                                                                      block $~lib/as-proto/assembly/internal/FixedSizer/FixedSizer
+                                                                                                       block $~lib/as-proto/assembly/Writer/Writer
+                                                                                                        block $~lib/as-proto/assembly/internal/FixedWriter/FixedWriter
+                                                                                                         block $~lib/arraybuffer/ArrayBufferView
+                                                                                                          block $~lib/string/String
+                                                                                                           block $~lib/arraybuffer/ArrayBuffer
+                                                                                                            block $~lib/object/Object
+                                                                                                             local.get $0
+                                                                                                             i32.const 8
+                                                                                                             i32.sub
+                                                                                                             i32.load $0
+                                                                                                             br_table $~lib/object/Object $~lib/arraybuffer/ArrayBuffer $~lib/string/String $~lib/arraybuffer/ArrayBufferView $~lib/as-proto/assembly/internal/FixedWriter/FixedWriter $~lib/as-proto/assembly/Writer/Writer $~lib/as-proto/assembly/internal/FixedSizer/FixedSizer $~lib/array/Array<u32> $~lib/array/Array<i32> $~lib/typedarray/Uint8Array $~lib/as-proto/assembly/internal/FixedReader/FixedReader $~lib/as-proto/assembly/Reader/Reader $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.object_space $~lib/typedarray/Uint32Array $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArgumentsReturn $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_arguments_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.error_data $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.error_data> $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.exit_arguments $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.result $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.exit_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_arguments_result $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.argument_data $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_arguments_result> $assembly/Kanvascontract/Kanvascontract $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Obj<assembly/proto/kanvascontract/kanvascontract.balance_object> $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/typedarray/Uint8Array,assembly/proto/kanvascontract/kanvascontract.balance_object> $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/typedarray/Uint8Array,assembly/proto/kanvascontract/kanvascontract.pixel_count_object> $assembly/proto/kanvascontract/kanvascontract.pixel_object $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/string/String,assembly/proto/kanvascontract/kanvascontract.pixel_object> $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Obj<assembly/proto/kanvascontract/kanvascontract.uint64> $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_contract_id_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_contract_id_result $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_contract_id_result> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.balance_object> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.balance_object%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.balance_object|null> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.pixel_count_object> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_count_object%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.pixel_count_object|null> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.pixel_object> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_object%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.pixel_object|null> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.uint64> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.uint64%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.uint64|null> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.name_arguments> $assembly/proto/kanvascontract/kanvascontract.name_result $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.name_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.symbol_arguments> $assembly/proto/kanvascontract/kanvascontract.symbol_result $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.symbol_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.decimals_arguments> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.decimals_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.total_supply_arguments> $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_arguments $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_result $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.database_object $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_result> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.total_supply_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $assembly/proto/kanvascontract/kanvascontract.balance_of_arguments $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.balance_of_arguments> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.balance_of_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $assembly/proto/kanvascontract/kanvascontract.transfer_arguments $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.transfer_arguments> $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.caller_data $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_caller_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_caller_result $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_caller_result> $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.check_authority_arguments $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.check_authority_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.check_authority_result> $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.put_object_arguments $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.put_object_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $assembly/proto/kanvascontract/kanvascontract.transfer_event $~lib/array/Array<~lib/typedarray/Uint8Array> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.transfer_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.event_arguments $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.event_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.empty_message%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $assembly/proto/kanvascontract/kanvascontract.mint_arguments $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.mint_arguments> $~lib/@koinos/sdk-as/assembly/util/safeMath/SafeMath.SafeInteger<u64> $assembly/proto/kanvascontract/kanvascontract.mint_event $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.mint_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $assembly/proto/kanvascontract/kanvascontract.burn_arguments $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.burn_arguments> $~lib/staticarray/StaticArray<~lib/string/String> $assembly/proto/kanvascontract/kanvascontract.burn_event $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.burn_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $assembly/proto/kanvascontract/kanvascontract.pixel_count_of_arguments $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.pixel_count_of_arguments> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_count_of_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments> $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_placed_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.place_pixel_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.pixel_at_arguments> $assembly/proto/kanvascontract/kanvascontract.pixel_at_result $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_at_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.canvas_dimensions_arguments> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.canvas_dimensions_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.set_canvas_dimensions_arguments> $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.canvas_dimensions_changed_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void> $invalid
                                                                                                             end
-                                                                                                            local.get $0
-                                                                                                            local.get $1
-                                                                                                            call $~lib/as-proto/assembly/internal/FixedSizer/FixedSizer~visit
                                                                                                             return
                                                                                                            end
-                                                                                                           local.get $0
-                                                                                                           local.get $1
-                                                                                                           call $~lib/array/Array<u32>~visit
                                                                                                            return
                                                                                                           end
-                                                                                                          local.get $0
-                                                                                                          local.get $1
-                                                                                                          call $~lib/array/Array<i32>~visit
                                                                                                           return
                                                                                                          end
                                                                                                          local.get $0
                                                                                                          local.get $1
-                                                                                                         call $~lib/typedarray/Uint8Array~visit
+                                                                                                         call $~lib/arraybuffer/ArrayBufferView~visit
                                                                                                          return
                                                                                                         end
                                                                                                         local.get $0
                                                                                                         local.get $1
-                                                                                                        call $~lib/as-proto/assembly/internal/FixedReader/FixedReader~visit
+                                                                                                        call $~lib/as-proto/assembly/internal/FixedWriter/FixedWriter~visit
                                                                                                         return
                                                                                                        end
                                                                                                        return
                                                                                                       end
                                                                                                       local.get $0
                                                                                                       local.get $1
-                                                                                                      call $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.object_space~visit
+                                                                                                      call $~lib/as-proto/assembly/internal/FixedSizer/FixedSizer~visit
                                                                                                       return
                                                                                                      end
                                                                                                      local.get $0
                                                                                                      local.get $1
-                                                                                                     call $~lib/typedarray/Uint32Array~visit
+                                                                                                     call $~lib/array/Array<u32>~visit
                                                                                                      return
                                                                                                     end
                                                                                                     local.get $0
                                                                                                     local.get $1
-                                                                                                    call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArgumentsReturn~visit
+                                                                                                    call $~lib/array/Array<i32>~visit
                                                                                                     return
                                                                                                    end
                                                                                                    local.get $0
                                                                                                    local.get $1
-                                                                                                   call $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_arguments_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                                                                                                   call $~lib/typedarray/Uint8Array~visit
                                                                                                    return
                                                                                                   end
                                                                                                   local.get $0
                                                                                                   local.get $1
-                                                                                                  call $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.error_data~visit
+                                                                                                  call $~lib/as-proto/assembly/internal/FixedReader/FixedReader~visit
                                                                                                   return
                                                                                                  end
-                                                                                                 local.get $0
-                                                                                                 local.get $1
-                                                                                                 call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.error_data>~visit
                                                                                                  return
                                                                                                 end
                                                                                                 local.get $0
                                                                                                 local.get $1
-                                                                                                call $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.exit_arguments~visit
+                                                                                                call $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.object_space~visit
                                                                                                 return
                                                                                                end
                                                                                                local.get $0
                                                                                                local.get $1
-                                                                                               call $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.result~visit
+                                                                                               call $~lib/typedarray/Uint32Array~visit
                                                                                                return
                                                                                               end
                                                                                               local.get $0
                                                                                               local.get $1
-                                                                                              call $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.exit_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                                                                                              call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArgumentsReturn~visit
                                                                                               return
                                                                                              end
                                                                                              local.get $0
                                                                                              local.get $1
-                                                                                             call $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_arguments_result~visit
+                                                                                             call $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_arguments_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
                                                                                              return
                                                                                             end
                                                                                             local.get $0
                                                                                             local.get $1
-                                                                                            call $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.argument_data~visit
+                                                                                            call $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.error_data~visit
                                                                                             return
                                                                                            end
                                                                                            local.get $0
                                                                                            local.get $1
-                                                                                           call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_arguments_result>~visit
+                                                                                           call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.error_data>~visit
                                                                                            return
                                                                                           end
                                                                                           local.get $0
                                                                                           local.get $1
-                                                                                          call $assembly/Kanvascontract/Kanvascontract~visit
+                                                                                          call $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.exit_arguments~visit
                                                                                           return
                                                                                          end
                                                                                          local.get $0
                                                                                          local.get $1
-                                                                                         call $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Obj<assembly/proto/kanvascontract/kanvascontract.balance_object>~visit
+                                                                                         call $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.result~visit
                                                                                          return
                                                                                         end
                                                                                         local.get $0
                                                                                         local.get $1
-                                                                                        call $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/typedarray/Uint8Array,assembly/proto/kanvascontract/kanvascontract.balance_object>~visit
+                                                                                        call $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.exit_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
                                                                                         return
                                                                                        end
                                                                                        local.get $0
                                                                                        local.get $1
-                                                                                       call $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/typedarray/Uint8Array,assembly/proto/kanvascontract/kanvascontract.pixel_count_object>~visit
+                                                                                       call $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_arguments_result~visit
                                                                                        return
                                                                                       end
                                                                                       local.get $0
                                                                                       local.get $1
-                                                                                      call $assembly/proto/kanvascontract/kanvascontract.pixel_object~visit
+                                                                                      call $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.argument_data~visit
                                                                                       return
                                                                                      end
                                                                                      local.get $0
                                                                                      local.get $1
-                                                                                     call $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/string/String,assembly/proto/kanvascontract/kanvascontract.pixel_object>~visit
+                                                                                     call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_arguments_result>~visit
                                                                                      return
                                                                                     end
                                                                                     local.get $0
                                                                                     local.get $1
-                                                                                    call $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Obj<assembly/proto/kanvascontract/kanvascontract.uint64>~visit
+                                                                                    call $assembly/Kanvascontract/Kanvascontract~visit
                                                                                     return
                                                                                    end
                                                                                    local.get $0
                                                                                    local.get $1
-                                                                                   call $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_contract_id_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                                                                                   call $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Obj<assembly/proto/kanvascontract/kanvascontract.balance_object>~visit
                                                                                    return
                                                                                   end
                                                                                   local.get $0
                                                                                   local.get $1
-                                                                                  call $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_contract_id_result~visit
+                                                                                  call $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/typedarray/Uint8Array,assembly/proto/kanvascontract/kanvascontract.balance_object>~visit
                                                                                   return
                                                                                  end
                                                                                  local.get $0
                                                                                  local.get $1
-                                                                                 call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_contract_id_result>~visit
+                                                                                 call $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/typedarray/Uint8Array,assembly/proto/kanvascontract/kanvascontract.pixel_count_object>~visit
                                                                                  return
                                                                                 end
                                                                                 local.get $0
                                                                                 local.get $1
-                                                                                call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.balance_object>~visit
+                                                                                call $assembly/proto/kanvascontract/kanvascontract.pixel_object~visit
                                                                                 return
                                                                                end
                                                                                local.get $0
                                                                                local.get $1
-                                                                               call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.balance_object%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                                                                               call $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Map<~lib/string/String,assembly/proto/kanvascontract/kanvascontract.pixel_object>~visit
                                                                                return
                                                                               end
                                                                               local.get $0
                                                                               local.get $1
-                                                                              call $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.balance_object|null>~visit
+                                                                              call $~lib/@koinos/sdk-as/assembly/util/storage/Storage.Obj<assembly/proto/kanvascontract/kanvascontract.uint64>~visit
                                                                               return
                                                                              end
                                                                              local.get $0
                                                                              local.get $1
-                                                                             call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.pixel_count_object>~visit
+                                                                             call $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_contract_id_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
                                                                              return
                                                                             end
                                                                             local.get $0
                                                                             local.get $1
-                                                                            call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_count_object%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                                                                            call $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_contract_id_result~visit
                                                                             return
                                                                            end
                                                                            local.get $0
                                                                            local.get $1
-                                                                           call $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.pixel_count_object|null>~visit
+                                                                           call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_contract_id_result>~visit
                                                                            return
                                                                           end
                                                                           local.get $0
                                                                           local.get $1
-                                                                          call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.pixel_object>~visit
+                                                                          call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.balance_object>~visit
                                                                           return
                                                                          end
                                                                          local.get $0
                                                                          local.get $1
-                                                                         call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_object%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                                                                         call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.balance_object%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
                                                                          return
                                                                         end
                                                                         local.get $0
                                                                         local.get $1
-                                                                        call $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.pixel_object|null>~visit
+                                                                        call $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.balance_object|null>~visit
                                                                         return
                                                                        end
                                                                        local.get $0
                                                                        local.get $1
-                                                                       call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.uint64>~visit
+                                                                       call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.pixel_count_object>~visit
                                                                        return
                                                                       end
                                                                       local.get $0
                                                                       local.get $1
-                                                                      call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.uint64%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                                                                      call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_count_object%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
                                                                       return
                                                                      end
                                                                      local.get $0
                                                                      local.get $1
-                                                                     call $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.uint64|null>~visit
+                                                                     call $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.pixel_count_object|null>~visit
                                                                      return
                                                                     end
                                                                     local.get $0
                                                                     local.get $1
-                                                                    call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.name_arguments>~visit
+                                                                    call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.pixel_object>~visit
                                                                     return
                                                                    end
                                                                    local.get $0
                                                                    local.get $1
-                                                                   call $assembly/proto/kanvascontract/kanvascontract.name_result~visit
+                                                                   call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_object%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
                                                                    return
                                                                   end
                                                                   local.get $0
                                                                   local.get $1
-                                                                  call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.name_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                                                                  call $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.pixel_object|null>~visit
                                                                   return
                                                                  end
                                                                  local.get $0
                                                                  local.get $1
-                                                                 call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.symbol_arguments>~visit
+                                                                 call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.uint64>~visit
                                                                  return
                                                                 end
                                                                 local.get $0
                                                                 local.get $1
-                                                                call $assembly/proto/kanvascontract/kanvascontract.symbol_result~visit
+                                                                call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.uint64%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
                                                                 return
                                                                end
                                                                local.get $0
                                                                local.get $1
-                                                               call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.symbol_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                                                               call $~lib/function/Function<%28%29=>assembly/proto/kanvascontract/kanvascontract.uint64|null>~visit
                                                                return
                                                               end
                                                               local.get $0
                                                               local.get $1
-                                                              call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.decimals_arguments>~visit
+                                                              call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.name_arguments>~visit
                                                               return
                                                              end
                                                              local.get $0
                                                              local.get $1
-                                                             call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.decimals_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                                                             call $assembly/proto/kanvascontract/kanvascontract.name_result~visit
                                                              return
                                                             end
                                                             local.get $0
                                                             local.get $1
-                                                            call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.total_supply_arguments>~visit
+                                                            call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.name_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
                                                             return
                                                            end
                                                            local.get $0
                                                            local.get $1
-                                                           call $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_arguments~visit
+                                                           call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.symbol_arguments>~visit
                                                            return
                                                           end
                                                           local.get $0
                                                           local.get $1
-                                                          call $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                                                          call $assembly/proto/kanvascontract/kanvascontract.symbol_result~visit
                                                           return
                                                          end
                                                          local.get $0
                                                          local.get $1
-                                                         call $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_result~visit
+                                                         call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.symbol_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
                                                          return
                                                         end
                                                         local.get $0
                                                         local.get $1
-                                                        call $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.database_object~visit
+                                                        call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.decimals_arguments>~visit
                                                         return
                                                        end
                                                        local.get $0
                                                        local.get $1
-                                                       call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_result>~visit
+                                                       call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.decimals_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
                                                        return
                                                       end
                                                       local.get $0
                                                       local.get $1
-                                                      call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.total_supply_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                                                      call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.total_supply_arguments>~visit
                                                       return
                                                      end
                                                      local.get $0
                                                      local.get $1
-                                                     call $assembly/proto/kanvascontract/kanvascontract.balance_of_arguments~visit
+                                                     call $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_arguments~visit
                                                      return
                                                     end
                                                     local.get $0
                                                     local.get $1
-                                                    call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.balance_of_arguments>~visit
+                                                    call $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
                                                     return
                                                    end
                                                    local.get $0
                                                    local.get $1
-                                                   call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.balance_of_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                                                   call $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_result~visit
                                                    return
                                                   end
                                                   local.get $0
                                                   local.get $1
-                                                  call $assembly/proto/kanvascontract/kanvascontract.transfer_arguments~visit
+                                                  call $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.database_object~visit
                                                   return
                                                  end
                                                  local.get $0
                                                  local.get $1
-                                                 call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.transfer_arguments>~visit
+                                                 call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_object_result>~visit
                                                  return
                                                 end
                                                 local.get $0
                                                 local.get $1
-                                                call $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.caller_data~visit
+                                                call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.total_supply_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
                                                 return
                                                end
                                                local.get $0
                                                local.get $1
-                                               call $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_caller_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                                               call $assembly/proto/kanvascontract/kanvascontract.balance_of_arguments~visit
                                                return
                                               end
                                               local.get $0
                                               local.get $1
-                                              call $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_caller_result~visit
+                                              call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.balance_of_arguments>~visit
                                               return
                                              end
                                              local.get $0
                                              local.get $1
-                                             call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_caller_result>~visit
+                                             call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.balance_of_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
                                              return
                                             end
                                             local.get $0
                                             local.get $1
-                                            call $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.check_authority_arguments~visit
+                                            call $assembly/proto/kanvascontract/kanvascontract.transfer_arguments~visit
                                             return
                                            end
                                            local.get $0
                                            local.get $1
-                                           call $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.check_authority_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                                           call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.transfer_arguments>~visit
                                            return
                                           end
                                           local.get $0
                                           local.get $1
-                                          call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.check_authority_result>~visit
+                                          call $~lib/@koinos/proto-as/assembly/koinos/chain/chain/chain.caller_data~visit
                                           return
                                          end
                                          local.get $0
                                          local.get $1
-                                         call $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.put_object_arguments~visit
+                                         call $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_caller_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
                                          return
                                         end
                                         local.get $0
                                         local.get $1
-                                        call $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.put_object_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                                        call $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_caller_result~visit
                                         return
                                        end
                                        local.get $0
                                        local.get $1
-                                       call $assembly/proto/kanvascontract/kanvascontract.transfer_event~visit
+                                       call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.get_caller_result>~visit
                                        return
                                       end
                                       local.get $0
                                       local.get $1
-                                      call $~lib/array/Array<~lib/typedarray/Uint8Array>~visit
+                                      call $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.check_authority_arguments~visit
                                       return
                                      end
                                      local.get $0
                                      local.get $1
-                                     call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.transfer_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                                     call $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.check_authority_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
                                      return
                                     end
                                     local.get $0
                                     local.get $1
-                                    call $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.event_arguments~visit
+                                    call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.check_authority_result>~visit
                                     return
                                    end
                                    local.get $0
                                    local.get $1
-                                   call $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.event_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                                   call $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.put_object_arguments~visit
                                    return
                                   end
                                   local.get $0
                                   local.get $1
-                                  call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.empty_message%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                                  call $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.put_object_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
                                   return
                                  end
                                  local.get $0
                                  local.get $1
-                                 call $assembly/proto/kanvascontract/kanvascontract.mint_arguments~visit
+                                 call $assembly/proto/kanvascontract/kanvascontract.transfer_event~visit
                                  return
                                 end
                                 local.get $0
                                 local.get $1
-                                call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.mint_arguments>~visit
+                                call $~lib/array/Array<~lib/typedarray/Uint8Array>~visit
                                 return
                                end
+                               local.get $0
+                               local.get $1
+                               call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.transfer_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
                                return
                               end
                               local.get $0
                               local.get $1
-                              call $assembly/proto/kanvascontract/kanvascontract.mint_event~visit
+                              call $~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.event_arguments~visit
                               return
                              end
                              local.get $0
                              local.get $1
-                             call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.mint_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                             call $~lib/function/Function<%28~lib/@koinos/proto-as/assembly/koinos/chain/system_calls/system_calls.event_arguments%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
                              return
                             end
                             local.get $0
                             local.get $1
-                            call $assembly/proto/kanvascontract/kanvascontract.burn_arguments~visit
+                            call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.empty_message%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
                             return
                            end
                            local.get $0
                            local.get $1
-                           call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.burn_arguments>~visit
+                           call $assembly/proto/kanvascontract/kanvascontract.mint_arguments~visit
                            return
                           end
                           local.get $0
                           local.get $1
-                          call $~lib/staticarray/StaticArray<~lib/string/String>~visit
+                          call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.mint_arguments>~visit
                           return
                          end
-                         local.get $0
-                         local.get $1
-                         call $assembly/proto/kanvascontract/kanvascontract.burn_event~visit
                          return
                         end
                         local.get $0
                         local.get $1
-                        call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.burn_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                        call $assembly/proto/kanvascontract/kanvascontract.mint_event~visit
                         return
                        end
                        local.get $0
                        local.get $1
-                       call $assembly/proto/kanvascontract/kanvascontract.pixel_count_of_arguments~visit
+                       call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.mint_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
                        return
                       end
                       local.get $0
                       local.get $1
-                      call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.pixel_count_of_arguments>~visit
+                      call $assembly/proto/kanvascontract/kanvascontract.burn_arguments~visit
                       return
                      end
                      local.get $0
                      local.get $1
-                     call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_count_of_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                     call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.burn_arguments>~visit
                      return
                     end
                     local.get $0
                     local.get $1
-                    call $assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments~visit
+                    call $~lib/staticarray/StaticArray<~lib/string/String>~visit
                     return
                    end
                    local.get $0
                    local.get $1
-                   call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>~visit
+                   call $assembly/proto/kanvascontract/kanvascontract.burn_event~visit
                    return
                   end
                   local.get $0
                   local.get $1
-                  call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event~visit
+                  call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.burn_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
                   return
                  end
                  local.get $0
                  local.get $1
-                 call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_placed_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                 call $assembly/proto/kanvascontract/kanvascontract.pixel_count_of_arguments~visit
                  return
                 end
                 local.get $0
                 local.get $1
-                call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.place_pixel_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+                call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.pixel_count_of_arguments>~visit
                 return
                end
                local.get $0
                local.get $1
-               call $assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments~visit
+               call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_count_of_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
                return
               end
               local.get $0
               local.get $1
-              call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>~visit
+              call $assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments~visit
               return
              end
              local.get $0
              local.get $1
-             call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments>~visit
+             call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>~visit
              return
             end
             local.get $0
             local.get $1
-            call $assembly/proto/kanvascontract/kanvascontract.place_pixels_result~visit
+            call $assembly/proto/kanvascontract/kanvascontract.pixel_placed_event~visit
             return
            end
            local.get $0
            local.get $1
-           call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>~visit
+           call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.pixel_placed_event%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
            return
           end
           local.get $0
           local.get $1
-          call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.place_pixels_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
+          call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.place_pixel_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>~visit
           return
          end
          local.get $0
@@ -31730,1033 +31561,6 @@
   local.get $2
   return
  )
- (func $assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments#constructor (param $this i32) (param $place_pixel_arguments i32) (result i32)
-  (local $2 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 12
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i64.const 0
-  i64.store $0
-  global.get $~lib/memory/__stack_pointer
-  i32.const 0
-  i32.store $0 offset=8
-  local.get $this
-  i32.eqz
-  if
-   global.get $~lib/memory/__stack_pointer
-   i32.const 4
-   i32.const 99
-   call $~lib/rt/itcms/__new
-   local.tee $this
-   i32.store $0
-  end
-  local.get $this
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  local.get $2
-  i32.store $0 offset=4
-  local.get $2
-  i32.const 0
-  call $assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments#set:place_pixel_arguments
-  local.get $this
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  local.get $2
-  i32.store $0 offset=4
-  local.get $2
-  local.get $place_pixel_arguments
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  local.get $2
-  i32.store $0 offset=8
-  local.get $2
-  call $assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments#set:place_pixel_arguments
-  local.get $this
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  i32.const 12
-  i32.add
-  global.set $~lib/memory/__stack_pointer
-  local.get $2
- )
- (func $assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments#constructor@varargs (param $this i32) (param $place_pixel_arguments i32) (result i32)
-  (local $2 i32)
-  (local $3 i32)
-  (local $4 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 12
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i64.const 0
-  i64.store $0
-  global.get $~lib/memory/__stack_pointer
-  i32.const 0
-  i32.store $0 offset=8
-  block $1of1
-   block $0of1
-    block $outOfRange
-     global.get $~argumentsLength
-     br_table $0of1 $1of1 $outOfRange
-    end
-    unreachable
-   end
-   global.get $~lib/memory/__stack_pointer
-   i32.const 0
-   i32.const 2
-   i32.const 100
-   i32.const 5344
-   call $~lib/rt/__newArray
-   local.tee $place_pixel_arguments
-   i32.store $0
-  end
-  local.get $this
-  local.set $4
-  global.get $~lib/memory/__stack_pointer
-  local.get $4
-  i32.store $0 offset=4
-  local.get $4
-  local.get $place_pixel_arguments
-  local.set $4
-  global.get $~lib/memory/__stack_pointer
-  local.get $4
-  i32.store $0 offset=8
-  local.get $4
-  call $assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments#constructor
-  local.set $4
-  global.get $~lib/memory/__stack_pointer
-  i32.const 12
-  i32.add
-  global.set $~lib/memory/__stack_pointer
-  local.get $4
- )
- (func $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>#push (param $this i32) (param $value i32) (result i32)
-  (local $oldLen i32)
-  (local $len i32)
-  (local $4 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i32.const 0
-  i32.store $0
-  local.get $this
-  local.set $4
-  global.get $~lib/memory/__stack_pointer
-  local.get $4
-  i32.store $0
-  local.get $4
-  call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>#get:length_
-  local.set $oldLen
-  local.get $oldLen
-  i32.const 1
-  i32.add
-  local.set $len
-  local.get $this
-  local.get $len
-  i32.const 2
-  i32.const 1
-  call $~lib/array/ensureCapacity
-  i32.const 1
-  drop
-  local.get $this
-  local.set $4
-  global.get $~lib/memory/__stack_pointer
-  local.get $4
-  i32.store $0
-  local.get $4
-  call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>#get:dataStart
-  local.get $oldLen
-  i32.const 2
-  i32.shl
-  i32.add
-  local.get $value
-  i32.store $0
-  local.get $this
-  local.get $value
-  i32.const 1
-  call $~lib/rt/itcms/__link
-  local.get $this
-  local.set $4
-  global.get $~lib/memory/__stack_pointer
-  local.get $4
-  i32.store $0
-  local.get $4
-  local.get $len
-  call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>#set:length_
-  local.get $len
-  local.set $4
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.add
-  global.set $~lib/memory/__stack_pointer
-  local.get $4
-  return
- )
- (func $assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments.decode (param $reader i32) (param $length i32) (result i32)
-  (local $end i32)
-  (local $message i32)
-  (local $tag i32)
-  (local $5 i32)
-  (local $6 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 20
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i64.const 0
-  i64.store $0
-  global.get $~lib/memory/__stack_pointer
-  i64.const 0
-  i64.store $0 offset=8
-  global.get $~lib/memory/__stack_pointer
-  i32.const 0
-  i32.store $0 offset=16
-  local.get $length
-  i32.const 0
-  i32.lt_s
-  if (result i32)
-   local.get $reader
-   local.set $6
-   global.get $~lib/memory/__stack_pointer
-   local.get $6
-   i32.store $0
-   local.get $6
-   call $~lib/as-proto/assembly/Reader/Reader#get:end
-  else
-   local.get $reader
-   local.set $6
-   global.get $~lib/memory/__stack_pointer
-   local.get $6
-   i32.store $0
-   local.get $6
-   call $~lib/as-proto/assembly/Reader/Reader#get:ptr
-   local.get $length
-   i32.add
-  end
-  local.set $end
-  global.get $~lib/memory/__stack_pointer
-  i32.const 0
-  i32.const 0
-  global.set $~argumentsLength
-  i32.const 0
-  call $assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments#constructor@varargs
-  local.tee $message
-  i32.store $0 offset=4
-  loop $while-continue|0
-   local.get $reader
-   local.set $6
-   global.get $~lib/memory/__stack_pointer
-   local.get $6
-   i32.store $0
-   local.get $6
-   call $~lib/as-proto/assembly/Reader/Reader#get:ptr
-   local.get $end
-   i32.lt_u
-   if
-    local.get $reader
-    local.set $6
-    global.get $~lib/memory/__stack_pointer
-    local.get $6
-    i32.store $0
-    local.get $6
-    call $~lib/as-proto/assembly/Reader/Reader#uint32@override
-    local.set $tag
-    block $break|1
-     block $case1|1
-      block $case0|1
-       local.get $tag
-       i32.const 3
-       i32.shr_u
-       local.set $5
-       local.get $5
-       i32.const 1
-       i32.eq
-       br_if $case0|1
-       br $case1|1
-      end
-      local.get $message
-      local.set $6
-      global.get $~lib/memory/__stack_pointer
-      local.get $6
-      i32.store $0 offset=12
-      local.get $6
-      call $assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments#get:place_pixel_arguments
-      local.set $6
-      global.get $~lib/memory/__stack_pointer
-      local.get $6
-      i32.store $0
-      local.get $6
-      local.get $reader
-      local.set $6
-      global.get $~lib/memory/__stack_pointer
-      local.get $6
-      i32.store $0 offset=12
-      local.get $6
-      local.get $reader
-      local.set $6
-      global.get $~lib/memory/__stack_pointer
-      local.get $6
-      i32.store $0 offset=16
-      local.get $6
-      call $~lib/as-proto/assembly/Reader/Reader#uint32@override
-      call $assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments.decode
-      local.set $6
-      global.get $~lib/memory/__stack_pointer
-      local.get $6
-      i32.store $0 offset=8
-      local.get $6
-      call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>#push
-      drop
-      br $break|1
-     end
-     local.get $reader
-     local.set $6
-     global.get $~lib/memory/__stack_pointer
-     local.get $6
-     i32.store $0
-     local.get $6
-     local.get $tag
-     i32.const 7
-     i32.and
-     call $~lib/as-proto/assembly/Reader/Reader#skipType@override
-     br $break|1
-    end
-    br $while-continue|0
-   end
-  end
-  local.get $message
-  local.set $6
-  global.get $~lib/memory/__stack_pointer
-  i32.const 20
-  i32.add
-  global.set $~lib/memory/__stack_pointer
-  local.get $6
-  return
- )
- (func $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments> (param $buffer i32) (param $decoder i32) (param $length i32) (result i32)
-  (local $3 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 8
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i64.const 0
-  i64.store $0
-  global.get $~lib/as-proto/assembly/Protobuf/READER
-  local.set $3
-  global.get $~lib/memory/__stack_pointer
-  local.get $3
-  i32.store $0
-  local.get $3
-  local.get $buffer
-  local.set $3
-  global.get $~lib/memory/__stack_pointer
-  local.get $3
-  i32.store $0 offset=4
-  local.get $3
-  call $~lib/as-proto/assembly/internal/FixedReader/FixedReader#reset
-  global.get $~lib/as-proto/assembly/Protobuf/READER
-  local.set $3
-  global.get $~lib/memory/__stack_pointer
-  local.get $3
-  i32.store $0
-  local.get $3
-  local.get $length
-  i32.const 2
-  global.set $~argumentsLength
-  local.get $decoder
-  i32.load $0
-  call_indirect $0 (type $i32_i32_=>_i32)
-  local.set $3
-  global.get $~lib/memory/__stack_pointer
-  i32.const 8
-  i32.add
-  global.set $~lib/memory/__stack_pointer
-  local.get $3
-  return
- )
- (func $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments>@varargs (param $buffer i32) (param $decoder i32) (param $length i32) (result i32)
-  (local $3 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 8
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i64.const 0
-  i64.store $0
-  block $1of1
-   block $0of1
-    block $outOfRange
-     global.get $~argumentsLength
-     i32.const 2
-     i32.sub
-     br_table $0of1 $1of1 $outOfRange
-    end
-    unreachable
-   end
-   i32.const -1
-   local.set $length
-  end
-  local.get $buffer
-  local.set $3
-  global.get $~lib/memory/__stack_pointer
-  local.get $3
-  i32.store $0
-  local.get $3
-  local.get $decoder
-  local.set $3
-  global.get $~lib/memory/__stack_pointer
-  local.get $3
-  i32.store $0 offset=4
-  local.get $3
-  local.get $length
-  call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments>
-  local.set $3
-  global.get $~lib/memory/__stack_pointer
-  i32.const 8
-  i32.add
-  global.set $~lib/memory/__stack_pointer
-  local.get $3
- )
- (func $assembly/proto/kanvascontract/kanvascontract.place_pixels_result#constructor (param $this i32) (param $place_pixel_results i32) (result i32)
-  (local $2 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 12
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i64.const 0
-  i64.store $0
-  global.get $~lib/memory/__stack_pointer
-  i32.const 0
-  i32.store $0 offset=8
-  local.get $this
-  i32.eqz
-  if
-   global.get $~lib/memory/__stack_pointer
-   i32.const 4
-   i32.const 102
-   call $~lib/rt/itcms/__new
-   local.tee $this
-   i32.store $0
-  end
-  local.get $this
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  local.get $2
-  i32.store $0 offset=4
-  local.get $2
-  i32.const 0
-  call $assembly/proto/kanvascontract/kanvascontract.place_pixels_result#set:place_pixel_results
-  local.get $this
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  local.get $2
-  i32.store $0 offset=4
-  local.get $2
-  local.get $place_pixel_results
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  local.get $2
-  i32.store $0 offset=8
-  local.get $2
-  call $assembly/proto/kanvascontract/kanvascontract.place_pixels_result#set:place_pixel_results
-  local.get $this
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  i32.const 12
-  i32.add
-  global.set $~lib/memory/__stack_pointer
-  local.get $2
- )
- (func $assembly/proto/kanvascontract/kanvascontract.place_pixels_result#constructor@varargs (param $this i32) (param $place_pixel_results i32) (result i32)
-  (local $2 i32)
-  (local $3 i32)
-  (local $4 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 12
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i64.const 0
-  i64.store $0
-  global.get $~lib/memory/__stack_pointer
-  i32.const 0
-  i32.store $0 offset=8
-  block $1of1
-   block $0of1
-    block $outOfRange
-     global.get $~argumentsLength
-     br_table $0of1 $1of1 $outOfRange
-    end
-    unreachable
-   end
-   global.get $~lib/memory/__stack_pointer
-   i32.const 0
-   i32.const 2
-   i32.const 103
-   i32.const 5408
-   call $~lib/rt/__newArray
-   local.tee $place_pixel_results
-   i32.store $0
-  end
-  local.get $this
-  local.set $4
-  global.get $~lib/memory/__stack_pointer
-  local.get $4
-  i32.store $0 offset=4
-  local.get $4
-  local.get $place_pixel_results
-  local.set $4
-  global.get $~lib/memory/__stack_pointer
-  local.get $4
-  i32.store $0 offset=8
-  local.get $4
-  call $assembly/proto/kanvascontract/kanvascontract.place_pixels_result#constructor
-  local.set $4
-  global.get $~lib/memory/__stack_pointer
-  i32.const 12
-  i32.add
-  global.set $~lib/memory/__stack_pointer
-  local.get $4
- )
- (func $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>#get:length (param $this i32) (result i32)
-  (local $1 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i32.const 0
-  i32.store $0
-  local.get $this
-  local.set $1
-  global.get $~lib/memory/__stack_pointer
-  local.get $1
-  i32.store $0
-  local.get $1
-  call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>#get:length_
-  local.set $1
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.add
-  global.set $~lib/memory/__stack_pointer
-  local.get $1
-  return
- )
- (func $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>#__get (param $this i32) (param $index i32) (result i32)
-  (local $value i32)
-  (local $3 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 8
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i64.const 0
-  i64.store $0
-  local.get $index
-  local.get $this
-  local.set $3
-  global.get $~lib/memory/__stack_pointer
-  local.get $3
-  i32.store $0
-  local.get $3
-  call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>#get:length_
-  i32.ge_u
-  if
-   unreachable
-  end
-  global.get $~lib/memory/__stack_pointer
-  local.get $this
-  local.set $3
-  global.get $~lib/memory/__stack_pointer
-  local.get $3
-  i32.store $0
-  local.get $3
-  call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>#get:dataStart
-  local.get $index
-  i32.const 2
-  i32.shl
-  i32.add
-  i32.load $0
-  local.tee $value
-  i32.store $0 offset=4
-  i32.const 1
-  drop
-  i32.const 0
-  i32.eqz
-  drop
-  local.get $value
-  i32.eqz
-  if
-   unreachable
-  end
-  local.get $value
-  local.set $3
-  global.get $~lib/memory/__stack_pointer
-  i32.const 8
-  i32.add
-  global.set $~lib/memory/__stack_pointer
-  local.get $3
-  return
- )
- (func $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>#push (param $this i32) (param $value i32) (result i32)
-  (local $oldLen i32)
-  (local $len i32)
-  (local $4 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i32.const 0
-  i32.store $0
-  local.get $this
-  local.set $4
-  global.get $~lib/memory/__stack_pointer
-  local.get $4
-  i32.store $0
-  local.get $4
-  call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>#get:length_
-  local.set $oldLen
-  local.get $oldLen
-  i32.const 1
-  i32.add
-  local.set $len
-  local.get $this
-  local.get $len
-  i32.const 2
-  i32.const 1
-  call $~lib/array/ensureCapacity
-  i32.const 0
-  drop
-  local.get $this
-  local.set $4
-  global.get $~lib/memory/__stack_pointer
-  local.get $4
-  i32.store $0
-  local.get $4
-  call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>#get:dataStart
-  local.get $oldLen
-  i32.const 2
-  i32.shl
-  i32.add
-  local.get $value
-  i32.store $0
-  local.get $this
-  local.set $4
-  global.get $~lib/memory/__stack_pointer
-  local.get $4
-  i32.store $0
-  local.get $4
-  local.get $len
-  call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>#set:length_
-  local.get $len
-  local.set $4
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.add
-  global.set $~lib/memory/__stack_pointer
-  local.get $4
-  return
- )
- (func $assembly/Kanvascontract/Kanvascontract#place_pixels (param $this i32) (param $args i32) (result i32)
-  (local $place_pixels_arguments i32)
-  (local $res i32)
-  (local $4 i32)
-  (local $5 i32)
-  (local $i i32)
-  (local $place_pixel_arguments i32)
-  (local $place_pixel_results i32)
-  (local $9 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 20
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i64.const 0
-  i64.store $0
-  global.get $~lib/memory/__stack_pointer
-  i64.const 0
-  i64.store $0 offset=8
-  global.get $~lib/memory/__stack_pointer
-  i32.const 0
-  i32.store $0 offset=16
-  global.get $~lib/memory/__stack_pointer
-  local.get $args
-  local.set $9
-  global.get $~lib/memory/__stack_pointer
-  local.get $9
-  i32.store $0
-  local.get $9
-  call $assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments#get:place_pixel_arguments
-  local.tee $place_pixels_arguments
-  i32.store $0 offset=4
-  global.get $~lib/memory/__stack_pointer
-  i32.const 0
-  i32.const 0
-  global.set $~argumentsLength
-  i32.const 0
-  call $assembly/proto/kanvascontract/kanvascontract.place_pixels_result#constructor@varargs
-  local.tee $res
-  i32.store $0 offset=8
-  local.get $res
-  local.set $9
-  global.get $~lib/memory/__stack_pointer
-  local.get $9
-  i32.store $0
-  local.get $9
-  i32.const 0
-  i32.const 2
-  i32.const 103
-  i32.const 5440
-  call $~lib/rt/__newArray
-  local.set $9
-  global.get $~lib/memory/__stack_pointer
-  local.get $9
-  i32.store $0 offset=12
-  local.get $9
-  call $assembly/proto/kanvascontract/kanvascontract.place_pixels_result#set:place_pixel_results
-  i32.const 0
-  local.set $i
-  loop $for-loop|0
-   local.get $i
-   local.get $place_pixels_arguments
-   local.set $9
-   global.get $~lib/memory/__stack_pointer
-   local.get $9
-   i32.store $0
-   local.get $9
-   call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>#get:length
-   i32.lt_s
-   if
-    global.get $~lib/memory/__stack_pointer
-    local.get $place_pixels_arguments
-    local.set $9
-    global.get $~lib/memory/__stack_pointer
-    local.get $9
-    i32.store $0
-    local.get $9
-    local.get $i
-    call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>#__get
-    local.tee $place_pixel_arguments
-    i32.store $0 offset=16
-    local.get $this
-    local.set $9
-    global.get $~lib/memory/__stack_pointer
-    local.get $9
-    i32.store $0
-    local.get $9
-    local.get $place_pixel_arguments
-    local.set $9
-    global.get $~lib/memory/__stack_pointer
-    local.get $9
-    i32.store $0 offset=12
-    local.get $9
-    call $assembly/Kanvascontract/Kanvascontract#place_pixel
-    local.set $place_pixel_results
-    local.get $res
-    local.set $9
-    global.get $~lib/memory/__stack_pointer
-    local.get $9
-    i32.store $0 offset=12
-    local.get $9
-    call $assembly/proto/kanvascontract/kanvascontract.place_pixels_result#get:place_pixel_results
-    local.set $9
-    global.get $~lib/memory/__stack_pointer
-    local.get $9
-    i32.store $0
-    local.get $9
-    local.get $place_pixel_results
-    call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>#push
-    drop
-    local.get $i
-    i32.const 1
-    i32.add
-    local.set $i
-    br $for-loop|0
-   end
-  end
-  local.get $res
-  local.set $9
-  global.get $~lib/memory/__stack_pointer
-  i32.const 20
-  i32.add
-  global.set $~lib/memory/__stack_pointer
-  local.get $9
-  return
- )
- (func $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>#get:length (param $this i32) (result i32)
-  (local $1 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i32.const 0
-  i32.store $0
-  local.get $this
-  local.set $1
-  global.get $~lib/memory/__stack_pointer
-  local.get $1
-  i32.store $0
-  local.get $1
-  call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>#get:length_
-  local.set $1
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.add
-  global.set $~lib/memory/__stack_pointer
-  local.get $1
-  return
- )
- (func $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>#__get (param $this i32) (param $index i32) (result i32)
-  (local $value i32)
-  (local $3 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i32.const 0
-  i32.store $0
-  local.get $index
-  local.get $this
-  local.set $3
-  global.get $~lib/memory/__stack_pointer
-  local.get $3
-  i32.store $0
-  local.get $3
-  call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>#get:length_
-  i32.ge_u
-  if
-   unreachable
-  end
-  local.get $this
-  local.set $3
-  global.get $~lib/memory/__stack_pointer
-  local.get $3
-  i32.store $0
-  local.get $3
-  call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>#get:dataStart
-  local.get $index
-  i32.const 2
-  i32.shl
-  i32.add
-  i32.load $0
-  local.set $value
-  i32.const 1
-  drop
-  i32.const 0
-  i32.eqz
-  drop
-  local.get $value
-  i32.eqz
-  if
-   unreachable
-  end
-  local.get $value
-  local.set $3
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.add
-  global.set $~lib/memory/__stack_pointer
-  local.get $3
-  return
- )
- (func $assembly/proto/kanvascontract/kanvascontract.place_pixels_result.encode (param $message i32) (param $writer i32)
-  (local $unique_name_place_pixel_results i32)
-  (local $i i32)
-  (local $4 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 12
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i64.const 0
-  i64.store $0
-  global.get $~lib/memory/__stack_pointer
-  i32.const 0
-  i32.store $0 offset=8
-  global.get $~lib/memory/__stack_pointer
-  local.get $message
-  local.set $4
-  global.get $~lib/memory/__stack_pointer
-  local.get $4
-  i32.store $0
-  local.get $4
-  call $assembly/proto/kanvascontract/kanvascontract.place_pixels_result#get:place_pixel_results
-  local.tee $unique_name_place_pixel_results
-  i32.store $0 offset=4
-  i32.const 0
-  local.set $i
-  loop $for-loop|0
-   local.get $i
-   local.get $unique_name_place_pixel_results
-   local.set $4
-   global.get $~lib/memory/__stack_pointer
-   local.get $4
-   i32.store $0
-   local.get $4
-   call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>#get:length
-   i32.lt_s
-   if
-    local.get $writer
-    local.set $4
-    global.get $~lib/memory/__stack_pointer
-    local.get $4
-    i32.store $0
-    local.get $4
-    i32.const 10
-    call $~lib/as-proto/assembly/Writer/Writer#uint32@override
-    local.get $writer
-    local.set $4
-    global.get $~lib/memory/__stack_pointer
-    local.get $4
-    i32.store $0
-    local.get $4
-    call $~lib/as-proto/assembly/Writer/Writer#fork@override
-    local.get $unique_name_place_pixel_results
-    local.set $4
-    global.get $~lib/memory/__stack_pointer
-    local.get $4
-    i32.store $0 offset=8
-    local.get $4
-    local.get $i
-    call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>#__get
-    local.get $writer
-    local.set $4
-    global.get $~lib/memory/__stack_pointer
-    local.get $4
-    i32.store $0 offset=8
-    local.get $4
-    call $assembly/proto/kanvascontract/kanvascontract.place_pixel_result.encode
-    local.get $writer
-    local.set $4
-    global.get $~lib/memory/__stack_pointer
-    local.get $4
-    i32.store $0
-    local.get $4
-    call $~lib/as-proto/assembly/Writer/Writer#ldelim@override
-    local.get $i
-    i32.const 1
-    i32.add
-    local.set $i
-    br $for-loop|0
-   end
-  end
-  global.get $~lib/memory/__stack_pointer
-  i32.const 12
-  i32.add
-  global.set $~lib/memory/__stack_pointer
- )
- (func $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.place_pixels_result> (param $message i32) (param $encoder i32) (result i32)
-  (local $2 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 12
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i64.const 0
-  i64.store $0
-  global.get $~lib/memory/__stack_pointer
-  i32.const 0
-  i32.store $0 offset=8
-  global.get $~lib/as-proto/assembly/Protobuf/WRITER
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  local.get $2
-  i32.store $0 offset=4
-  local.get $2
-  call $~lib/as-proto/assembly/internal/FixedWriter/FixedWriter#get:sizer
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  local.get $2
-  i32.store $0
-  local.get $2
-  call $~lib/as-proto/assembly/internal/FixedSizer/FixedSizer#reset
-  local.get $message
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  local.get $2
-  i32.store $0
-  local.get $2
-  global.get $~lib/as-proto/assembly/Protobuf/WRITER
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  local.get $2
-  i32.store $0 offset=8
-  local.get $2
-  call $~lib/as-proto/assembly/internal/FixedWriter/FixedWriter#get:sizer
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  local.get $2
-  i32.store $0 offset=4
-  local.get $2
-  i32.const 2
-  global.set $~argumentsLength
-  local.get $encoder
-  i32.load $0
-  call_indirect $0 (type $i32_i32_=>_none)
-  global.get $~lib/as-proto/assembly/Protobuf/WRITER
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  local.get $2
-  i32.store $0
-  local.get $2
-  call $~lib/as-proto/assembly/internal/FixedWriter/FixedWriter#reset
-  local.get $message
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  local.get $2
-  i32.store $0
-  local.get $2
-  global.get $~lib/as-proto/assembly/Protobuf/WRITER
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  local.get $2
-  i32.store $0 offset=4
-  local.get $2
-  i32.const 2
-  global.set $~argumentsLength
-  local.get $encoder
-  i32.load $0
-  call_indirect $0 (type $i32_i32_=>_none)
-  global.get $~lib/as-proto/assembly/Protobuf/WRITER
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  local.get $2
-  i32.store $0
-  local.get $2
-  call $~lib/as-proto/assembly/internal/FixedWriter/FixedWriter#finish
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  i32.const 12
-  i32.add
-  global.set $~lib/memory/__stack_pointer
-  local.get $2
-  return
- )
  (func $assembly/proto/kanvascontract/kanvascontract.pixel_at_arguments.decode (param $reader i32) (param $length i32) (result i32)
   (local $end i32)
   (local $message i32)
@@ -32987,7 +31791,7 @@
   if
    global.get $~lib/memory/__stack_pointer
    i32.const 4
-   i32.const 106
+   i32.const 100
    call $~lib/rt/itcms/__new
    local.tee $this
    i32.store $0
@@ -34219,14 +33023,14 @@
   local.get $canvas_height
   call $assembly/proto/kanvascontract/kanvascontract.canvas_dimensions_changed_event#constructor
   local.set $canvasDimensionsChangedEvent
-  i32.const 5664
+  i32.const 5504
   local.set $8
   global.get $~lib/memory/__stack_pointer
   local.get $8
   i32.store $0 offset=4
   local.get $8
   local.get $canvasDimensionsChangedEvent
-  i32.const 5776
+  i32.const 5616
   local.set $8
   global.get $~lib/memory/__stack_pointer
   local.get $8
@@ -34241,7 +33045,7 @@
   i32.const 0
   i32.const 2
   i32.const 76
-  i32.const 5808
+  i32.const 5648
   call $~lib/rt/__newArray
   local.set $8
   global.get $~lib/memory/__stack_pointer
@@ -34292,11 +33096,9 @@
   (local $res|27 i32)
   (local $args|28 i32)
   (local $res|29 i32)
-  (local $args|30 i32)
-  (local $res|31 i32)
-  (local $32 i32)
+  (local $30 i32)
   global.get $~lib/memory/__stack_pointer
-  i32.const 68
+  i32.const 60
   i32.sub
   global.set $~lib/memory/__stack_pointer
   call $~stack_check
@@ -34322,11 +33124,8 @@
   i64.const 0
   i64.store $0 offset=48
   global.get $~lib/memory/__stack_pointer
-  i64.const 0
-  i64.store $0 offset=56
-  global.get $~lib/memory/__stack_pointer
   i32.const 0
-  i32.store $0 offset=64
+  i32.store $0 offset=56
   global.get $~lib/memory/__stack_pointer
   call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArguments
   local.tee $contractArgs
@@ -34343,432 +33142,375 @@
   local.tee $c
   i32.store $0 offset=8
   block $break|0
-   block $case14|0
-    block $case13|0
-     block $case12|0
-      block $case11|0
-       block $case10|0
-        block $case9|0
-         block $case8|0
-          block $case7|0
-           block $case6|0
-            block $case5|0
-             block $case4|0
-              block $case3|0
-               block $case2|0
-                block $case1|0
-                 block $case0|0
-                  local.get $contractArgs
-                  local.set $32
-                  global.get $~lib/memory/__stack_pointer
-                  local.get $32
-                  i32.store $0 offset=12
-                  local.get $32
-                  call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArgumentsReturn#get:entry_point
-                  local.set $3
-                  local.get $3
-                  i32.const -2103225473
-                  i32.eq
-                  br_if $case0|0
-                  local.get $3
-                  i32.const -1217758047
-                  i32.eq
-                  br_if $case1|0
-                  local.get $3
-                  i32.const -293536465
-                  i32.eq
-                  br_if $case2|0
-                  local.get $3
-                  i32.const -1327875788
-                  i32.eq
-                  br_if $case3|0
-                  local.get $3
-                  i32.const 1550980247
-                  i32.eq
-                  br_if $case4|0
-                  local.get $3
-                  i32.const 670398154
-                  i32.eq
-                  br_if $case5|0
-                  local.get $3
-                  i32.const -596699205
-                  i32.eq
-                  br_if $case6|0
-                  local.get $3
-                  i32.const -2053133115
-                  i32.eq
-                  br_if $case7|0
-                  local.get $3
-                  i32.const 1009867529
-                  i32.eq
-                  br_if $case8|0
-                  local.get $3
-                  i32.const -1307917597
-                  i32.eq
-                  br_if $case9|0
-                  local.get $3
-                  i32.const -830731883
-                  i32.eq
-                  br_if $case10|0
-                  local.get $3
-                  i32.const 222960212
-                  i32.eq
-                  br_if $case11|0
-                  local.get $3
-                  i32.const 881444190
-                  i32.eq
-                  br_if $case12|0
-                  local.get $3
-                  i32.const -1020884226
-                  i32.eq
-                  br_if $case13|0
-                  br $case14|0
-                 end
+   block $case13|0
+    block $case12|0
+     block $case11|0
+      block $case10|0
+       block $case9|0
+        block $case8|0
+         block $case7|0
+          block $case6|0
+           block $case5|0
+            block $case4|0
+             block $case3|0
+              block $case2|0
+               block $case1|0
+                block $case0|0
                  local.get $contractArgs
-                 local.set $32
+                 local.set $30
                  global.get $~lib/memory/__stack_pointer
-                 local.get $32
-                 i32.store $0 offset=20
-                 local.get $32
-                 call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArgumentsReturn#get:args
-                 local.set $32
-                 global.get $~lib/memory/__stack_pointer
-                 local.get $32
+                 local.get $30
                  i32.store $0 offset=12
-                 local.get $32
-                 i32.const 1088
-                 local.set $32
-                 global.get $~lib/memory/__stack_pointer
-                 local.get $32
-                 i32.store $0 offset=16
-                 local.get $32
-                 i32.const 2
-                 global.set $~argumentsLength
-                 i32.const 0
-                 call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.name_arguments>@varargs
-                 local.set $args
-                 global.get $~lib/memory/__stack_pointer
-                 local.get $c
-                 local.set $32
-                 global.get $~lib/memory/__stack_pointer
-                 local.get $32
-                 i32.store $0 offset=12
-                 local.get $32
-                 local.get $args
-                 call $assembly/Kanvascontract/Kanvascontract#name
-                 local.tee $res
-                 i32.store $0 offset=24
-                 global.get $~lib/memory/__stack_pointer
-                 local.get $res
-                 local.set $32
-                 global.get $~lib/memory/__stack_pointer
-                 local.get $32
-                 i32.store $0 offset=12
-                 local.get $32
-                 i32.const 1120
-                 local.set $32
-                 global.get $~lib/memory/__stack_pointer
-                 local.get $32
-                 i32.store $0 offset=16
-                 local.get $32
-                 call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.name_result>
-                 local.tee $retbuf
-                 i32.store $0 offset=4
-                 br $break|0
+                 local.get $30
+                 call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArgumentsReturn#get:entry_point
+                 local.set $3
+                 local.get $3
+                 i32.const -2103225473
+                 i32.eq
+                 br_if $case0|0
+                 local.get $3
+                 i32.const -1217758047
+                 i32.eq
+                 br_if $case1|0
+                 local.get $3
+                 i32.const -293536465
+                 i32.eq
+                 br_if $case2|0
+                 local.get $3
+                 i32.const -1327875788
+                 i32.eq
+                 br_if $case3|0
+                 local.get $3
+                 i32.const 1550980247
+                 i32.eq
+                 br_if $case4|0
+                 local.get $3
+                 i32.const 670398154
+                 i32.eq
+                 br_if $case5|0
+                 local.get $3
+                 i32.const -596699205
+                 i32.eq
+                 br_if $case6|0
+                 local.get $3
+                 i32.const -2053133115
+                 i32.eq
+                 br_if $case7|0
+                 local.get $3
+                 i32.const 1009867529
+                 i32.eq
+                 br_if $case8|0
+                 local.get $3
+                 i32.const -1307917597
+                 i32.eq
+                 br_if $case9|0
+                 local.get $3
+                 i32.const 222960212
+                 i32.eq
+                 br_if $case10|0
+                 local.get $3
+                 i32.const 881444190
+                 i32.eq
+                 br_if $case11|0
+                 local.get $3
+                 i32.const -1020884226
+                 i32.eq
+                 br_if $case12|0
+                 br $case13|0
                 end
                 local.get $contractArgs
-                local.set $32
+                local.set $30
                 global.get $~lib/memory/__stack_pointer
-                local.get $32
+                local.get $30
                 i32.store $0 offset=20
-                local.get $32
+                local.get $30
                 call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArgumentsReturn#get:args
-                local.set $32
+                local.set $30
                 global.get $~lib/memory/__stack_pointer
-                local.get $32
+                local.get $30
                 i32.store $0 offset=12
-                local.get $32
-                i32.const 1152
-                local.set $32
+                local.get $30
+                i32.const 1088
+                local.set $30
                 global.get $~lib/memory/__stack_pointer
-                local.get $32
+                local.get $30
                 i32.store $0 offset=16
-                local.get $32
+                local.get $30
                 i32.const 2
                 global.set $~argumentsLength
                 i32.const 0
-                call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.symbol_arguments>@varargs
-                local.set $args|6
+                call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.name_arguments>@varargs
+                local.set $args
                 global.get $~lib/memory/__stack_pointer
                 local.get $c
-                local.set $32
+                local.set $30
                 global.get $~lib/memory/__stack_pointer
-                local.get $32
+                local.get $30
                 i32.store $0 offset=12
-                local.get $32
-                local.get $args|6
-                call $assembly/Kanvascontract/Kanvascontract#symbol
-                local.tee $res|7
-                i32.store $0 offset=28
+                local.get $30
+                local.get $args
+                call $assembly/Kanvascontract/Kanvascontract#name
+                local.tee $res
+                i32.store $0 offset=24
                 global.get $~lib/memory/__stack_pointer
-                local.get $res|7
-                local.set $32
+                local.get $res
+                local.set $30
                 global.get $~lib/memory/__stack_pointer
-                local.get $32
+                local.get $30
                 i32.store $0 offset=12
-                local.get $32
-                i32.const 1184
-                local.set $32
+                local.get $30
+                i32.const 1120
+                local.set $30
                 global.get $~lib/memory/__stack_pointer
-                local.get $32
+                local.get $30
                 i32.store $0 offset=16
-                local.get $32
-                call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.symbol_result>
+                local.get $30
+                call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.name_result>
                 local.tee $retbuf
                 i32.store $0 offset=4
                 br $break|0
                end
                local.get $contractArgs
-               local.set $32
+               local.set $30
                global.get $~lib/memory/__stack_pointer
-               local.get $32
+               local.get $30
                i32.store $0 offset=20
-               local.get $32
+               local.get $30
                call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArgumentsReturn#get:args
-               local.set $32
+               local.set $30
                global.get $~lib/memory/__stack_pointer
-               local.get $32
+               local.get $30
                i32.store $0 offset=12
-               local.get $32
-               i32.const 1216
-               local.set $32
+               local.get $30
+               i32.const 1152
+               local.set $30
                global.get $~lib/memory/__stack_pointer
-               local.get $32
+               local.get $30
                i32.store $0 offset=16
-               local.get $32
+               local.get $30
                i32.const 2
                global.set $~argumentsLength
                i32.const 0
-               call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.decimals_arguments>@varargs
-               local.set $args|8
+               call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.symbol_arguments>@varargs
+               local.set $args|6
+               global.get $~lib/memory/__stack_pointer
                local.get $c
-               local.set $32
+               local.set $30
                global.get $~lib/memory/__stack_pointer
-               local.get $32
+               local.get $30
                i32.store $0 offset=12
-               local.get $32
-               local.get $args|8
-               call $assembly/Kanvascontract/Kanvascontract#decimals
-               local.set $res|9
+               local.get $30
+               local.get $args|6
+               call $assembly/Kanvascontract/Kanvascontract#symbol
+               local.tee $res|7
+               i32.store $0 offset=28
                global.get $~lib/memory/__stack_pointer
-               local.get $res|9
-               i32.const 1248
-               local.set $32
+               local.get $res|7
+               local.set $30
                global.get $~lib/memory/__stack_pointer
-               local.get $32
+               local.get $30
+               i32.store $0 offset=12
+               local.get $30
+               i32.const 1184
+               local.set $30
+               global.get $~lib/memory/__stack_pointer
+               local.get $30
                i32.store $0 offset=16
-               local.get $32
-               call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.decimals_result>
+               local.get $30
+               call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.symbol_result>
                local.tee $retbuf
                i32.store $0 offset=4
                br $break|0
               end
               local.get $contractArgs
-              local.set $32
+              local.set $30
               global.get $~lib/memory/__stack_pointer
-              local.get $32
+              local.get $30
               i32.store $0 offset=20
-              local.get $32
+              local.get $30
               call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArgumentsReturn#get:args
-              local.set $32
+              local.set $30
               global.get $~lib/memory/__stack_pointer
-              local.get $32
+              local.get $30
               i32.store $0 offset=12
-              local.get $32
-              i32.const 1280
-              local.set $32
+              local.get $30
+              i32.const 1216
+              local.set $30
               global.get $~lib/memory/__stack_pointer
-              local.get $32
+              local.get $30
               i32.store $0 offset=16
-              local.get $32
+              local.get $30
               i32.const 2
               global.set $~argumentsLength
               i32.const 0
-              call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.total_supply_arguments>@varargs
-              local.set $args|10
+              call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.decimals_arguments>@varargs
+              local.set $args|8
               local.get $c
-              local.set $32
+              local.set $30
               global.get $~lib/memory/__stack_pointer
-              local.get $32
+              local.get $30
               i32.store $0 offset=12
-              local.get $32
-              local.get $args|10
-              call $assembly/Kanvascontract/Kanvascontract#total_supply
-              local.set $res|11
+              local.get $30
+              local.get $args|8
+              call $assembly/Kanvascontract/Kanvascontract#decimals
+              local.set $res|9
               global.get $~lib/memory/__stack_pointer
-              local.get $res|11
-              i32.const 1376
-              local.set $32
+              local.get $res|9
+              i32.const 1248
+              local.set $30
               global.get $~lib/memory/__stack_pointer
-              local.get $32
+              local.get $30
               i32.store $0 offset=16
-              local.get $32
-              call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.total_supply_result>
+              local.get $30
+              call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.decimals_result>
               local.tee $retbuf
               i32.store $0 offset=4
               br $break|0
              end
-             global.get $~lib/memory/__stack_pointer
              local.get $contractArgs
-             local.set $32
+             local.set $30
              global.get $~lib/memory/__stack_pointer
-             local.get $32
+             local.get $30
              i32.store $0 offset=20
-             local.get $32
+             local.get $30
              call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArgumentsReturn#get:args
-             local.set $32
+             local.set $30
              global.get $~lib/memory/__stack_pointer
-             local.get $32
+             local.get $30
              i32.store $0 offset=12
-             local.get $32
-             i32.const 1408
-             local.set $32
+             local.get $30
+             i32.const 1280
+             local.set $30
              global.get $~lib/memory/__stack_pointer
-             local.get $32
+             local.get $30
              i32.store $0 offset=16
-             local.get $32
+             local.get $30
              i32.const 2
              global.set $~argumentsLength
              i32.const 0
-             call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.balance_of_arguments>@varargs
-             local.tee $args|12
-             i32.store $0 offset=32
+             call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.total_supply_arguments>@varargs
+             local.set $args|10
              local.get $c
-             local.set $32
+             local.set $30
              global.get $~lib/memory/__stack_pointer
-             local.get $32
+             local.get $30
              i32.store $0 offset=12
-             local.get $32
-             local.get $args|12
-             local.set $32
+             local.get $30
+             local.get $args|10
+             call $assembly/Kanvascontract/Kanvascontract#total_supply
+             local.set $res|11
              global.get $~lib/memory/__stack_pointer
-             local.get $32
+             local.get $res|11
+             i32.const 1376
+             local.set $30
+             global.get $~lib/memory/__stack_pointer
+             local.get $30
              i32.store $0 offset=16
-             local.get $32
-             call $assembly/Kanvascontract/Kanvascontract#balance_of
-             local.set $res|13
-             global.get $~lib/memory/__stack_pointer
-             local.get $res|13
-             i32.const 1440
-             local.set $32
-             global.get $~lib/memory/__stack_pointer
-             local.get $32
-             i32.store $0 offset=16
-             local.get $32
-             call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.balance_of_result>
+             local.get $30
+             call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.total_supply_result>
              local.tee $retbuf
              i32.store $0 offset=4
              br $break|0
             end
             global.get $~lib/memory/__stack_pointer
             local.get $contractArgs
-            local.set $32
+            local.set $30
             global.get $~lib/memory/__stack_pointer
-            local.get $32
+            local.get $30
             i32.store $0 offset=20
-            local.get $32
+            local.get $30
             call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArgumentsReturn#get:args
-            local.set $32
+            local.set $30
             global.get $~lib/memory/__stack_pointer
-            local.get $32
+            local.get $30
             i32.store $0 offset=12
-            local.get $32
-            i32.const 1472
-            local.set $32
+            local.get $30
+            i32.const 1408
+            local.set $30
             global.get $~lib/memory/__stack_pointer
-            local.get $32
+            local.get $30
             i32.store $0 offset=16
-            local.get $32
+            local.get $30
             i32.const 2
             global.set $~argumentsLength
             i32.const 0
-            call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.transfer_arguments>@varargs
-            local.tee $args|14
-            i32.store $0 offset=36
+            call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.balance_of_arguments>@varargs
+            local.tee $args|12
+            i32.store $0 offset=32
             local.get $c
-            local.set $32
+            local.set $30
             global.get $~lib/memory/__stack_pointer
-            local.get $32
+            local.get $30
             i32.store $0 offset=12
-            local.get $32
-            local.get $args|14
-            local.set $32
+            local.get $30
+            local.get $args|12
+            local.set $30
             global.get $~lib/memory/__stack_pointer
-            local.get $32
+            local.get $30
             i32.store $0 offset=16
-            local.get $32
-            call $assembly/Kanvascontract/Kanvascontract#transfer
-            local.set $res|15
+            local.get $30
+            call $assembly/Kanvascontract/Kanvascontract#balance_of
+            local.set $res|13
             global.get $~lib/memory/__stack_pointer
-            local.get $res|15
-            i32.const 2080
-            local.set $32
+            local.get $res|13
+            i32.const 1440
+            local.set $30
             global.get $~lib/memory/__stack_pointer
-            local.get $32
+            local.get $30
             i32.store $0 offset=16
-            local.get $32
-            call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.empty_message>
+            local.get $30
+            call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.balance_of_result>
             local.tee $retbuf
             i32.store $0 offset=4
             br $break|0
            end
            global.get $~lib/memory/__stack_pointer
            local.get $contractArgs
-           local.set $32
+           local.set $30
            global.get $~lib/memory/__stack_pointer
-           local.get $32
+           local.get $30
            i32.store $0 offset=20
-           local.get $32
+           local.get $30
            call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArgumentsReturn#get:args
-           local.set $32
+           local.set $30
            global.get $~lib/memory/__stack_pointer
-           local.get $32
+           local.get $30
            i32.store $0 offset=12
-           local.get $32
-           i32.const 2112
-           local.set $32
+           local.get $30
+           i32.const 1472
+           local.set $30
            global.get $~lib/memory/__stack_pointer
-           local.get $32
+           local.get $30
            i32.store $0 offset=16
-           local.get $32
+           local.get $30
            i32.const 2
            global.set $~argumentsLength
            i32.const 0
-           call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.mint_arguments>@varargs
-           local.tee $args|16
-           i32.store $0 offset=40
+           call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.transfer_arguments>@varargs
+           local.tee $args|14
+           i32.store $0 offset=36
            local.get $c
-           local.set $32
+           local.set $30
            global.get $~lib/memory/__stack_pointer
-           local.get $32
+           local.get $30
            i32.store $0 offset=12
-           local.get $32
-           local.get $args|16
-           local.set $32
+           local.get $30
+           local.get $args|14
+           local.set $30
            global.get $~lib/memory/__stack_pointer
-           local.get $32
+           local.get $30
            i32.store $0 offset=16
-           local.get $32
-           call $assembly/Kanvascontract/Kanvascontract#mint
-           local.set $res|17
+           local.get $30
+           call $assembly/Kanvascontract/Kanvascontract#transfer
+           local.set $res|15
            global.get $~lib/memory/__stack_pointer
-           local.get $res|17
+           local.get $res|15
            i32.const 2080
-           local.set $32
+           local.set $30
            global.get $~lib/memory/__stack_pointer
-           local.get $32
+           local.get $30
            i32.store $0 offset=16
-           local.get $32
+           local.get $30
            call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.empty_message>
            local.tee $retbuf
            i32.store $0 offset=4
@@ -34776,51 +33518,51 @@
           end
           global.get $~lib/memory/__stack_pointer
           local.get $contractArgs
-          local.set $32
+          local.set $30
           global.get $~lib/memory/__stack_pointer
-          local.get $32
+          local.get $30
           i32.store $0 offset=20
-          local.get $32
+          local.get $30
           call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArgumentsReturn#get:args
-          local.set $32
+          local.set $30
           global.get $~lib/memory/__stack_pointer
-          local.get $32
+          local.get $30
           i32.store $0 offset=12
-          local.get $32
-          i32.const 2592
-          local.set $32
+          local.get $30
+          i32.const 2112
+          local.set $30
           global.get $~lib/memory/__stack_pointer
-          local.get $32
+          local.get $30
           i32.store $0 offset=16
-          local.get $32
+          local.get $30
           i32.const 2
           global.set $~argumentsLength
           i32.const 0
-          call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.burn_arguments>@varargs
-          local.tee $args|18
-          i32.store $0 offset=44
+          call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.mint_arguments>@varargs
+          local.tee $args|16
+          i32.store $0 offset=40
           local.get $c
-          local.set $32
+          local.set $30
           global.get $~lib/memory/__stack_pointer
-          local.get $32
+          local.get $30
           i32.store $0 offset=12
-          local.get $32
-          local.get $args|18
-          local.set $32
+          local.get $30
+          local.get $args|16
+          local.set $30
           global.get $~lib/memory/__stack_pointer
-          local.get $32
+          local.get $30
           i32.store $0 offset=16
-          local.get $32
-          call $assembly/Kanvascontract/Kanvascontract#burn
-          local.set $res|19
+          local.get $30
+          call $assembly/Kanvascontract/Kanvascontract#mint
+          local.set $res|17
           global.get $~lib/memory/__stack_pointer
-          local.get $res|19
+          local.get $res|17
           i32.const 2080
-          local.set $32
+          local.set $30
           global.get $~lib/memory/__stack_pointer
-          local.get $32
+          local.get $30
           i32.store $0 offset=16
-          local.get $32
+          local.get $30
           call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.empty_message>
           local.tee $retbuf
           i32.store $0 offset=4
@@ -34828,304 +33570,297 @@
          end
          global.get $~lib/memory/__stack_pointer
          local.get $contractArgs
-         local.set $32
+         local.set $30
          global.get $~lib/memory/__stack_pointer
-         local.get $32
+         local.get $30
          i32.store $0 offset=20
-         local.get $32
+         local.get $30
          call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArgumentsReturn#get:args
-         local.set $32
+         local.set $30
          global.get $~lib/memory/__stack_pointer
-         local.get $32
+         local.get $30
          i32.store $0 offset=12
-         local.get $32
-         i32.const 4464
-         local.set $32
+         local.get $30
+         i32.const 2592
+         local.set $30
          global.get $~lib/memory/__stack_pointer
-         local.get $32
+         local.get $30
          i32.store $0 offset=16
-         local.get $32
+         local.get $30
          i32.const 2
          global.set $~argumentsLength
          i32.const 0
-         call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.pixel_count_of_arguments>@varargs
-         local.tee $args|20
-         i32.store $0 offset=48
+         call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.burn_arguments>@varargs
+         local.tee $args|18
+         i32.store $0 offset=44
          local.get $c
-         local.set $32
+         local.set $30
          global.get $~lib/memory/__stack_pointer
-         local.get $32
+         local.get $30
          i32.store $0 offset=12
-         local.get $32
-         local.get $args|20
-         local.set $32
+         local.get $30
+         local.get $args|18
+         local.set $30
          global.get $~lib/memory/__stack_pointer
-         local.get $32
+         local.get $30
          i32.store $0 offset=16
-         local.get $32
-         call $assembly/Kanvascontract/Kanvascontract#pixel_count_of
-         local.set $res|21
+         local.get $30
+         call $assembly/Kanvascontract/Kanvascontract#burn
+         local.set $res|19
          global.get $~lib/memory/__stack_pointer
-         local.get $res|21
-         i32.const 4496
-         local.set $32
+         local.get $res|19
+         i32.const 2080
+         local.set $30
          global.get $~lib/memory/__stack_pointer
-         local.get $32
+         local.get $30
          i32.store $0 offset=16
-         local.get $32
-         call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.pixel_count_of_result>
+         local.get $30
+         call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.empty_message>
          local.tee $retbuf
          i32.store $0 offset=4
          br $break|0
         end
         global.get $~lib/memory/__stack_pointer
         local.get $contractArgs
-        local.set $32
+        local.set $30
         global.get $~lib/memory/__stack_pointer
-        local.get $32
+        local.get $30
         i32.store $0 offset=20
-        local.get $32
+        local.get $30
         call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArgumentsReturn#get:args
-        local.set $32
+        local.set $30
         global.get $~lib/memory/__stack_pointer
-        local.get $32
+        local.get $30
         i32.store $0 offset=12
-        local.get $32
-        i32.const 4528
-        local.set $32
+        local.get $30
+        i32.const 4464
+        local.set $30
         global.get $~lib/memory/__stack_pointer
-        local.get $32
+        local.get $30
         i32.store $0 offset=16
-        local.get $32
+        local.get $30
         i32.const 2
         global.set $~argumentsLength
         i32.const 0
-        call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>@varargs
-        local.tee $args|22
-        i32.store $0 offset=52
+        call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.pixel_count_of_arguments>@varargs
+        local.tee $args|20
+        i32.store $0 offset=48
         local.get $c
-        local.set $32
+        local.set $30
         global.get $~lib/memory/__stack_pointer
-        local.get $32
+        local.get $30
         i32.store $0 offset=12
-        local.get $32
-        local.get $args|22
-        local.set $32
+        local.get $30
+        local.get $args|20
+        local.set $30
         global.get $~lib/memory/__stack_pointer
-        local.get $32
+        local.get $30
         i32.store $0 offset=16
-        local.get $32
-        call $assembly/Kanvascontract/Kanvascontract#place_pixel
-        local.set $res|23
+        local.get $30
+        call $assembly/Kanvascontract/Kanvascontract#pixel_count_of
+        local.set $res|21
         global.get $~lib/memory/__stack_pointer
-        local.get $res|23
-        i32.const 5312
-        local.set $32
+        local.get $res|21
+        i32.const 4496
+        local.set $30
         global.get $~lib/memory/__stack_pointer
-        local.get $32
+        local.get $30
         i32.store $0 offset=16
-        local.get $32
-        call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>
+        local.get $30
+        call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.pixel_count_of_result>
         local.tee $retbuf
         i32.store $0 offset=4
         br $break|0
        end
        global.get $~lib/memory/__stack_pointer
        local.get $contractArgs
-       local.set $32
+       local.set $30
        global.get $~lib/memory/__stack_pointer
-       local.get $32
+       local.get $30
        i32.store $0 offset=20
-       local.get $32
+       local.get $30
        call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArgumentsReturn#get:args
-       local.set $32
+       local.set $30
        global.get $~lib/memory/__stack_pointer
-       local.get $32
+       local.get $30
        i32.store $0 offset=12
-       local.get $32
-       i32.const 5376
-       local.set $32
+       local.get $30
+       i32.const 4528
+       local.set $30
        global.get $~lib/memory/__stack_pointer
-       local.get $32
+       local.get $30
        i32.store $0 offset=16
-       local.get $32
+       local.get $30
        i32.const 2
        global.set $~argumentsLength
        i32.const 0
-       call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments>@varargs
-       local.tee $args|24
-       i32.store $0 offset=56
-       global.get $~lib/memory/__stack_pointer
+       call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>@varargs
+       local.tee $args|22
+       i32.store $0 offset=52
        local.get $c
-       local.set $32
+       local.set $30
        global.get $~lib/memory/__stack_pointer
-       local.get $32
+       local.get $30
        i32.store $0 offset=12
-       local.get $32
-       local.get $args|24
-       local.set $32
+       local.get $30
+       local.get $args|22
+       local.set $30
        global.get $~lib/memory/__stack_pointer
-       local.get $32
+       local.get $30
        i32.store $0 offset=16
-       local.get $32
-       call $assembly/Kanvascontract/Kanvascontract#place_pixels
-       local.tee $res|25
-       i32.store $0 offset=60
+       local.get $30
+       call $assembly/Kanvascontract/Kanvascontract#place_pixel
+       local.set $res|23
        global.get $~lib/memory/__stack_pointer
-       local.get $res|25
-       local.set $32
+       local.get $res|23
+       i32.const 5312
+       local.set $30
        global.get $~lib/memory/__stack_pointer
-       local.get $32
-       i32.store $0 offset=12
-       local.get $32
-       i32.const 5472
-       local.set $32
-       global.get $~lib/memory/__stack_pointer
-       local.get $32
+       local.get $30
        i32.store $0 offset=16
-       local.get $32
-       call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.place_pixels_result>
+       local.get $30
+       call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>
        local.tee $retbuf
        i32.store $0 offset=4
        br $break|0
       end
       local.get $contractArgs
-      local.set $32
+      local.set $30
       global.get $~lib/memory/__stack_pointer
-      local.get $32
+      local.get $30
       i32.store $0 offset=20
-      local.get $32
+      local.get $30
       call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArgumentsReturn#get:args
-      local.set $32
+      local.set $30
       global.get $~lib/memory/__stack_pointer
-      local.get $32
+      local.get $30
       i32.store $0 offset=12
-      local.get $32
-      i32.const 5504
-      local.set $32
+      local.get $30
+      i32.const 5344
+      local.set $30
       global.get $~lib/memory/__stack_pointer
-      local.get $32
+      local.get $30
       i32.store $0 offset=16
-      local.get $32
+      local.get $30
       i32.const 2
       global.set $~argumentsLength
       i32.const 0
       call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.pixel_at_arguments>@varargs
-      local.set $args|26
+      local.set $args|24
       global.get $~lib/memory/__stack_pointer
       local.get $c
-      local.set $32
+      local.set $30
       global.get $~lib/memory/__stack_pointer
-      local.get $32
+      local.get $30
       i32.store $0 offset=12
-      local.get $32
-      local.get $args|26
+      local.get $30
+      local.get $args|24
       call $assembly/Kanvascontract/Kanvascontract#pixel_at
-      local.tee $res|27
-      i32.store $0 offset=64
+      local.tee $res|25
+      i32.store $0 offset=56
       global.get $~lib/memory/__stack_pointer
-      local.get $res|27
-      local.set $32
+      local.get $res|25
+      local.set $30
       global.get $~lib/memory/__stack_pointer
-      local.get $32
+      local.get $30
       i32.store $0 offset=12
-      local.get $32
-      i32.const 5536
-      local.set $32
+      local.get $30
+      i32.const 5376
+      local.set $30
       global.get $~lib/memory/__stack_pointer
-      local.get $32
+      local.get $30
       i32.store $0 offset=16
-      local.get $32
+      local.get $30
       call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.pixel_at_result>
       local.tee $retbuf
       i32.store $0 offset=4
       br $break|0
      end
      local.get $contractArgs
-     local.set $32
+     local.set $30
      global.get $~lib/memory/__stack_pointer
-     local.get $32
+     local.get $30
      i32.store $0 offset=20
-     local.get $32
+     local.get $30
      call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArgumentsReturn#get:args
-     local.set $32
+     local.set $30
      global.get $~lib/memory/__stack_pointer
-     local.get $32
+     local.get $30
      i32.store $0 offset=12
-     local.get $32
-     i32.const 5568
-     local.set $32
+     local.get $30
+     i32.const 5408
+     local.set $30
      global.get $~lib/memory/__stack_pointer
-     local.get $32
+     local.get $30
      i32.store $0 offset=16
-     local.get $32
+     local.get $30
      i32.const 2
      global.set $~argumentsLength
      i32.const 0
      call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.canvas_dimensions_arguments>@varargs
-     local.set $args|28
+     local.set $args|26
      local.get $c
-     local.set $32
+     local.set $30
      global.get $~lib/memory/__stack_pointer
-     local.get $32
+     local.get $30
      i32.store $0 offset=12
-     local.get $32
-     local.get $args|28
+     local.get $30
+     local.get $args|26
      call $assembly/Kanvascontract/Kanvascontract#canvas_dimensions
-     local.set $res|29
+     local.set $res|27
      global.get $~lib/memory/__stack_pointer
-     local.get $res|29
-     i32.const 5600
-     local.set $32
+     local.get $res|27
+     i32.const 5440
+     local.set $30
      global.get $~lib/memory/__stack_pointer
-     local.get $32
+     local.get $30
      i32.store $0 offset=16
-     local.get $32
+     local.get $30
      call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.canvas_dimensions_result>
      local.tee $retbuf
      i32.store $0 offset=4
      br $break|0
     end
     local.get $contractArgs
-    local.set $32
+    local.set $30
     global.get $~lib/memory/__stack_pointer
-    local.get $32
+    local.get $30
     i32.store $0 offset=20
-    local.get $32
+    local.get $30
     call $~lib/@koinos/sdk-as/assembly/systemCalls/System.getArgumentsReturn#get:args
-    local.set $32
+    local.set $30
     global.get $~lib/memory/__stack_pointer
-    local.get $32
+    local.get $30
     i32.store $0 offset=12
-    local.get $32
-    i32.const 5632
-    local.set $32
+    local.get $30
+    i32.const 5472
+    local.set $30
     global.get $~lib/memory/__stack_pointer
-    local.get $32
+    local.get $30
     i32.store $0 offset=16
-    local.get $32
+    local.get $30
     i32.const 2
     global.set $~argumentsLength
     i32.const 0
     call $~lib/as-proto/assembly/Protobuf/Protobuf.decode<assembly/proto/kanvascontract/kanvascontract.set_canvas_dimensions_arguments>@varargs
-    local.set $args|30
+    local.set $args|28
     local.get $c
-    local.set $32
+    local.set $30
     global.get $~lib/memory/__stack_pointer
-    local.get $32
+    local.get $30
     i32.store $0 offset=12
-    local.get $32
-    local.get $args|30
+    local.get $30
+    local.get $args|28
     call $assembly/Kanvascontract/Kanvascontract#set_canvas_dimensions
-    local.set $res|31
+    local.set $res|29
     global.get $~lib/memory/__stack_pointer
-    local.get $res|31
+    local.get $res|29
     i32.const 2080
-    local.set $32
+    local.set $30
     global.get $~lib/memory/__stack_pointer
-    local.get $32
+    local.get $30
     i32.store $0 offset=16
-    local.get $32
+    local.get $30
     call $~lib/as-proto/assembly/Protobuf/Protobuf.encode<assembly/proto/kanvascontract/kanvascontract.empty_message>
     local.tee $retbuf
     i32.store $0 offset=4
@@ -35138,19 +33873,19 @@
   end
   i32.const 0
   local.get $retbuf
-  local.set $32
+  local.set $30
   global.get $~lib/memory/__stack_pointer
-  local.get $32
+  local.get $30
   i32.store $0 offset=16
-  local.get $32
+  local.get $30
   call $~lib/@koinos/sdk-as/assembly/systemCalls/System.exit
   i32.const 0
-  local.set $32
+  local.set $30
   global.get $~lib/memory/__stack_pointer
-  i32.const 68
+  i32.const 60
   i32.add
   global.set $~lib/memory/__stack_pointer
-  local.get $32
+  local.get $30
   return
  )
  (func $~lib/as-proto/assembly/internal/FixedReader/FixedReader#varint32 (param $this i32) (result i32)
@@ -40664,150 +39399,6 @@
   i32.store $0
   local.get $2
   call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.place_pixel_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>#get:_env
-  local.get $cookie
-  call $~lib/rt/itcms/__visit
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.add
-  global.set $~lib/memory/__stack_pointer
- )
- (func $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>#__visit (param $this i32) (param $cookie i32)
-  (local $cur i32)
-  (local $end i32)
-  (local $val i32)
-  (local $5 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i32.const 0
-  i32.store $0
-  i32.const 1
-  drop
-  local.get $this
-  local.set $5
-  global.get $~lib/memory/__stack_pointer
-  local.get $5
-  i32.store $0
-  local.get $5
-  call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>#get:dataStart
-  local.set $cur
-  local.get $cur
-  local.get $this
-  local.set $5
-  global.get $~lib/memory/__stack_pointer
-  local.get $5
-  i32.store $0
-  local.get $5
-  call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>#get:length_
-  i32.const 2
-  i32.shl
-  i32.add
-  local.set $end
-  loop $while-continue|0
-   local.get $cur
-   local.get $end
-   i32.lt_u
-   if
-    local.get $cur
-    i32.load $0
-    local.set $val
-    local.get $val
-    if
-     local.get $val
-     local.get $cookie
-     call $~lib/rt/itcms/__visit
-    end
-    local.get $cur
-    i32.const 4
-    i32.add
-    local.set $cur
-    br $while-continue|0
-   end
-  end
-  local.get $this
-  local.set $5
-  global.get $~lib/memory/__stack_pointer
-  local.get $5
-  i32.store $0
-  local.get $5
-  call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_arguments>#get:buffer
-  local.get $cookie
-  call $~lib/rt/itcms/__visit
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.add
-  global.set $~lib/memory/__stack_pointer
- )
- (func $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments>#__visit (param $this i32) (param $cookie i32)
-  (local $2 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i32.const 0
-  i32.store $0
-  local.get $this
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  local.get $2
-  i32.store $0
-  local.get $2
-  call $~lib/function/Function<%28~lib/as-proto/assembly/Reader/Reader%2Ci32%29=>assembly/proto/kanvascontract/kanvascontract.place_pixels_arguments>#get:_env
-  local.get $cookie
-  call $~lib/rt/itcms/__visit
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.add
-  global.set $~lib/memory/__stack_pointer
- )
- (func $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>#__visit (param $this i32) (param $cookie i32)
-  (local $2 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i32.const 0
-  i32.store $0
-  i32.const 0
-  drop
-  local.get $this
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  local.get $2
-  i32.store $0
-  local.get $2
-  call $~lib/array/Array<assembly/proto/kanvascontract/kanvascontract.place_pixel_result>#get:buffer
-  local.get $cookie
-  call $~lib/rt/itcms/__visit
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.add
-  global.set $~lib/memory/__stack_pointer
- )
- (func $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.place_pixels_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>#__visit (param $this i32) (param $cookie i32)
-  (local $2 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i32.const 0
-  i32.store $0
-  local.get $this
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  local.get $2
-  i32.store $0
-  local.get $2
-  call $~lib/function/Function<%28assembly/proto/kanvascontract/kanvascontract.place_pixels_result%2C~lib/as-proto/assembly/Writer/Writer%29=>void>#get:_env
   local.get $cookie
   call $~lib/rt/itcms/__visit
   global.get $~lib/memory/__stack_pointer

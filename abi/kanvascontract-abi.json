@@ -70,13 +70,6 @@
             "entry_point": 2987049699,
             "read_only": false
         },
-        "place_pixels": {
-            "argument": "kanvascontract.place_pixels_arguments",
-            "return": "kanvascontract.place_pixels_result",
-            "description": "Place a pack of new pixels",
-            "entry_point": 3464235413,
-            "read_only": false
-        },
         "pixel_at": {
             "argument": "kanvascontract.pixel_at_arguments",
             "return": "kanvascontract.pixel_at_result",
@@ -297,24 +290,6 @@
                             "balance_object": {
                                 "type": "balance_object",
                                 "id": 3
-                            }
-                        }
-                    },
-                    "place_pixels_arguments": {
-                        "fields": {
-                            "place_pixel_arguments": {
-                                "rule": "repeated",
-                                "type": "place_pixel_arguments",
-                                "id": 1
-                            }
-                        }
-                    },
-                    "place_pixels_result": {
-                        "fields": {
-                            "place_pixel_results": {
-                                "rule": "repeated",
-                                "type": "place_pixel_result",
-                                "id": 1
                             }
                         }
                     },

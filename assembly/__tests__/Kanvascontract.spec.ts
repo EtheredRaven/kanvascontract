@@ -630,7 +630,7 @@ describe("kanvas", () => {
     );
   });
 
-  it("should place several pixel and get the right pixel counts", () => {
+  /*it("should place several pixel and get the right pixel counts", () => {
     const knv = new Kanvascontract();
 
     MockVM.setContractArguments(new Uint8Array(0));
@@ -777,7 +777,7 @@ describe("kanvas", () => {
     );
     const pixelCountRes = knv.pixel_count_of(pixelCountArgs);
     expect(pixelCountRes.value).toBe(0);
-  });
+  });*/
 
   it("should not place a pixel if it is out of bound", () => {
     const knv = new Kanvascontract();

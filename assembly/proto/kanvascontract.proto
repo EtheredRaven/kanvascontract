@@ -102,13 +102,13 @@ message place_pixel_result {
 
 // @description Place a pack of new pixels
 // @read-only false
-message place_pixels_arguments {
+/*message place_pixels_arguments {
    repeated place_pixel_arguments place_pixel_arguments = 1;
 }
 
 message place_pixels_result {
    repeated place_pixel_result place_pixel_results = 1;
-}
+}*/
 
 
 // @description Query a pixel at a specific position
