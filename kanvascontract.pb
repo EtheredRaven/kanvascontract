@@ -1,5 +1,5 @@
 
- 
+ù
 #assembly/proto/kanvascontract.protokanvascontractkoinos/options.proto"
 empty_message""
 uint64
@@ -19,7 +19,16 @@
 balance_of_arguments
 owner (BÄµRowner"-
 balance_of_result
-value (B0Rvalue"^
+value (B0Rvalue"Q
+allowance_arguments
+owner (BÄµRowner
+spender (BÄµRspender",
+allowance_result
+value (B0Rvalue"i
+approve_arguments
+owner (BÄµRowner
+spender (BÄµRspender
+value (B0Rvalue"^
 transfer_arguments
 from (BÄµRfrom
 to (BÄµRto
@@ -80,7 +89,11 @@ burn_event
 value (B0Rvalue%
 from_balance (B0RfromBalance!
 
-to_balance (B0R	toBalance"¡
+to_balance (B0R	toBalance"e
+approve_event
+owner (BÄµRowner
+spender (BÄµRspender
+value (B0Rvalue"¡
 pixel_placed_event
 from (BÄµRfrom+
 previous_owner (BÄµRpreviousOwner?

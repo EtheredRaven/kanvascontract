@@ -55,6 +55,34 @@ export class Kanvascontract {
     return res;
   }
 
+  allowance(
+    args: kanvascontract.allowance_arguments
+  ): kanvascontract.allowance_result {
+    // const owner = args.owner;
+    // const spender = args.spender;
+
+    // YOUR CODE HERE
+
+    const res = new kanvascontract.allowance_result();
+    // res.value = ;
+
+    return res;
+  }
+
+  approve(
+    args: kanvascontract.approve_arguments
+  ): kanvascontract.empty_message {
+    // const owner = args.owner;
+    // const spender = args.spender;
+    // const value = args.value;
+
+    // YOUR CODE HERE
+
+    const res = new kanvascontract.empty_message();
+
+    return res;
+  }
+
   transfer(
     args: kanvascontract.transfer_arguments
   ): kanvascontract.empty_message {

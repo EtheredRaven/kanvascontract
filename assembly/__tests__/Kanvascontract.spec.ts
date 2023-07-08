@@ -12,6 +12,7 @@ import { kanvascontract } from "../proto/kanvascontract";
 const CONTRACT_ID = Base58.decode("1DQzuCcTKacbs9GGScRTU1Hc8BsyARTPqe");
 const MOCK_ACCT1 = Base58.decode("1DQzuCcTKacbs9GGScRTU1Hc8BsyARTPqG");
 const MOCK_ACCT2 = Base58.decode("1DQzuCcTKacbs9GGScRTU1Hc8BsyARTPqK");
+const CONTRACT_EMPTY = Base58.decode("");
 
 describe("token", () => {
   beforeEach(() => {
@@ -49,6 +50,15 @@ describe("token", () => {
     expect(res.value).toBe(8);
   });
 
+  it("should get default allowance", () => {
+    const tkn = new Kanvascontract();
+
+    const args = new kanvascontract.allowance_arguments(MOCK_ACCT1, MOCK_ACCT2);
+    const res = tkn.allowance(args);
+
+    expect(res.value).toBe(0);
+  });
+
   it("should/not burn tokens", () => {
     const tkn = new Kanvascontract();
 
@@ -68,16 +78,16 @@ describe("token", () => {
     let totalSupplyRes = tkn.total_supply(totalSupplyArgs);
     expect(totalSupplyRes.value).toBe(0);
 
+    // set caller before mint
+    let callerData = new chain.caller_data(
+      CONTRACT_ID,
+      chain.privilege.user_mode
+    );
+    MockVM.setCaller(callerData);
+
     // mint tokens
     const mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT1, 123);
     tkn.mint(mintArgs);
-
-    auth = new MockVM.MockAuthority(
-      authority.authorization_type.contract_call,
-      MOCK_ACCT1,
-      true
-    );
-    MockVM.setAuthorities([auth]);
 
     // burn tokens
     let burnArgs = new kanvascontract.burn_arguments(MOCK_ACCT1, 10);
@@ -125,6 +135,8 @@ describe("token", () => {
     );
 
     MockVM.setAuthorities([]);
+    callerData = new chain.caller_data(MOCK_ACCT1, chain.privilege.user_mode);
+    MockVM.setCaller(callerData);
 
     // save the MockVM state because the burn is going to revert the transaction
     MockVM.commitTransaction();
@@ -135,6 +147,11 @@ describe("token", () => {
       const burnArgs = new kanvascontract.burn_arguments(MOCK_ACCT1, 123);
       tkn.burn(burnArgs);
     }).toThrow();
+
+    // check error message
+    expect(MockVM.getErrorMessage()).toStrictEqual(
+      "burn operation not authorized"
+    );
 
     // check balance
     balanceArgs = new kanvascontract.balance_of_arguments(MOCK_ACCT1);
@@ -162,9 +179,23 @@ describe("token", () => {
     let totalSupplyRes = tkn.total_supply(totalSupplyArgs);
     expect(totalSupplyRes.value).toBe(0);
 
+    // set caller before mint
+    let callerData = new chain.caller_data(
+      CONTRACT_ID,
+      chain.privilege.user_mode
+    );
+    MockVM.setCaller(callerData);
+
     // mint tokens
     const mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT1, 123);
     tkn.mint(mintArgs);
+
+    // set caller after mint
+    callerData = new chain.caller_data(
+      CONTRACT_EMPTY,
+      chain.privilege.user_mode
+    );
+    MockVM.setCaller(callerData);
 
     // check events
     const events = MockVM.getEvents();
@@ -211,6 +242,11 @@ describe("token", () => {
     let balanceRes = tkn.balance_of(balanceArgs);
     expect(balanceRes.value).toBe(0);
 
+    const callerData = new chain.caller_data(
+      MOCK_ACCT2,
+      chain.privilege.user_mode
+    );
+    MockVM.setCaller(callerData);
     // save the MockVM state because the mint is going to revert the transaction
     MockVM.commitTransaction();
 
@@ -220,6 +256,11 @@ describe("token", () => {
       const mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT2, 123);
       tkn.mint(mintArgs);
     }).toThrow();
+
+    // check error message
+    expect(MockVM.getErrorMessage()).toStrictEqual(
+      "mint operation not authorized"
+    );
 
     // check balance
     balanceRes = tkn.balance_of(balanceArgs);
@@ -240,6 +281,11 @@ describe("token", () => {
       true
     );
     MockVM.setAuthorities([auth]);
+    const callerData = new chain.caller_data(
+      CONTRACT_ID,
+      chain.privilege.user_mode
+    );
+    MockVM.setCaller(callerData);
 
     let mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT2, 123);
     tkn.mint(mintArgs);
@@ -292,9 +338,19 @@ describe("token", () => {
     );
     MockVM.setAuthorities([authContractId, authMockAcct1]);
 
+    // set caller before mint
+    MockVM.setCaller(
+      new chain.caller_data(CONTRACT_ID, chain.privilege.user_mode)
+    );
+
     // mint tokens
     const mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT1, 123);
     tkn.mint(mintArgs);
+
+    // set caller before transfer
+    MockVM.setCaller(
+      new chain.caller_data(MOCK_ACCT1, chain.privilege.user_mode)
+    );
 
     // transfer tokens
     const transferArgs = new kanvascontract.transfer_arguments(
@@ -342,6 +398,9 @@ describe("token", () => {
     );
     // do not set authority for MOCK_ACCT1
     MockVM.setAuthorities([authContractId]);
+    MockVM.setCaller(
+      new chain.caller_data(CONTRACT_ID, chain.privilege.user_mode)
+    );
 
     // mint tokens
     const mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT1, 123);
@@ -375,6 +434,115 @@ describe("token", () => {
     expect(balanceRes.value).toBe(0);
   });
 
+  it("should/not transfer if approved and allowance is/not sufficient", () => {
+    const tkn = new Kanvascontract();
+
+    MockVM.setContractArguments(new Uint8Array(0));
+    MockVM.setEntryPoint(1);
+
+    // set contract_call authority for CONTRACT_ID to true so that we can mint tokens
+    const authContractId = new MockVM.MockAuthority(
+      authority.authorization_type.contract_call,
+      CONTRACT_ID,
+      true
+    );
+
+    // set contract_call authority for MOCK_ACCT1 to true so that we can transfer tokens
+    const authMockAcct1 = new MockVM.MockAuthority(
+      authority.authorization_type.contract_call,
+      MOCK_ACCT1,
+      true
+    );
+    MockVM.setAuthorities([authContractId, authMockAcct1]);
+
+    // set caller before mint
+    MockVM.setCaller(
+      new chain.caller_data(CONTRACT_ID, chain.privilege.user_mode)
+    );
+
+    // mint tokens
+    const mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT1, 1000);
+    tkn.mint(mintArgs);
+
+    // set caller before approve
+    MockVM.setCaller(
+      new chain.caller_data(MOCK_ACCT1, chain.privilege.user_mode)
+    );
+
+    // Approve new allowance
+    const approveArgs = new kanvascontract.approve_arguments(
+      MOCK_ACCT1,
+      CONTRACT_ID,
+      500
+    );
+    tkn.approve(approveArgs);
+
+    // Check allowance
+    let allowanceArgs = new kanvascontract.allowance_arguments(
+      MOCK_ACCT1,
+      CONTRACT_ID
+    );
+    let allowanceRes = tkn.allowance(allowanceArgs);
+    expect(allowanceRes.value).toBe(500);
+
+    MockVM.setCaller(
+      new chain.caller_data(CONTRACT_ID, chain.privilege.user_mode)
+    );
+    // Transfer tokens
+    const transferArgs = new kanvascontract.transfer_arguments(
+      MOCK_ACCT1,
+      MOCK_ACCT2,
+      300
+    );
+    tkn.transfer(transferArgs);
+
+    // Check allowance
+    allowanceArgs = new kanvascontract.allowance_arguments(
+      MOCK_ACCT1,
+      CONTRACT_ID
+    );
+    allowanceRes = tkn.allowance(allowanceArgs);
+    expect(allowanceRes.value).toBe(200);
+
+    MockVM.commitTransaction();
+
+    // Try to transfer tokens without enough allowance
+    expect(() => {
+      const tkn = new Kanvascontract();
+      const transferArgs = new kanvascontract.transfer_arguments(
+        MOCK_ACCT1,
+        MOCK_ACCT2,
+        300
+      );
+      tkn.transfer(transferArgs);
+    }).toThrow();
+
+    expect(MockVM.getErrorMessage()).toStrictEqual(
+      "'from' has not authorized transfer"
+    );
+
+    // Check balances
+    let balanceArgs = new kanvascontract.balance_of_arguments(MOCK_ACCT1);
+    let balanceRes = tkn.balance_of(balanceArgs);
+    expect(balanceRes.value).toBe(700);
+
+    balanceArgs = new kanvascontract.balance_of_arguments(MOCK_ACCT2);
+    balanceRes = tkn.balance_of(balanceArgs);
+    expect(balanceRes.value).toBe(300);
+
+    // Check events
+    const events = MockVM.getEvents();
+    expect(events.length).toBe(3);
+    expect(events[1].name).toBe("kanvascontract.approve_event");
+    const approveEvent = Protobuf.decode<kanvascontract.approve_event>(
+      events[1].data!,
+      kanvascontract.approve_event.decode
+    );
+    expect(Arrays.equal(approveEvent.owner, MOCK_ACCT1)).toBe(true);
+    expect(Arrays.equal(approveEvent.spender, CONTRACT_ID)).toBe(true);
+    expect(approveEvent.value).toBe(500);
+  });
+
   it("should not transfer tokens to self", () => {
     const tkn = new Kanvascontract();
 
@@ -392,11 +560,17 @@ describe("token", () => {
       true
     );
     MockVM.setAuthorities([authContractId, authMockAcct1]);
+    MockVM.setCaller(
+      new chain.caller_data(CONTRACT_ID, chain.privilege.user_mode)
+    );
 
     // mint tokens
     const mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT1, 123);
     tkn.mint(mintArgs);
 
+    MockVM.setCaller(
+      new chain.caller_data(MOCK_ACCT1, chain.privilege.user_mode)
+    );
     // save the MockVM state because the transfer is going to revert the transaction
     MockVM.commitTransaction();
 
@@ -436,11 +610,17 @@ describe("token", () => {
       true
     );
     MockVM.setAuthorities([authContractId, authMockAcct1]);
+    MockVM.setCaller(
+      new chain.caller_data(CONTRACT_ID, chain.privilege.user_mode)
+    );
 
     // mint tokens
     const mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT1, 123);
     tkn.mint(mintArgs);
 
+    MockVM.setCaller(
+      new chain.caller_data(MOCK_ACCT1, chain.privilege.user_mode)
+    );
     // save the MockVM state because the transfer is going to revert the transaction
     MockVM.commitTransaction();
 
@@ -497,6 +677,9 @@ describe("kanvas", () => {
       true
     );
     MockVM.setAuthorities([auth]);
+    MockVM.setCaller(
+      new chain.caller_data(CONTRACT_ID, chain.privilege.user_mode)
+    );
 
     const args = new kanvascontract.set_canvas_dimensions_arguments(998, 999);
     knv.set_canvas_dimensions(args);
@@ -532,6 +715,9 @@ describe("kanvas", () => {
       true
     );
     MockVM.setAuthorities([auth]);
+    MockVM.setCaller(
+      new chain.caller_data(MOCK_ACCT1, chain.privilege.user_mode)
+    );
 
     MockVM.commitTransaction();
 
@@ -566,10 +752,16 @@ describe("kanvas", () => {
       true
     );
     MockVM.setAuthorities([authContractId, authMockAcct1]);
+    MockVM.setCaller(
+      new chain.caller_data(CONTRACT_ID, chain.privilege.user_mode)
+    );
 
     const mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT1, 100000000);
     knv.mint(mintArgs);
 
+    MockVM.setCaller(
+      new chain.caller_data(MOCK_ACCT1, chain.privilege.user_mode)
+    );
     const pixelCountArgs = new kanvascontract.pixel_count_of_arguments(
       MOCK_ACCT1
     );
@@ -797,10 +989,16 @@ describe("kanvas", () => {
     );
 
     MockVM.setAuthorities([authContractId, authMockAcct1]);
+    MockVM.setCaller(
+      new chain.caller_data(CONTRACT_ID, chain.privilege.user_mode)
+    );
 
     const mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT1, 100000000);
     knv.mint(mintArgs);
 
+    MockVM.setCaller(
+      new chain.caller_data(MOCK_ACCT1, chain.privilege.user_mode)
+    );
     expect(() => {
       const knv = new Kanvascontract();
       const args = new kanvascontract.place_pixel_arguments(
@@ -838,9 +1036,16 @@ describe("kanvas", () => {
     );
 
     MockVM.setAuthorities([authContractId, authMockAcct1]);
+    MockVM.setCaller(
+      new chain.caller_data(CONTRACT_ID, chain.privilege.user_mode)
+    );
 
     const mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT1, 100000000);
     knv.mint(mintArgs);
+
+    MockVM.setCaller(
+      new chain.caller_data(MOCK_ACCT1, chain.privilege.user_mode)
+    );
 
     expect(() => {
       const knv = new Kanvascontract();
@@ -872,6 +1077,9 @@ describe("kanvas", () => {
     );
 
     MockVM.setAuthorities([authContractId]);
+    MockVM.setCaller(
+      new chain.caller_data(CONTRACT_ID, chain.privilege.user_mode)
+    );
 
     const mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT1, 100000000);
     knv.mint(mintArgs);
@@ -914,11 +1122,18 @@ describe("kanvas", () => {
 
     MockVM.setAuthorities([authContractId, authMockAcct1]);
 
+    MockVM.setCaller(
+      new chain.caller_data(CONTRACT_ID, chain.privilege.user_mode)
+    );
     const mintArgs = new kanvascontract.mint_arguments(
       MOCK_ACCT1,
       100000000 - 1
     );
     knv.mint(mintArgs);
+
+    MockVM.setCaller(
+      new chain.caller_data(MOCK_ACCT1, chain.privilege.user_mode)
+    );
 
     MockVM.commitTransaction();
     expect(() => {
@@ -939,8 +1154,15 @@ describe("kanvas", () => {
     const pixelAt = pixelAtRes.pixel!;
     expect(Arrays.equal(pixelAt.owner, new Uint8Array(0))).toBe(true);
 
+    MockVM.setCaller(
+      new chain.caller_data(CONTRACT_ID, chain.privilege.user_mode)
+    );
     const mintArgs1 = new kanvascontract.mint_arguments(MOCK_ACCT1, 1);
     knv.mint(mintArgs1);
+
+    MockVM.setCaller(
+      new chain.caller_data(MOCK_ACCT1, chain.privilege.user_mode)
+    );
     const args = new kanvascontract.place_pixel_arguments(
       MOCK_ACCT1,
       new kanvascontract.pixel_object(1, 2, 101, 102, 103, 104, "test")
@@ -975,11 +1197,18 @@ describe("kanvas", () => {
       true
     );
     MockVM.setAuthorities([authContractId, authMockAcct1, authMockAcct2]);
+    MockVM.setCaller(
+      new chain.caller_data(CONTRACT_ID, chain.privilege.user_mode)
+    );
 
     const mintArgs1 = new kanvascontract.mint_arguments(MOCK_ACCT1, 200000000);
     knv.mint(mintArgs1);
     const mintArgs2 = new kanvascontract.mint_arguments(MOCK_ACCT2, 200000000);
     knv.mint(mintArgs2);
+
+    MockVM.setCaller(
+      new chain.caller_data(MOCK_ACCT1, chain.privilege.user_mode)
+    );
 
     // ACCT1 place a first pixel
     const placePixelArgs = new kanvascontract.place_pixel_arguments(
@@ -996,6 +1225,9 @@ describe("kanvas", () => {
     const pixelCountRes = knv.pixel_count_of(pixelCountArgs);
     expect(pixelCountRes.value).toBe(1);
 
+    MockVM.setCaller(
+      new chain.caller_data(MOCK_ACCT2, chain.privilege.user_mode)
+    );
     // ACCT2 place a pixel on the same position
     const placePixelArgs2 = new kanvascontract.place_pixel_arguments(
       MOCK_ACCT2,

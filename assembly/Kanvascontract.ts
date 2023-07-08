@@ -6,6 +6,8 @@ import {
   Storage,
   authority,
   error,
+  value,
+  Crypto,
 } from "@koinos/sdk-as";
 import { kanvascontract } from "./proto/kanvascontract";
 
@@ -15,6 +17,7 @@ const PIXEL_COUNTS_SPACE_ID = 2;
 const PIXEL_CANVAS_SPACE_ID = 3;
 const CANVAS_WIDTH_SPACE_ID = 4;
 const CANVAS_HEIGHT_SPACE_ID = 5;
+const ALLOWANCES_SPACE_ID = 6;
 
 export class Kanvascontract {
   _contractId: Uint8Array;
@@ -24,6 +27,7 @@ export class Kanvascontract {
   _decimals: u32 = 8;
   _supply!: Storage.Obj<kanvascontract.balance_object>;
   _balances!: Storage.Map<Uint8Array, kanvascontract.balance_object>;
+  _allowances!: Storage.Map<Uint8Array, kanvascontract.uint64>;
 
   _pixelCounts!: Storage.Map<Uint8Array, kanvascontract.pixel_count_object>;
   _pixelCanvas!: Storage.Map<string, kanvascontract.pixel_object>;
@@ -45,6 +49,13 @@ export class Kanvascontract {
       kanvascontract.balance_object.decode,
       kanvascontract.balance_object.encode,
       () => new kanvascontract.balance_object(0)
+    );
+    this._allowances = new Storage.Map(
+      this._contractId,
+      ALLOWANCES_SPACE_ID,
+      kanvascontract.uint64.decode,
+      kanvascontract.uint64.encode,
+      null
     );
     this._pixelCounts = new Storage.Map(
       this._contractId,
@@ -140,6 +151,142 @@ export class Kanvascontract {
   }
 
   /**
+   * Retrieves the allowance granted by an owner to a spender.
+   * @external
+   * @readonly
+   */
+  allowance(
+    args: kanvascontract.allowance_arguments
+  ): kanvascontract.allowance_result {
+    const key = new Uint8Array(50);
+    key.set(args.owner, 0);
+    key.set(args.spender, 25);
+    const allowance = this._allowances.get(key);
+    if (!allowance) return new kanvascontract.allowance_result(0);
+    return new kanvascontract.allowance_result(allowance.value);
+  }
+
+  /**
+   * Retrieves the signers associated with the current transaction.
+   * @returns {Array<Uint8Array>} An array of signer addresses.
+   */
+  getSigners(): Array<Uint8Array> {
+    const sigBytes =
+      System.getTransactionField("signatures")!.message_value!.value!;
+    const signatures = Protobuf.decode<value.list_type>(
+      sigBytes,
+      value.list_type.decode
+    );
+    const txId = System.getTransactionField("id")!.bytes_value;
+    const signers: Array<Uint8Array> = [];
+    for (let i = 0; i < signatures.values.length; i++) {
+      const publicKey = System.recoverPublicKey(
+        signatures.values[i].bytes_value,
+        txId
+      );
+      const address = Crypto.addressFromPublicKey(publicKey!);
+      signers.push(address);
+    }
+    return signers;
+  }
+
+  /**
+   * Checks the authority for a specific account based on the provided parameters.
+   * @param {Uint8Array} account - The account to check authority for.
+   * @param {boolean} acceptAllowances - Indicates whether to consider allowances in the authority check.
+   * @param {u64} amount - The amount involved in the authority check.
+   * @returns {boolean} Returns true if the account has authority; otherwise, returns false.
+   */
+  private check_authority(
+    account: Uint8Array,
+    acceptAllowances: boolean,
+    amount: u64
+  ): bool {
+    const caller = System.getCaller();
+
+    const key = new Uint8Array(50);
+    if (acceptAllowances) {
+      key.set(account, 0);
+    }
+
+    // check if there is a caller (smart contract in the middle)
+    if (caller.caller && caller.caller.length > 0) {
+      if (acceptAllowances) {
+        // check if the caller is approved for all tokens
+        key.set(caller.caller, 25);
+        const allowance = this._allowances.get(key);
+        if (allowance && allowance.value >= amount) {
+          // spend allowance
+          allowance.value -= amount;
+          this._allowances.put(key, allowance);
+          return true;
+        }
+      }
+
+      // check if the account is the caller
+      if (Arrays.equal(account, caller.caller)) return true;
+
+      // the transaction has a caller but none of the different
+      // options authorized the operation, then it is rejected.
+      return false;
+    }
+
+    // check the signatures related to allowances
+    const signers = this.getSigners();
+
+    // there is no caller, no approval from allowances, and the account
+    // doesn't have a contract then check if the account signed the transaction
+    for (let i = 0; i < signers.length; i += 1) {
+      if (Arrays.equal(account, signers[i])) return true;
+    }
+
+    // none of the different options authorized the operation,
+    // then it is rejected.
+    return false;
+  }
+
+  /**
+   * Approves the spender to transfer a specific amount of tokens on behalf of the owner.
+   * @param {kanvascontract.approve_arguments} args - The arguments for the approval operation.
+   * @returns {void}
+   */
+  _approve(args: kanvascontract.approve_arguments): void {
+    const key = new Uint8Array(50);
+    key.set(args.owner, 0);
+    key.set(args.spender, 25);
+    this._allowances.put(key, new kanvascontract.uint64(args.value));
+
+    const impacted = [args.spender, args.owner];
+    const approveEvent = new kanvascontract.approve_event(
+      args.owner,
+      args.spender,
+      args.value
+    );
+    System.event(
+      "kanvascontract.approve_event",
+      Protobuf.encode<kanvascontract.approve_event>(
+        approveEvent,
+        kanvascontract.approve_event.encode
+      ),
+      impacted
+    );
+  }
+
+  /**
+   * Approves the spender to transfer a specific amount of tokens on behalf of the owner.
+   * @param {kanvascontract.approve_arguments} args - The arguments for the approval operation.
+   * @returns {kanvascontract.empty_message}
+   */
+  approve(
+    args: kanvascontract.approve_arguments
+  ): kanvascontract.empty_message {
+    const isAuthorized = this.check_authority(args.owner, false, 0);
+    System.require(isAuthorized, "approve operation not authorized");
+    this._approve(args);
+    return new kanvascontract.empty_message();
+  }
+
+  /**
    * Transfer tokens
    * @external
    */
@@ -152,13 +299,9 @@ export class Kanvascontract {
 
     System.require(!Arrays.equal(from, to), "Cannot transfer to self");
 
+    const isAuthorized = this.check_authority(from, true, value);
     System.require(
-      Arrays.equal(System.getCaller().caller, args.from!) ||
-        System.checkAuthority(
-          authority.authorization_type.contract_call,
-          args.from!,
-          System.getArguments().args
-        ),
+      isAuthorized,
       "'from' has not authorized transfer",
       error.error_code.authorization_failure
     );
@@ -205,10 +348,8 @@ export class Kanvascontract {
     const to = args.to!;
     const value = args.value;
 
-    System.requireAuthority(
-      authority.authorization_type.contract_call,
-      this._contractId
-    );
+    const isAuthorized = this.check_authority(this._contractId, false, 0);
+    System.require(isAuthorized, "mint operation not authorized");
 
     const supply = this._supply.get()!;
 
@@ -244,16 +385,8 @@ export class Kanvascontract {
     const from = args.from!;
     const value = args.value;
 
-    System.require(
-      Arrays.equal(System.getCaller().caller, args.from!) ||
-        System.checkAuthority(
-          authority.authorization_type.contract_call,
-          args.from!,
-          System.getArguments().args
-        ),
-      "'from' has not authorized transfer",
-      error.error_code.authorization_failure
-    );
+    const isAuthorized = this.check_authority(this._contractId, false, 0);
+    System.require(isAuthorized, "burn operation not authorized");
 
     const fromBalance = this._balances.get(from)!;
 
@@ -358,13 +491,9 @@ export class Kanvascontract {
     const alpha = pixel_to_place.alpha;
     const metadata = pixel_to_place.metadata;
 
+    const isAuthorized = this.check_authority(from, false, 0);
     System.require(
-      Arrays.equal(System.getCaller().caller, args.from!) ||
-        System.checkAuthority(
-          authority.authorization_type.contract_call,
-          args.from!,
-          System.getArguments().args
-        ),
+      isAuthorized,
       "'from' has not authorized place",
       error.error_code.authorization_failure
     );

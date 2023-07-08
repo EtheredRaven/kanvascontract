@@ -35,6 +35,20 @@
             "entry_point": 1550980247,
             "read_only": true
         },
+        "allowance": {
+            "argument": "kanvascontract.allowance_arguments",
+            "return": "kanvascontract.allowance_result",
+            "description": "Get balance of an account2",
+            "entry_point": 854630305,
+            "read_only": true
+        },
+        "approve": {
+            "argument": "kanvascontract.approve_arguments",
+            "return": "kanvascontract.empty_message",
+            "description": "Approve tokens",
+            "entry_point": 1960973952,
+            "read_only": false
+        },
         "transfer": {
             "argument": "kanvascontract.transfer_arguments",
             "return": "kanvascontract.empty_message",
@@ -173,6 +187,60 @@
                             "value": {
                                 "type": "uint64",
                                 "id": 1,
+                                "options": {
+                                    "jstype": "JS_STRING"
+                                }
+                            }
+                        }
+                    },
+                    "allowance_arguments": {
+                        "fields": {
+                            "owner": {
+                                "type": "bytes",
+                                "id": 1,
+                                "options": {
+                                    "(koinos.btype)": "ADDRESS"
+                                }
+                            },
+                            "spender": {
+                                "type": "bytes",
+                                "id": 2,
+                                "options": {
+                                    "(koinos.btype)": "ADDRESS"
+                                }
+                            }
+                        }
+                    },
+                    "allowance_result": {
+                        "fields": {
+                            "value": {
+                                "type": "uint64",
+                                "id": 1,
+                                "options": {
+                                    "jstype": "JS_STRING"
+                                }
+                            }
+                        }
+                    },
+                    "approve_arguments": {
+                        "fields": {
+                            "owner": {
+                                "type": "bytes",
+                                "id": 1,
+                                "options": {
+                                    "(koinos.btype)": "ADDRESS"
+                                }
+                            },
+                            "spender": {
+                                "type": "bytes",
+                                "id": 2,
+                                "options": {
+                                    "(koinos.btype)": "ADDRESS"
+                                }
+                            },
+                            "value": {
+                                "type": "uint64",
+                                "id": 3,
                                 "options": {
                                     "jstype": "JS_STRING"
                                 }
@@ -494,6 +562,31 @@
                             "to_balance": {
                                 "type": "uint64",
                                 "id": 5,
+                                "options": {
+                                    "jstype": "JS_STRING"
+                                }
+                            }
+                        }
+                    },
+                    "approve_event": {
+                        "fields": {
+                            "owner": {
+                                "type": "bytes",
+                                "id": 1,
+                                "options": {
+                                    "(koinos.btype)": "ADDRESS"
+                                }
+                            },
+                            "spender": {
+                                "type": "bytes",
+                                "id": 2,
+                                "options": {
+                                    "(koinos.btype)": "ADDRESS"
+                                }
+                            },
+                            "value": {
+                                "type": "uint64",
+                                "id": 3,
                                 "options": {
                                     "jstype": "JS_STRING"
                                 }

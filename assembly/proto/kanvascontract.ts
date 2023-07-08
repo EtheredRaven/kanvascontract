@@ -365,6 +365,152 @@ export namespace kanvascontract {
     }
   }
 
+  export class allowance_arguments {
+    static encode(message: allowance_arguments, writer: Writer): void {
+      if (message.owner.length != 0) {
+        writer.uint32(10);
+        writer.bytes(message.owner);
+      }
+
+      if (message.spender.length != 0) {
+        writer.uint32(18);
+        writer.bytes(message.spender);
+      }
+    }
+
+    static decode(reader: Reader, length: i32): allowance_arguments {
+      const end: usize = length < 0 ? reader.end : reader.ptr + length;
+      const message = new allowance_arguments();
+
+      while (reader.ptr < end) {
+        const tag = reader.uint32();
+        switch (tag >>> 3) {
+          case 1:
+            message.owner = reader.bytes();
+            break;
+
+          case 2:
+            message.spender = reader.bytes();
+            break;
+
+          default:
+            reader.skipType(tag & 7);
+            break;
+        }
+      }
+
+      return message;
+    }
+
+    owner: Uint8Array;
+    spender: Uint8Array;
+
+    constructor(
+      owner: Uint8Array = new Uint8Array(0),
+      spender: Uint8Array = new Uint8Array(0)
+    ) {
+      this.owner = owner;
+      this.spender = spender;
+    }
+  }
+
+  @unmanaged
+  export class allowance_result {
+    static encode(message: allowance_result, writer: Writer): void {
+      if (message.value != 0) {
+        writer.uint32(8);
+        writer.uint64(message.value);
+      }
+    }
+
+    static decode(reader: Reader, length: i32): allowance_result {
+      const end: usize = length < 0 ? reader.end : reader.ptr + length;
+      const message = new allowance_result();
+
+      while (reader.ptr < end) {
+        const tag = reader.uint32();
+        switch (tag >>> 3) {
+          case 1:
+            message.value = reader.uint64();
+            break;
+
+          default:
+            reader.skipType(tag & 7);
+            break;
+        }
+      }
+
+      return message;
+    }
+
+    value: u64;
+
+    constructor(value: u64 = 0) {
+      this.value = value;
+    }
+  }
+
+  export class approve_arguments {
+    static encode(message: approve_arguments, writer: Writer): void {
+      if (message.owner.length != 0) {
+        writer.uint32(10);
+        writer.bytes(message.owner);
+      }
+
+      if (message.spender.length != 0) {
+        writer.uint32(18);
+        writer.bytes(message.spender);
+      }
+
+      if (message.value != 0) {
+        writer.uint32(24);
+        writer.uint64(message.value);
+      }
+    }
+
+    static decode(reader: Reader, length: i32): approve_arguments {
+      const end: usize = length < 0 ? reader.end : reader.ptr + length;
+      const message = new approve_arguments();
+
+      while (reader.ptr < end) {
+        const tag = reader.uint32();
+        switch (tag >>> 3) {
+          case 1:
+            message.owner = reader.bytes();
+            break;
+
+          case 2:
+            message.spender = reader.bytes();
+            break;
+
+          case 3:
+            message.value = reader.uint64();
+            break;
+
+          default:
+            reader.skipType(tag & 7);
+            break;
+        }
+      }
+
+      return message;
+    }
+
+    owner: Uint8Array;
+    spender: Uint8Array;
+    value: u64;
+
+    constructor(
+      owner: Uint8Array = new Uint8Array(0),
+      spender: Uint8Array = new Uint8Array(0),
+      value: u64 = 0
+    ) {
+      this.owner = owner;
+      this.spender = spender;
+      this.value = value;
+    }
+  }
+
   export class transfer_arguments {
     static encode(message: transfer_arguments, writer: Writer): void {
       if (message.from.length != 0) {
@@ -1299,6 +1445,67 @@ export namespace kanvascontract {
       this.value = value;
       this.from_balance = from_balance;
       this.to_balance = to_balance;
+    }
+  }
+
+  export class approve_event {
+    static encode(message: approve_event, writer: Writer): void {
+      if (message.owner.length != 0) {
+        writer.uint32(10);
+        writer.bytes(message.owner);
+      }
+
+      if (message.spender.length != 0) {
+        writer.uint32(18);
+        writer.bytes(message.spender);
+      }
+
+      if (message.value != 0) {
+        writer.uint32(24);
+        writer.uint64(message.value);
+      }
+    }
+
+    static decode(reader: Reader, length: i32): approve_event {
+      const end: usize = length < 0 ? reader.end : reader.ptr + length;
+      const message = new approve_event();
+
+      while (reader.ptr < end) {
+        const tag = reader.uint32();
+        switch (tag >>> 3) {
+          case 1:
+            message.owner = reader.bytes();
+            break;
+
+          case 2:
+            message.spender = reader.bytes();
+            break;
+
+          case 3:
+            message.value = reader.uint64();
+            break;
+
+          default:
+            reader.skipType(tag & 7);
+            break;
+        }
+      }
+
+      return message;
+    }
+
+    owner: Uint8Array;
+    spender: Uint8Array;
+    value: u64;
+
+    constructor(
+      owner: Uint8Array = new Uint8Array(0),
+      spender: Uint8Array = new Uint8Array(0),
+      value: u64 = 0
+    ) {
+      this.owner = owner;
+      this.spender = spender;
+      this.value = value;
     }
   }
 

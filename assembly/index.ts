@@ -59,6 +59,26 @@ export function main(): i32 {
       break;
     }
 
+    case 0x32f09fa1: {
+      const args = Protobuf.decode<ProtoNamespace.allowance_arguments>(
+        contractArgs.args,
+        ProtoNamespace.allowance_arguments.decode
+      );
+      const res = c.allowance(args);
+      retbuf = Protobuf.encode(res, ProtoNamespace.allowance_result.encode);
+      break;
+    }
+
+    case 0x74e21680: {
+      const args = Protobuf.decode<ProtoNamespace.approve_arguments>(
+        contractArgs.args,
+        ProtoNamespace.approve_arguments.decode
+      );
+      const res = c.approve(args);
+      retbuf = Protobuf.encode(res, ProtoNamespace.empty_message.encode);
+      break;
+    }
+
     case 0x27f576ca: {
       const args = Protobuf.decode<ProtoNamespace.transfer_arguments>(
         contractArgs.args,
