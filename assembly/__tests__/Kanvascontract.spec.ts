@@ -50,13 +50,33 @@ describe("token", () => {
     expect(res.value).toBe(8);
   });
 
-  it("should get default allowance", () => {
+  it("should get allowance", () => {
     const tkn = new Kanvascontract();
 
     const args = new kanvascontract.allowance_arguments(MOCK_ACCT1, MOCK_ACCT2);
     const res = tkn.allowance(args);
 
     expect(res.value).toBe(0);
+
+    MockVM.setCaller(
+      new chain.caller_data(MOCK_ACCT1, chain.privilege.user_mode)
+    );
+
+    // Approve new allowance
+    const approveArgs = new kanvascontract.approve_arguments(
+      MOCK_ACCT1,
+      CONTRACT_ID,
+      500
+    );
+    tkn.approve(approveArgs);
+
+    // Check allowance
+    let allowanceArgs = new kanvascontract.allowance_arguments(
+      MOCK_ACCT1,
+      CONTRACT_ID
+    );
+    let allowanceRes = tkn.allowance(allowanceArgs);
+    expect(allowanceRes.value).toBe(500);
   });
 
   it("should/not burn tokens", () => {
