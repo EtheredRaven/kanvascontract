@@ -148,6 +148,19 @@ export class Kanvascontract {
     return res;
   }
 
+  place_pixels(
+    args: kanvascontract.place_pixels_arguments
+  ): kanvascontract.place_pixels_result {
+    // const place_pixel_arguments = args.place_pixel_arguments;
+
+    // YOUR CODE HERE
+
+    const res = new kanvascontract.place_pixels_result();
+    // res.place_pixel_results = ;
+
+    return res;
+  }
+
   pixel_at(
     args: kanvascontract.pixel_at_arguments
   ): kanvascontract.pixel_at_result {

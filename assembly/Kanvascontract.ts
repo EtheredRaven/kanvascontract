@@ -585,7 +585,7 @@ export class Kanvascontract {
    * Place a bunch of new pixels on the map
    * @external
    */
-  /*place_pixels(
+  place_pixels(
     args: kanvascontract.place_pixels_arguments
   ): kanvascontract.place_pixels_result {
     let place_pixels_arguments = args.place_pixel_arguments!;
@@ -599,7 +599,7 @@ export class Kanvascontract {
     }
 
     return res;
-  }*/
+  }
 
   canvas_dimensions(
     args: kanvascontract.canvas_dimensions_arguments

@@ -842,7 +842,7 @@ describe("kanvas", () => {
     );
   });
 
-  /*it("should place several pixel and get the right pixel counts", () => {
+  it("should place several pixel and get the right pixel counts", () => {
     const knv = new Kanvascontract();
 
     MockVM.setContractArguments(new Uint8Array(0));
@@ -861,8 +861,16 @@ describe("kanvas", () => {
     );
     MockVM.setAuthorities([authContractId, authMockAcct1]);
 
+    MockVM.setCaller(
+      new chain.caller_data(CONTRACT_ID, chain.privilege.user_mode)
+    );
+
     const mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT1, 200000000);
     knv.mint(mintArgs);
+
+    MockVM.setCaller(
+      new chain.caller_data(MOCK_ACCT1, chain.privilege.user_mode)
+    );
 
     const pixelCountArgs = new kanvascontract.pixel_count_of_arguments(
       MOCK_ACCT1
@@ -948,8 +956,16 @@ describe("kanvas", () => {
 
     MockVM.setAuthorities([authContractId, authMockAcct1]);
 
+    MockVM.setCaller(
+      new chain.caller_data(CONTRACT_ID, chain.privilege.user_mode)
+    );
+
     const mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT1, 200000000);
     knv.mint(mintArgs);
+
+    MockVM.setCaller(
+      new chain.caller_data(MOCK_ACCT1, chain.privilege.user_mode)
+    );
 
     expect(() => {
       const knv = new Kanvascontract();
@@ -989,7 +1005,7 @@ describe("kanvas", () => {
     );
     const pixelCountRes = knv.pixel_count_of(pixelCountArgs);
     expect(pixelCountRes.value).toBe(0);
-  });*/
+  });
 
   it("should not place a pixel if it is out of bound", () => {
     const knv = new Kanvascontract();
