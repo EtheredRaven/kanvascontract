@@ -217,7 +217,7 @@ export class Kanvascontract {
         const allowance = this._allowances.get(key);
         if (allowance && allowance.value >= amount) {
           // spend allowance
-          allowance.value -= amount;
+          allowance.value = SafeMath.sub(allowance.value, amount);
           this._allowances.put(key, allowance);
           return true;
         }
@@ -316,8 +316,8 @@ export class Kanvascontract {
     const toBalance = this._balances.get(to)!;
 
     // the balances cannot hold more than the supply, so we don't check for overflow/underflow
-    fromBalance.value -= value;
-    toBalance.value += value;
+    fromBalance.value = SafeMath.sub(fromBalance.value, value);
+    toBalance.value = SafeMath.add(toBalance.value, value);
 
     this._balances.put(from, fromBalance);
     this._balances.put(to, toBalance);
@@ -358,7 +358,7 @@ export class Kanvascontract {
     System.require(!newSupply.error, "Mint would overflow supply");
 
     const toBalance = this._balances.get(to)!;
-    toBalance.value += value;
+    toBalance.value = SafeMath.add(toBalance.value, value);
 
     supply.value = newSupply.value;
 
@@ -400,7 +400,7 @@ export class Kanvascontract {
     const newSupply = SafeMath.sub(supply.value, value);
 
     supply.value = newSupply;
-    fromBalance.value -= value;
+    fromBalance.value = SafeMath.sub(fromBalance.value, value);
 
     this._supply.put(supply);
     this._balances.put(from, fromBalance);
@@ -469,7 +469,7 @@ export class Kanvascontract {
   _pow(a: u64, b: u64): u64 {
     let ret: u64 = 1;
     for (let i: u32 = 0; i < b; i++) {
-      ret = ret * a;
+      ret = SafeMath.mul(ret, a);
     }
     return ret;
   }
@@ -522,12 +522,14 @@ export class Kanvascontract {
     const oldPixelCountValue = pixelCount.value;
     const kanvasBalance = this._balances.get(from)!;
     System.require(
-      (pixelCount.value + 1) * this._pow(10, this._decimals) <=
-        kanvasBalance.value,
+      SafeMath.mul(
+        SafeMath.add(pixelCount.value, 1),
+        this._pow(10, this._decimals)
+      ) <= kanvasBalance.value,
       "You need more KAN to place a new pixel"
     );
 
-    pixelCount.value += 1;
+    pixelCount.value = SafeMath.add(pixelCount.value, 1);
     this._pixelCounts.put(from, pixelCount);
     const pixelAtPosition = this._pixel_at(posX, posY);
 
@@ -535,7 +537,10 @@ export class Kanvascontract {
     let previousOwnerPixelCount = new kanvascontract.pixel_count_object(0);
     if (pixelAtPosition.owner && pixelAtPosition.owner.length > 0) {
       previousOwnerPixelCount = this._pixelCounts.get(pixelAtPosition.owner)!;
-      previousOwnerPixelCount.value -= 1;
+      previousOwnerPixelCount.value = SafeMath.sub(
+        previousOwnerPixelCount.value,
+        1
+      );
       this._pixelCounts.put(pixelAtPosition.owner, previousOwnerPixelCount);
       impacted.push(pixelAtPosition.owner);
     }
@@ -560,7 +565,10 @@ export class Kanvascontract {
       newPixel,
       pixelCount.value,
       previousOwnerPixelCount.value,
-      (pixelCount.value + 1) * this._pow(10, this._decimals),
+      SafeMath.mul(
+        SafeMath.add(pixelCount.value, 1),
+        this._pow(10, this._decimals)
+      ),
       kanvasBalance.value
     );
     System.event(
@@ -591,6 +599,15 @@ export class Kanvascontract {
     let place_pixels_arguments = args.place_pixel_arguments!;
     const res = new kanvascontract.place_pixels_result();
     res.place_pixel_results = [];
+
+    System.require(
+      place_pixels_arguments.length >= 1,
+      "You need to place at least 1 pixel"
+    );
+    System.require(
+      place_pixels_arguments.length <= 10,
+      "You cannot place more than 10 pixels simultaneously"
+    );
 
     for (let i = 0; i < place_pixels_arguments.length; i++) {
       let place_pixel_arguments = place_pixels_arguments[i];
