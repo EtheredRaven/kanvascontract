@@ -618,6 +618,63 @@ export class Kanvascontract {
     return res;
   }
 
+  /**
+   * Erase a pixel on the map
+   * @external
+   */
+  erase_pixel(
+    args: kanvascontract.erase_pixel_arguments
+  ): kanvascontract.erase_pixel_result {
+    const from = args.from!;
+    const posX = args.posX;
+    const posY = args.posY;
+
+    const isAuthorized = this.check_authority(from, false, 0);
+    System.require(
+      isAuthorized,
+      "'from' has not authorized erase",
+      error.error_code.authorization_failure
+    );
+
+    const pixelAtPosition = this._pixel_at(posX, posY);
+    System.require(
+      Arrays.equal(pixelAtPosition.owner, from),
+      "You cannot erase a pixel you did not place"
+    );
+
+    const pixelCount = this._pixelCounts.get(from)!;
+    const oldPixelCountValue = pixelCount.value;
+    pixelCount.value = SafeMath.sub(pixelCount.value, 1);
+    this._pixelCounts.put(from, pixelCount);
+
+    let position = posX.toString() + ";" + posY.toString();
+    let newPixel = new kanvascontract.pixel_object(posX, posY);
+    this._pixelCanvas.put(position, newPixel);
+
+    const impacted = [from];
+    const pixelErasedEvent = new kanvascontract.pixel_erased_event(
+      from,
+      posX,
+      posY,
+      pixelCount.value
+    );
+    System.event(
+      "kanvascontract.pixel_erased_event",
+      Protobuf.encode(
+        pixelErasedEvent,
+        kanvascontract.pixel_erased_event.encode
+      ),
+      impacted
+    );
+
+    const res = new kanvascontract.erase_pixel_result();
+    res.new_pixel_count_object = pixelCount;
+    res.old_pixel_count_object = new kanvascontract.pixel_count_object(
+      oldPixelCountValue
+    );
+    return res;
+  }
+
   canvas_dimensions(
     args: kanvascontract.canvas_dimensions_arguments
   ): kanvascontract.canvas_dimensions_result {

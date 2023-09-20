@@ -953,6 +953,129 @@ export namespace kanvascontract {
     }
   }
 
+  export class erase_pixel_arguments {
+    static encode(message: erase_pixel_arguments, writer: Writer): void {
+      if (message.from.length != 0) {
+        writer.uint32(10);
+        writer.bytes(message.from);
+      }
+
+      if (message.posX != 0) {
+        writer.uint32(16);
+        writer.uint64(message.posX);
+      }
+
+      if (message.posY != 0) {
+        writer.uint32(24);
+        writer.uint64(message.posY);
+      }
+    }
+
+    static decode(reader: Reader, length: i32): erase_pixel_arguments {
+      const end: usize = length < 0 ? reader.end : reader.ptr + length;
+      const message = new erase_pixel_arguments();
+
+      while (reader.ptr < end) {
+        const tag = reader.uint32();
+        switch (tag >>> 3) {
+          case 1:
+            message.from = reader.bytes();
+            break;
+
+          case 2:
+            message.posX = reader.uint64();
+            break;
+
+          case 3:
+            message.posY = reader.uint64();
+            break;
+
+          default:
+            reader.skipType(tag & 7);
+            break;
+        }
+      }
+
+      return message;
+    }
+
+    from: Uint8Array;
+    posX: u64;
+    posY: u64;
+
+    constructor(
+      from: Uint8Array = new Uint8Array(0),
+      posX: u64 = 0,
+      posY: u64 = 0
+    ) {
+      this.from = from;
+      this.posX = posX;
+      this.posY = posY;
+    }
+  }
+
+  @unmanaged
+  export class erase_pixel_result {
+    static encode(message: erase_pixel_result, writer: Writer): void {
+      const unique_name_old_pixel_count_object = message.old_pixel_count_object;
+      if (unique_name_old_pixel_count_object !== null) {
+        writer.uint32(10);
+        writer.fork();
+        pixel_count_object.encode(unique_name_old_pixel_count_object, writer);
+        writer.ldelim();
+      }
+
+      const unique_name_new_pixel_count_object = message.new_pixel_count_object;
+      if (unique_name_new_pixel_count_object !== null) {
+        writer.uint32(18);
+        writer.fork();
+        pixel_count_object.encode(unique_name_new_pixel_count_object, writer);
+        writer.ldelim();
+      }
+    }
+
+    static decode(reader: Reader, length: i32): erase_pixel_result {
+      const end: usize = length < 0 ? reader.end : reader.ptr + length;
+      const message = new erase_pixel_result();
+
+      while (reader.ptr < end) {
+        const tag = reader.uint32();
+        switch (tag >>> 3) {
+          case 1:
+            message.old_pixel_count_object = pixel_count_object.decode(
+              reader,
+              reader.uint32()
+            );
+            break;
+
+          case 2:
+            message.new_pixel_count_object = pixel_count_object.decode(
+              reader,
+              reader.uint32()
+            );
+            break;
+
+          default:
+            reader.skipType(tag & 7);
+            break;
+        }
+      }
+
+      return message;
+    }
+
+    old_pixel_count_object: pixel_count_object | null;
+    new_pixel_count_object: pixel_count_object | null;
+
+    constructor(
+      old_pixel_count_object: pixel_count_object | null = null,
+      new_pixel_count_object: pixel_count_object | null = null
+    ) {
+      this.old_pixel_count_object = old_pixel_count_object;
+      this.new_pixel_count_object = new_pixel_count_object;
+    }
+  }
+
   @unmanaged
   export class pixel_at_arguments {
     static encode(message: pixel_at_arguments, writer: Writer): void {
@@ -1701,6 +1824,79 @@ export namespace kanvascontract {
       this.previous_owner_pixel_count = previous_owner_pixel_count;
       this.aComp = aComp;
       this.bComp = bComp;
+    }
+  }
+
+  export class pixel_erased_event {
+    static encode(message: pixel_erased_event, writer: Writer): void {
+      if (message.from.length != 0) {
+        writer.uint32(10);
+        writer.bytes(message.from);
+      }
+
+      if (message.posX != 0) {
+        writer.uint32(16);
+        writer.uint64(message.posX);
+      }
+
+      if (message.posY != 0) {
+        writer.uint32(24);
+        writer.uint64(message.posY);
+      }
+
+      if (message.owner_new_pixel_count != 0) {
+        writer.uint32(32);
+        writer.uint64(message.owner_new_pixel_count);
+      }
+    }
+
+    static decode(reader: Reader, length: i32): pixel_erased_event {
+      const end: usize = length < 0 ? reader.end : reader.ptr + length;
+      const message = new pixel_erased_event();
+
+      while (reader.ptr < end) {
+        const tag = reader.uint32();
+        switch (tag >>> 3) {
+          case 1:
+            message.from = reader.bytes();
+            break;
+
+          case 2:
+            message.posX = reader.uint64();
+            break;
+
+          case 3:
+            message.posY = reader.uint64();
+            break;
+
+          case 4:
+            message.owner_new_pixel_count = reader.uint64();
+            break;
+
+          default:
+            reader.skipType(tag & 7);
+            break;
+        }
+      }
+
+      return message;
+    }
+
+    from: Uint8Array;
+    posX: u64;
+    posY: u64;
+    owner_new_pixel_count: u64;
+
+    constructor(
+      from: Uint8Array = new Uint8Array(0),
+      posX: u64 = 0,
+      posY: u64 = 0,
+      owner_new_pixel_count: u64 = 0
+    ) {
+      this.from = from;
+      this.posX = posX;
+      this.posY = posY;
+      this.owner_new_pixel_count = owner_new_pixel_count;
     }
   }
 

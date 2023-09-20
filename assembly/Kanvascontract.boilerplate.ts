@@ -161,6 +161,22 @@ export class Kanvascontract {
     return res;
   }
 
+  erase_pixel(
+    args: kanvascontract.erase_pixel_arguments
+  ): kanvascontract.erase_pixel_result {
+    // const from = args.from;
+    // const posX = args.posX;
+    // const posY = args.posY;
+
+    // YOUR CODE HERE
+
+    const res = new kanvascontract.erase_pixel_result();
+    // res.old_pixel_count_object = ;
+    // res.new_pixel_count_object = ;
+
+    return res;
+  }
+
   pixel_at(
     args: kanvascontract.pixel_at_arguments
   ): kanvascontract.pixel_at_result {

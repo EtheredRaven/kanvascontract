@@ -1,5 +1,5 @@
 
-ý
+Á
 #assembly/proto/kanvascontract.protokanvascontractkoinos/options.proto"
 empty_message""
 uint64
@@ -53,7 +53,14 @@
 place_pixels_argumentsY
 place_pixel_arguments (2%.kanvascontract.place_pixel_argumentsRplacePixelArguments"i
 place_pixels_resultR
-place_pixel_results (2".kanvascontract.place_pixel_resultRplacePixelResults"D
+place_pixel_results (2".kanvascontract.place_pixel_resultRplacePixelResults"a
+erase_pixel_arguments
+from (B€µRfrom
+posX (B0RposX
+posY (B0RposY"Æ
+erase_pixel_resultW
+old_pixel_count_object (2".kanvascontract.pixel_count_objectRoldPixelCountObjectW
+new_pixel_count_object (2".kanvascontract.pixel_count_objectRnewPixelCountObject"D
 pixel_at_arguments
 posX (B0RposX
 posY (B0RposY"E
@@ -105,7 +112,12 @@ to_balance (B0R	toBalance"e
 owner_pixel_count (B0RownerPixelCount?
 previous_owner_pixel_count (B0RpreviousOwnerPixelCount
 aComp (B0RaComp
-bComp (B0RbComp"q
+bComp (B0RbComp"•
+pixel_erased_event
+from (B€µRfrom
+posX (B0RposX
+posY (B0RposY5
+owner_new_pixel_count (B0RownerNewPixelCount"q
 canvas_dimensions_changed_event%
 canvas_width (B0RcanvasWidth'
 canvas_height (B0RcanvasHeightbproto3

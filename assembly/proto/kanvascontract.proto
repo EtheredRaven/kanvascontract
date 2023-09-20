@@ -130,6 +130,18 @@ message place_pixels_result {
    repeated place_pixel_result place_pixel_results = 1;
 }
 
+// @description Erase an existing pixel
+// @read-only false
+message erase_pixel_arguments {
+   bytes from = 1 [(koinos.btype) = ADDRESS];
+   uint64 posX = 2 [jstype = JS_STRING];
+   uint64 posY = 3 [jstype = JS_STRING];
+}
+
+message erase_pixel_result {
+   pixel_count_object old_pixel_count_object = 1;
+   pixel_count_object new_pixel_count_object = 2;
+}
 
 // @description Query a pixel at a specific position
 // @read-only true
@@ -210,6 +222,13 @@ message pixel_placed_event {
    uint64 previous_owner_pixel_count = 5 [jstype = JS_STRING];
    uint64 aComp = 6 [jstype = JS_STRING];
    uint64 bComp = 7 [jstype = JS_STRING];
+}
+
+message pixel_erased_event {
+   bytes from = 1 [(koinos.btype) = ADDRESS];
+   uint64 posX = 2 [jstype = JS_STRING];
+   uint64 posY = 3 [jstype = JS_STRING];
+   uint64 owner_new_pixel_count = 4 [jstype = JS_STRING];
 }
 
 message canvas_dimensions_changed_event {

@@ -142,6 +142,16 @@ export function main(): i32 {
       break;
     }
 
+    case 0xb6a63236: {
+      const args = Protobuf.decode<ProtoNamespace.erase_pixel_arguments>(
+        contractArgs.args,
+        ProtoNamespace.erase_pixel_arguments.decode
+      );
+      const res = c.erase_pixel(args);
+      retbuf = Protobuf.encode(res, ProtoNamespace.erase_pixel_result.encode);
+      break;
+    }
+
     case 0x0d4a1a54: {
       const args = Protobuf.decode<ProtoNamespace.pixel_at_arguments>(
         contractArgs.args,

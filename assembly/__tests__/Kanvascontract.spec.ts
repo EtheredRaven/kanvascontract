@@ -967,6 +967,8 @@ describe("kanvas", () => {
       new chain.caller_data(MOCK_ACCT1, chain.privilege.user_mode)
     );
 
+    MockVM.commitTransaction();
+
     expect(() => {
       const knv = new Kanvascontract();
       const args = new kanvascontract.place_pixels_arguments([
@@ -1032,6 +1034,8 @@ describe("kanvas", () => {
     const mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT1, 100000000);
     knv.mint(mintArgs);
 
+    MockVM.commitTransaction();
+
     MockVM.setCaller(
       new chain.caller_data(MOCK_ACCT1, chain.privilege.user_mode)
     );
@@ -1078,6 +1082,8 @@ describe("kanvas", () => {
 
     const mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT1, 100000000);
     knv.mint(mintArgs);
+
+    MockVM.commitTransaction();
 
     MockVM.setCaller(
       new chain.caller_data(MOCK_ACCT1, chain.privilege.user_mode)
@@ -1304,5 +1310,230 @@ describe("kanvas", () => {
     expect(events[3].impacted.length).toBe(2);
     expect(Arrays.equal(events[3].impacted[0], MOCK_ACCT2)).toBe(true);
     expect(Arrays.equal(events[3].impacted[1], MOCK_ACCT1)).toBe(true);
+  });
+
+  it("should not erase a pixel if it is not authorized", () => {
+    const knv = new Kanvascontract();
+
+    MockVM.setContractArguments(new Uint8Array(0));
+    MockVM.setEntryPoint(1);
+
+    const authContractId = new MockVM.MockAuthority(
+      authority.authorization_type.contract_call,
+      CONTRACT_ID,
+      true
+    );
+
+    MockVM.setAuthorities([authContractId]);
+    MockVM.setCaller(
+      new chain.caller_data(CONTRACT_ID, chain.privilege.user_mode)
+    );
+
+    const mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT1, 100000000);
+    knv.mint(mintArgs);
+    MockVM.commitTransaction();
+
+    expect(() => {
+      const knv = new Kanvascontract();
+      const args = new kanvascontract.erase_pixel_arguments(
+        MOCK_ACCT1,
+        998,
+        999
+      );
+      knv.erase_pixel(args);
+    }).toThrow();
+
+    expect(MockVM.getErrorMessage()).toStrictEqual(
+      "'from' has not authorized erase"
+    );
+
+    const pixelAtArgs = new kanvascontract.pixel_at_arguments(998, 999);
+    const pixelAtRes = knv.pixel_at(pixelAtArgs);
+    const pixelAt = pixelAtRes.pixel!;
+    expect(Arrays.equal(pixelAt.owner, new Uint8Array(0))).toBe(true);
+  });
+
+  it("should not erase a pixel if the pixel is not owned", () => {
+    const knv = new Kanvascontract();
+
+    MockVM.setContractArguments(new Uint8Array(0));
+    MockVM.setEntryPoint(1);
+
+    const authContractId = new MockVM.MockAuthority(
+      authority.authorization_type.contract_call,
+      CONTRACT_ID,
+      true
+    );
+
+    const authMockAcct1 = new MockVM.MockAuthority(
+      authority.authorization_type.contract_call,
+      MOCK_ACCT1,
+      true
+    );
+    MockVM.setAuthorities([authContractId, authMockAcct1]);
+    MockVM.setCaller(
+      new chain.caller_data(CONTRACT_ID, chain.privilege.user_mode)
+    );
+
+    // Mint KAN
+    const mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT1, 100000000);
+    knv.mint(mintArgs);
+
+    MockVM.setCaller(
+      new chain.caller_data(MOCK_ACCT1, chain.privilege.user_mode)
+    );
+
+    // Place pixel
+    const args = new kanvascontract.place_pixel_arguments(
+      MOCK_ACCT1,
+      new kanvascontract.pixel_object(998, 999, 101, 102, 103, 104, "test")
+    );
+    knv.place_pixel(args);
+    MockVM.commitTransaction();
+
+    // Try to erase newly placed pixel
+    MockVM.setCaller(
+      new chain.caller_data(MOCK_ACCT2, chain.privilege.user_mode)
+    );
+
+    expect(() => {
+      const knv = new Kanvascontract();
+      const args = new kanvascontract.erase_pixel_arguments(
+        MOCK_ACCT2,
+        998,
+        999
+      );
+      knv.erase_pixel(args);
+    }).toThrow();
+
+    expect(MockVM.getErrorMessage()).toStrictEqual(
+      "You cannot erase a pixel you did not place"
+    );
+
+    expect(() => {
+      const knv = new Kanvascontract();
+      const args = new kanvascontract.erase_pixel_arguments(
+        MOCK_ACCT2,
+        100,
+        101
+      );
+      knv.erase_pixel(args);
+    }).toThrow();
+
+    expect(MockVM.getErrorMessage()).toStrictEqual(
+      "You cannot erase a pixel you did not place"
+    );
+
+    const pixelAtArgs = new kanvascontract.pixel_at_arguments(998, 999);
+    const pixelAtRes = knv.pixel_at(pixelAtArgs);
+    const pixelAt = pixelAtRes.pixel!;
+    expect(pixelAt.posX).toBe(998);
+    expect(pixelAt.posY).toBe(999);
+    expect(pixelAt.red).toBe(101);
+    expect(pixelAt.green).toBe(102);
+    expect(pixelAt.blue).toBe(103);
+    expect(pixelAt.alpha).toBe(104);
+    expect(pixelAt.metadata).toBe("test");
+    expect(Arrays.equal(pixelAt.owner, MOCK_ACCT1)).toBe(true);
+  });
+
+  it("should erase a pixel and get the right pixel count", () => {
+    const knv = new Kanvascontract();
+
+    MockVM.setContractArguments(new Uint8Array(0));
+    MockVM.setEntryPoint(1);
+
+    const authContractId = new MockVM.MockAuthority(
+      authority.authorization_type.contract_call,
+      CONTRACT_ID,
+      true
+    );
+
+    const authMockAcct1 = new MockVM.MockAuthority(
+      authority.authorization_type.contract_call,
+      MOCK_ACCT1,
+      true
+    );
+    MockVM.setAuthorities([authContractId, authMockAcct1]);
+    MockVM.setCaller(
+      new chain.caller_data(CONTRACT_ID, chain.privilege.user_mode)
+    );
+
+    const mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT1, 200000000);
+    knv.mint(mintArgs);
+
+    MockVM.setCaller(
+      new chain.caller_data(MOCK_ACCT1, chain.privilege.user_mode)
+    );
+
+    // Place 2 pixels
+    const args = new kanvascontract.place_pixel_arguments(
+      MOCK_ACCT1,
+      new kanvascontract.pixel_object(998, 999, 101, 102, 103, 104, "test")
+    );
+    const res = knv.place_pixel(args);
+    expect(res.pixel_count_object!.value).toBe(1);
+
+    const args1 = new kanvascontract.place_pixel_arguments(
+      MOCK_ACCT1,
+      new kanvascontract.pixel_object(999, 999, 101, 102, 103, 104, "test 1")
+    );
+    const res1 = knv.place_pixel(args1);
+    expect(res1.pixel_count_object!.value).toBe(2);
+
+    // Erase 1 pixel
+    const erase_args = new kanvascontract.erase_pixel_arguments(
+      MOCK_ACCT1,
+      998,
+      999
+    );
+    const erase_res = knv.erase_pixel(erase_args);
+    expect(erase_res.new_pixel_count_object!.value).toBe(1);
+    expect(erase_res.old_pixel_count_object!.value).toBe(2);
+
+    // Check pixel count
+    const pixelCountArgs = new kanvascontract.pixel_count_of_arguments(
+      MOCK_ACCT1
+    );
+    const pixelCountRes = knv.pixel_count_of(pixelCountArgs);
+    expect(pixelCountRes.value).toBe(1);
+
+    // Erase 1 pixel
+    const erase_args1 = new kanvascontract.erase_pixel_arguments(
+      MOCK_ACCT1,
+      999,
+      999
+    );
+    const erase_res1 = knv.erase_pixel(erase_args1);
+    expect(erase_res1.new_pixel_count_object!.value).toBe(0);
+    expect(erase_res1.old_pixel_count_object!.value).toBe(1);
+
+    // Check pixel count
+    const pixelCountArgs1 = new kanvascontract.pixel_count_of_arguments(
+      MOCK_ACCT1
+    );
+    const pixelCountRes1 = knv.pixel_count_of(pixelCountArgs1);
+    expect(pixelCountRes1.value).toBe(0);
+
+    const pixelAtArgs = new kanvascontract.pixel_at_arguments(998, 999);
+    const pixelAtRes = knv.pixel_at(pixelAtArgs);
+    const pixelAt = pixelAtRes.pixel!;
+    expect(pixelAt.posX).toBe(998);
+    expect(pixelAt.posY).toBe(999);
+    expect(Arrays.equal(pixelAt.owner, new Uint8Array(0))).toBe(true);
+
+    const events = MockVM.getEvents();
+    expect(events.length).toBe(5);
+    expect(events[3].name).toBe("kanvascontract.pixel_erased_event");
+    expect(Arrays.equal(events[3].impacted[0], MOCK_ACCT1)).toBe(true);
+
+    const pixelErasedEvent = Protobuf.decode<kanvascontract.pixel_erased_event>(
+      events[3].data!,
+      kanvascontract.pixel_erased_event.decode
+    );
+    expect(Arrays.equal(pixelErasedEvent.from, MOCK_ACCT1)).toBe(true);
+    expect(pixelErasedEvent.owner_new_pixel_count).toBe(1);
+    expect(pixelErasedEvent.posX).toBe(998);
+    expect(pixelErasedEvent.posY).toBe(999);
   });
 });
