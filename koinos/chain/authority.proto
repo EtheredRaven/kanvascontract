@@ -18,7 +18,7 @@ message call_target {
 
 message authorize_arguments {
    authorization_type type = 1;
-   optional call_target call = 2;
+   call_target call = 2;
 }
 
 message authorize_result {

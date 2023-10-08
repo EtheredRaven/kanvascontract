@@ -7,6 +7,13 @@
             "entry_point": 2191741823,
             "read_only": true
         },
+        "authorize": {
+            "argument": "koinos.chain.authorize_arguments",
+            "return": "koinos.chain.authorize_result",
+            "description": "Check if authorized",
+            "entry_point": 1244511632,
+            "read_only": false
+        },
         "symbol": {
             "argument": "kanvascontract.symbol_arguments",
             "return": "kanvascontract.symbol_result",
@@ -758,6 +765,59 @@
                                 "id": 2,
                                 "options": {
                                     "jstype": "JS_STRING"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "koinos": {
+                "nested": {
+                    "chain": {
+                        "options": {
+                            "go_package": "github.com/koinos/koinos-proto-golang/koinos/chain"
+                        },
+                        "nested": {
+                            "authorization_type": {
+                                "values": {
+                                    "contract_call": 0,
+                                    "transaction_application": 1,
+                                    "contract_upload": 2
+                                }
+                            },
+                            "call_target": {
+                                "fields": {
+                                    "contract_id": {
+                                        "type": "bytes",
+                                        "id": 1,
+                                        "options": {
+                                            "(btype)": "ADDRESS"
+                                        }
+                                    },
+                                    "entry_point": {
+                                        "type": "uint32",
+                                        "id": 2
+                                    }
+                                }
+                            },
+                            "authorize_arguments": {
+                                "fields": {
+                                    "type": {
+                                        "type": "authorization_type",
+                                        "id": 1
+                                    },
+                                    "call": {
+                                        "type": "call_target",
+                                        "id": 2
+                                    }
+                                }
+                            },
+                            "authorize_result": {
+                                "fields": {
+                                    "value": {
+                                        "type": "bool",
+                                        "id": 1
+                                    }
                                 }
                             }
                         }

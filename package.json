@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "type": "module",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@as-covers/core": "^0.4.2",
     "@as-pect/cli": "^8.1.0",
@@ -27,8 +26,8 @@
   },
   "scripts": {
     "lint": "eslint --max-warnings 0 --ext ts \"*/assembly/**/*.ts\"",
-    "build:debug": "koinos-sdk-as-cli build-all debug 0 kanvascontract.proto",
-    "build:release": "koinos-sdk-as-cli build-all release 0 kanvascontract.proto",
+    "build:debug": "koinos-sdk-as-cli build-all --generate_authorize debug 0 kanvascontract.proto",
+    "build:release": "koinos-sdk-as-cli build-all --generate_authorize release 0 kanvascontract.proto",
     "test": "koinos-sdk-as-cli run-tests",
     "ci": "jest -i",
     "ci:devcontainer": "ENV=DEVCONTAINER jest -i"

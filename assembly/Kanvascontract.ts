@@ -8,6 +8,7 @@ import {
   error,
   value,
   Crypto,
+  protocol,
 } from "@koinos/sdk-as";
 import { kanvascontract } from "./proto/kanvascontract";
 
@@ -675,6 +676,11 @@ export class Kanvascontract {
     return res;
   }
 
+  /**
+   * Get the dimensions of the canvas
+   * @external
+   * @readonly
+   */
   canvas_dimensions(
     args: kanvascontract.canvas_dimensions_arguments
   ): kanvascontract.canvas_dimensions_result {
@@ -685,6 +691,10 @@ export class Kanvascontract {
     return res;
   }
 
+  /**
+   * Set the dimensions of the canvas
+   * @external
+   */
   set_canvas_dimensions(
     args: kanvascontract.set_canvas_dimensions_arguments
   ): kanvascontract.empty_message {
@@ -716,5 +726,41 @@ export class Kanvascontract {
     const res = new kanvascontract.empty_message();
 
     return res;
+  }
+
+  authorize(args: authority.authorize_arguments): authority.authorize_result {
+    if (args.type == authority.authorization_type.transaction_application) {
+      const operations = Protobuf.decode<value.list_type>(
+        System.getTransactionField("operations")!.message_value!.value!,
+        value.list_type.decode
+      );
+      System.require(
+        operations.values.length == 1,
+        "transaction must have only 1 operation"
+      );
+
+      const operation = Protobuf.decode<protocol.operation>(
+        operations.values[0].message_value!.value!,
+        protocol.operation.decode
+      );
+      System.require(
+        operation.call_contract != null,
+        "expected call contract operation"
+      );
+      System.require(
+        Arrays.equal(operation.call_contract!.contract_id, this._contractId),
+        "expected call contract operation to be this contract"
+      );
+      System.require(
+        operation.call_contract!.entry_point == 2987049699 ||
+          operation.call_contract!.entry_point == 3464235413 ||
+          operation.call_contract!.entry_point == 3064345142,
+        "expected place pixel or erase entry point"
+      );
+
+      return new authority.authorize_result(true);
+    }
+
+    return new authority.authorize_result(false);
   }
 }

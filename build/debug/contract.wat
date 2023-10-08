@@ -41428,7 +41428,7 @@
   (local $pixelAtPosition i32)
   (local $7 i32)
   (local $pixelCount i32)
-  (local $oldPixelCount i32)
+  (local $oldPixelCountValue i64)
   (local $position i32)
   (local $newPixel i32)
   (local $12 i32)
@@ -41582,7 +41582,8 @@
   end
   local.set $pixelCount
   local.get $pixelCount
-  local.set $oldPixelCount
+  call $assembly/proto/kanvascontract/kanvascontract.pixel_count_object#get:value
+  local.set $oldPixelCountValue
   local.get $pixelCount
   local.get $pixelCount
   call $assembly/proto/kanvascontract/kanvascontract.pixel_count_object#get:value
@@ -41768,7 +41769,9 @@
   local.get $pixelCount
   call $assembly/proto/kanvascontract/kanvascontract.erase_pixel_result#set:new_pixel_count_object
   local.get $res
-  local.get $oldPixelCount
+  i32.const 0
+  local.get $oldPixelCountValue
+  call $assembly/proto/kanvascontract/kanvascontract.pixel_count_object#constructor
   call $assembly/proto/kanvascontract/kanvascontract.erase_pixel_result#set:old_pixel_count_object
   local.get $res
   local.set $17

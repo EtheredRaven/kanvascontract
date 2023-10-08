@@ -2,6 +2,18 @@ import { System, Protobuf, authority } from "@koinos/sdk-as";
 import { kanvascontract } from "./proto/kanvascontract";
 
 export class Kanvascontract {
+  authorize(args: authority.authorize_arguments): authority.authorize_result {
+    // const call = args.call;
+    // const type = args.type;
+
+    // YOUR CODE HERE
+
+    const res = new authority.authorize_result();
+    res.value = true;
+
+    return res;
+  }
+
   name(args: kanvascontract.name_arguments): kanvascontract.name_result {
     // YOUR CODE HERE
 

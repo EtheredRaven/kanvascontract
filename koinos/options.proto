@@ -16,5 +16,5 @@ enum bytes_type {
 }
 
 extend google.protobuf.FieldOptions {
-   optional bytes_type btype = 50000;
+   bytes_type btype = 50000;
 }
