@@ -160,6 +160,19 @@ export class Kanvascontract {
     return res;
   }
 
+  pixels_per_tx_of(
+    args: kanvascontract.pixels_per_tx_of_arguments
+  ): kanvascontract.pixels_per_tx_of_result {
+    // const owner = args.owner;
+
+    // YOUR CODE HERE
+
+    const res = new kanvascontract.pixels_per_tx_of_result();
+    // res.value = ;
+
+    return res;
+  }
+
   place_pixels(
     args: kanvascontract.place_pixels_arguments
   ): kanvascontract.place_pixels_result {
@@ -185,6 +198,19 @@ export class Kanvascontract {
     const res = new kanvascontract.erase_pixel_result();
     // res.old_pixel_count_object = ;
     // res.new_pixel_count_object = ;
+
+    return res;
+  }
+
+  erase_pixels(
+    args: kanvascontract.erase_pixels_arguments
+  ): kanvascontract.erase_pixels_result {
+    // const erase_pixel_arguments = args.erase_pixel_arguments;
+
+    // YOUR CODE HERE
+
+    const res = new kanvascontract.erase_pixels_result();
+    // res.erase_pixel_results = ;
 
     return res;
   }

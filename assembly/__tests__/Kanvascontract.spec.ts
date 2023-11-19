@@ -5,11 +5,17 @@ import {
   Protobuf,
   authority,
   chain,
+  StringBytes,
 } from "@koinos/sdk-as";
 import { Kanvascontract } from "../Kanvascontract";
 import { kanvascontract } from "../proto/kanvascontract";
+import { Kanvasgodscontract } from "../../../kanvasgodscontract/assembly/Kanvasgodscontract";
+import { collections } from "../../../kanvasgodscontract/assembly/proto/collections";
 
 const CONTRACT_ID = Base58.decode("1DQzuCcTKacbs9GGScRTU1Hc8BsyARTPqe");
+const KANVAS_GODS_CONTRACT_ID = Base58.decode(
+  "1KANGodsneBDiXyvGT5fYrfDcZpJCjxRQU"
+);
 const MOCK_ACCT1 = Base58.decode("1DQzuCcTKacbs9GGScRTU1Hc8BsyARTPqG");
 const MOCK_ACCT2 = Base58.decode("1DQzuCcTKacbs9GGScRTU1Hc8BsyARTPqK");
 const CONTRACT_EMPTY = Base58.decode("");
@@ -1535,5 +1541,139 @@ describe("kanvas", () => {
     expect(pixelErasedEvent.owner_new_pixel_count).toBe(1);
     expect(pixelErasedEvent.posX).toBe(998);
     expect(pixelErasedEvent.posY).toBe(999);
+  });
+});
+
+describe("kanvas gods", () => {
+  beforeEach(() => {
+    MockVM.reset();
+    MockVM.setContractId(CONTRACT_ID);
+    MockVM.setCaller(
+      new chain.caller_data(new Uint8Array(0), chain.privilege.user_mode)
+    );
+  });
+
+  it("should get the right tier", () => {
+    const tkn = new Kanvascontract();
+
+    // Default
+    let res = tkn._find_tier([]);
+    expect(res).toBe(tkn.DEFAULT_PIXELS_PER_TX);
+
+    res = tkn._find_tier([(tkn.KANVAS_GODS_TIERS[0] - 1).toString()]);
+    expect(res).toBe(tkn.KANVAS_GODS_PIXELS_PER_TX[0]);
+
+    res = tkn._find_tier([(tkn.KANVAS_GODS_TIERS[1] - 1).toString()]);
+    expect(res).toBe(tkn.KANVAS_GODS_PIXELS_PER_TX[1]);
+
+    res = tkn._find_tier([
+      (tkn.KANVAS_GODS_TIERS[1] - 1).toString(),
+      (tkn.KANVAS_GODS_TIERS[0] - 1).toString(),
+    ]);
+    expect(res).toBe(tkn.KANVAS_GODS_PIXELS_PER_TX[0]);
+
+    res = tkn._find_tier([
+      (tkn.KANVAS_GODS_TIERS[0] - 1).toString(),
+      (tkn.KANVAS_GODS_TIERS[1] - 1).toString(),
+    ]);
+    expect(res).toBe(tkn.KANVAS_GODS_PIXELS_PER_TX[0]);
+
+    res = tkn._find_tier([
+      (tkn.KANVAS_GODS_TIERS[1] - 1).toString(),
+      "1000",
+      tkn.KANVAS_GODS_TIERS[1].toString(),
+    ]);
+    expect(res).toBe(tkn.KANVAS_GODS_PIXELS_PER_TX[1]);
+
+    res = tkn._find_tier([
+      "2000",
+      (tkn.KANVAS_GODS_TIERS[1] - 1).toString(),
+      "1000",
+      tkn.KANVAS_GODS_TIERS[1].toString(),
+      "1500",
+      tkn.KANVAS_GODS_TIERS[0].toString(),
+    ]);
+    expect(res).toBe(tkn.KANVAS_GODS_PIXELS_PER_TX[0]);
+  });
+
+  it("should get the right pixels per tx", () => {
+    MockVM.reset();
+    MockVM.setContractId(KANVAS_GODS_CONTRACT_ID);
+    MockVM.setCaller(
+      new chain.caller_data(KANVAS_GODS_CONTRACT_ID, chain.privilege.user_mode)
+    );
+    const auth = new MockVM.MockAuthority(
+      authority.authorization_type.contract_call,
+      KANVAS_GODS_CONTRACT_ID,
+      true
+    );
+    MockVM.setAuthorities([auth]);
+
+    const kanvasgods = new Kanvasgodscontract();
+    const argsMint = new collections.mint_arguments(KANVAS_GODS_CONTRACT_ID, 5);
+    kanvasgods.mint(argsMint);
+
+    const argsBalance = new collections.balance_of_arguments(
+      KANVAS_GODS_CONTRACT_ID
+    );
+    const resBalance = kanvasgods.balance_of(argsBalance);
+    expect(resBalance.value).toBe(5);
+
+    let tokensOfRes = kanvasgods.tokens_of(
+      new collections.tokens_of_arguments(KANVAS_GODS_CONTRACT_ID)
+    );
+    expect(tokensOfRes.token_id.length).toBe(5);
+    expect(tokensOfRes.token_id[0]).toBe("1");
+    expect(tokensOfRes.token_id[1]).toBe("2");
+    expect(tokensOfRes.token_id[2]).toBe("3");
+    expect(tokensOfRes.token_id[3]).toBe("4");
+    expect(tokensOfRes.token_id[4]).toBe("5");
+
+    const tkn = new Kanvascontract();
+    const res = tkn._find_tier(tokensOfRes.token_id);
+    expect(res).toBe(tkn.KANVAS_GODS_PIXELS_PER_TX[0]);
+
+    // Transfer almighty gods
+    kanvasgods.transfer(
+      new collections.transfer_arguments(
+        KANVAS_GODS_CONTRACT_ID,
+        MOCK_ACCT1,
+        StringBytes.stringToBytes("1")
+      )
+    );
+    kanvasgods.transfer(
+      new collections.transfer_arguments(
+        KANVAS_GODS_CONTRACT_ID,
+        MOCK_ACCT1,
+        StringBytes.stringToBytes("2")
+      )
+    );
+    kanvasgods.transfer(
+      new collections.transfer_arguments(
+        KANVAS_GODS_CONTRACT_ID,
+        MOCK_ACCT1,
+        StringBytes.stringToBytes("3")
+      )
+    );
+    let tokensOfResFrom = kanvasgods.tokens_of(
+      new collections.tokens_of_arguments(KANVAS_GODS_CONTRACT_ID)
+    );
+    let tokensOfResTo = kanvasgods.tokens_of(
+      new collections.tokens_of_arguments(MOCK_ACCT1)
+    );
+    expect(tokensOfResFrom.token_id.length).toBe(2);
+    expect(tokensOfResTo.token_id.length).toBe(3);
+    expect(tkn._find_tier(tokensOfResFrom.token_id)).toBe(
+      tkn.KANVAS_GODS_PIXELS_PER_TX[1]
+    );
+    expect(tkn._find_tier(tokensOfResTo.token_id)).toBe(
+      tkn.KANVAS_GODS_PIXELS_PER_TX[0]
+    );
+    expect(
+      tkn._find_tier(
+        kanvasgods.tokens_of(new collections.tokens_of_arguments(MOCK_ACCT2))
+          .token_id
+      )
+    ).toBe(tkn.DEFAULT_PIXELS_PER_TX);
   });
 });

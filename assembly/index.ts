@@ -142,6 +142,19 @@ export function main(): i32 {
       break;
     }
 
+    case 0x05f688ca: {
+      const args = Protobuf.decode<ProtoNamespace.pixels_per_tx_of_arguments>(
+        contractArgs.args,
+        ProtoNamespace.pixels_per_tx_of_arguments.decode
+      );
+      const res = c.pixels_per_tx_of(args);
+      retbuf = Protobuf.encode(
+        res,
+        ProtoNamespace.pixels_per_tx_of_result.encode
+      );
+      break;
+    }
+
     case 0xce7c0995: {
       const args = Protobuf.decode<ProtoNamespace.place_pixels_arguments>(
         contractArgs.args,
@@ -159,6 +172,16 @@ export function main(): i32 {
       );
       const res = c.erase_pixel(args);
       retbuf = Protobuf.encode(res, ProtoNamespace.erase_pixel_result.encode);
+      break;
+    }
+
+    case 0x9746283f: {
+      const args = Protobuf.decode<ProtoNamespace.erase_pixels_arguments>(
+        contractArgs.args,
+        ProtoNamespace.erase_pixels_arguments.decode
+      );
+      const res = c.erase_pixels(args);
+      retbuf = Protobuf.encode(res, ProtoNamespace.erase_pixels_result.encode);
       break;
     }
 

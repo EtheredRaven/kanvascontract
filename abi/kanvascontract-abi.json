@@ -91,6 +91,13 @@
             "entry_point": 2987049699,
             "read_only": false
         },
+        "pixels_per_tx_of": {
+            "argument": "kanvascontract.pixels_per_tx_of_arguments",
+            "return": "kanvascontract.pixels_per_tx_of_result",
+            "description": "Pixels capacity (place or erase) of an adress based on the NFT owned",
+            "entry_point": 100042954,
+            "read_only": true
+        },
         "place_pixels": {
             "argument": "kanvascontract.place_pixels_arguments",
             "return": "kanvascontract.place_pixels_result",
@@ -103,6 +110,13 @@
             "return": "kanvascontract.erase_pixel_result",
             "description": "Erase an existing pixel",
             "entry_point": 3064345142,
+            "read_only": false
+        },
+        "erase_pixels": {
+            "argument": "kanvascontract.erase_pixels_arguments",
+            "return": "kanvascontract.erase_pixels_result",
+            "description": "Erase a pack of existing pixels",
+            "entry_point": 2537957439,
             "read_only": false
         },
         "pixel_at": {
@@ -382,6 +396,28 @@
                             }
                         }
                     },
+                    "pixels_per_tx_of_arguments": {
+                        "fields": {
+                            "owner": {
+                                "type": "bytes",
+                                "id": 1,
+                                "options": {
+                                    "(koinos.btype)": "ADDRESS"
+                                }
+                            }
+                        }
+                    },
+                    "pixels_per_tx_of_result": {
+                        "fields": {
+                            "value": {
+                                "type": "uint64",
+                                "id": 1,
+                                "options": {
+                                    "jstype": "JS_STRING"
+                                }
+                            }
+                        }
+                    },
                     "place_pixels_arguments": {
                         "fields": {
                             "place_pixel_arguments": {
@@ -434,6 +470,24 @@
                             "new_pixel_count_object": {
                                 "type": "pixel_count_object",
                                 "id": 2
+                            }
+                        }
+                    },
+                    "erase_pixels_arguments": {
+                        "fields": {
+                            "erase_pixel_arguments": {
+                                "rule": "repeated",
+                                "type": "erase_pixel_arguments",
+                                "id": 1
+                            }
+                        }
+                    },
+                    "erase_pixels_result": {
+                        "fields": {
+                            "erase_pixel_results": {
+                                "rule": "repeated",
+                                "type": "erase_pixel_result",
+                                "id": 1
                             }
                         }
                     },

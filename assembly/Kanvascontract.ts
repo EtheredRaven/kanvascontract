@@ -9,8 +9,10 @@ import {
   value,
   Crypto,
   protocol,
+  Base58,
 } from "@koinos/sdk-as";
 import { kanvascontract } from "./proto/kanvascontract";
+import { collections } from "../../kanvasgodscontract/assembly/proto/collections";
 
 const SUPPLY_SPACE_ID = 0;
 const BALANCES_SPACE_ID = 1;
@@ -19,6 +21,11 @@ const PIXEL_CANVAS_SPACE_ID = 3;
 const CANVAS_WIDTH_SPACE_ID = 4;
 const CANVAS_HEIGHT_SPACE_ID = 5;
 const ALLOWANCES_SPACE_ID = 6;
+
+const KANVAS_GODS_CONTRACT_ADDRESS = Base58.decode(
+  "1KANGodsneBDiXyvGT5fYrfDcZpJCjxRQU"
+);
+const KANVAS_GODS_TOKENS_OF_ENTRY = 0x981c7e47;
 
 export class Kanvascontract {
   _contractId: Uint8Array;
@@ -34,6 +41,10 @@ export class Kanvascontract {
   _pixelCanvas!: Storage.Map<string, kanvascontract.pixel_object>;
   _canvasWidth!: Storage.Obj<kanvascontract.uint64>;
   _canvasHeight!: Storage.Obj<kanvascontract.uint64>;
+
+  DEFAULT_PIXELS_PER_TX: u64 = 5;
+  KANVAS_GODS_TIERS: u64[] = [3, 14];
+  KANVAS_GODS_PIXELS_PER_TX: u64[] = [100, 50];
 
   constructor() {
     this._contractId = System.getContractId();
@@ -591,6 +602,60 @@ export class Kanvascontract {
   }
 
   /**
+   * Find the biggest tier and returns the pixel capacity
+   * @internal
+   */
+  _find_tier(token_list: string[]): u64 {
+    let pixelsPerTx = this.DEFAULT_PIXELS_PER_TX;
+    for (let i = 0; i < token_list.length; i++) {
+      let tokenId = u64.parse(token_list[i]);
+      for (let j = 0; j < this.KANVAS_GODS_TIERS.length; j++) {
+        let tier = this.KANVAS_GODS_TIERS[j];
+        let px_per_tx = this.KANVAS_GODS_PIXELS_PER_TX[j];
+        if (tokenId <= tier) {
+          // Tier is found because they are ordered from highest to lowest
+          if (px_per_tx > pixelsPerTx)
+            // Only take if it is higher than the previous ones
+            pixelsPerTx = px_per_tx;
+          continue; // Go to next token of the list
+        }
+      }
+    }
+
+    return pixelsPerTx;
+  }
+
+  /**
+   * Place a bunch of new pixels on the map
+   * @external
+   * @readonly
+   */
+  pixels_per_tx_of(
+    args: kanvascontract.pixels_per_tx_of_arguments
+  ): kanvascontract.pixels_per_tx_of_result {
+    const owner = args.owner;
+
+    const tokensOfArgs = new collections.tokens_of_arguments(owner);
+    const tokensOfRes = System.call(
+      KANVAS_GODS_CONTRACT_ADDRESS,
+      KANVAS_GODS_TOKENS_OF_ENTRY,
+      Protobuf.encode(tokensOfArgs, collections.tokens_of_arguments.encode)
+    );
+    System.require(
+      tokensOfRes.code == 0,
+      "failed to retrieve tokens from kanvas gods contract"
+    );
+    const decodedRes = Protobuf.decode<collections.tokens_of_result>(
+      tokensOfRes.res.object as Uint8Array,
+      collections.tokens_of_result.decode
+    );
+
+    let pixelsPerTx = this._find_tier(decodedRes.token_id);
+
+    return new kanvascontract.pixels_per_tx_of_result(pixelsPerTx);
+  }
+
+  /**
    * Place a bunch of new pixels on the map
    * @external
    */
@@ -606,8 +671,8 @@ export class Kanvascontract {
       "You need to place at least 1 pixel"
     );
     System.require(
-      place_pixels_arguments.length <= 10,
-      "You cannot place more than 10 pixels simultaneously"
+      place_pixels_arguments.length <= 5,
+      "You cannot place more than 5 pixels simultaneously"
     );
 
     for (let i = 0; i < place_pixels_arguments.length; i++) {
@@ -673,6 +738,35 @@ export class Kanvascontract {
     res.old_pixel_count_object = new kanvascontract.pixel_count_object(
       oldPixelCountValue
     );
+    return res;
+  }
+
+  /**
+   * Erase a bunch of existing pixels on the map
+   * @external
+   */
+  erase_pixels(
+    args: kanvascontract.erase_pixels_arguments
+  ): kanvascontract.erase_pixels_result {
+    let erase_pixels_arguments = args.erase_pixel_arguments!;
+    const res = new kanvascontract.erase_pixels_result();
+    res.erase_pixel_results = [];
+
+    System.require(
+      erase_pixels_arguments.length >= 1,
+      "You need to erase at least 1 pixel"
+    );
+    System.require(
+      erase_pixels_arguments.length <= 5,
+      "You cannot place more than 5 pixels simultaneously"
+    );
+
+    for (let i = 0; i < erase_pixels_arguments.length; i++) {
+      let erase_pixel_arguments = erase_pixels_arguments[i];
+      let erase_pixel_result = this.erase_pixel(erase_pixel_arguments);
+      res.erase_pixel_results.push(erase_pixel_result);
+    }
+
     return res;
   }
 

@@ -120,6 +120,16 @@ message place_pixel_result {
    balance_object balance_object = 3;
 }
 
+// @description Pixels capacity (place or erase) of an adress based on the NFT owned
+// @read-only true
+message pixels_per_tx_of_arguments {
+   bytes owner = 1 [(koinos.btype) = ADDRESS];
+}
+
+message pixels_per_tx_of_result {
+   uint64 value = 1 [jstype = JS_STRING];
+}
+
 // @description Place a pack of new pixels
 // @read-only false
 message place_pixels_arguments {
@@ -141,6 +151,16 @@ message erase_pixel_arguments {
 message erase_pixel_result {
    pixel_count_object old_pixel_count_object = 1;
    pixel_count_object new_pixel_count_object = 2;
+}
+
+// @description Erase a pack of existing pixels
+// @read-only false
+message erase_pixels_arguments {
+   repeated erase_pixel_arguments erase_pixel_arguments = 1;
+}
+
+message erase_pixels_result {
+   repeated erase_pixel_result erase_pixel_results = 1;
 }
 
 // @description Query a pixel at a specific position
