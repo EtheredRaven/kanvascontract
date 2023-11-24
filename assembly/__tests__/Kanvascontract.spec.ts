@@ -9,12 +9,12 @@ import {
 } from "@koinos/sdk-as";
 import { Kanvascontract } from "../Kanvascontract";
 import { kanvascontract } from "../proto/kanvascontract";
-import { Kanvasgodscontract } from "../../../kanvasgodscontract/assembly/Kanvasgodscontract";
-import { collections } from "../../../kanvasgodscontract/assembly/proto/collections";
+import { Collections } from "../../../collections/assembly/Collections";
+import { collections } from "../../../collections/assembly/proto/collections";
 
 const CONTRACT_ID = Base58.decode("1DQzuCcTKacbs9GGScRTU1Hc8BsyARTPqe");
 const KANVAS_GODS_CONTRACT_ID = Base58.decode(
-  "1KANGodsneBDiXyvGT5fYrfDcZpJCjxRQU"
+  "1KANGodsBD74xBuoBVoJE2x2PiRyDbfM2i"
 );
 const MOCK_ACCT1 = Base58.decode("1DQzuCcTKacbs9GGScRTU1Hc8BsyARTPqG");
 const MOCK_ACCT2 = Base58.decode("1DQzuCcTKacbs9GGScRTU1Hc8BsyARTPqK");
@@ -1609,7 +1609,7 @@ describe("kanvas gods", () => {
     );
     MockVM.setAuthorities([auth]);
 
-    const kanvasgods = new Kanvasgodscontract();
+    const kanvasgods = new Collections();
     const argsMint = new collections.mint_arguments(KANVAS_GODS_CONTRACT_ID, 5);
     kanvasgods.mint(argsMint);
 

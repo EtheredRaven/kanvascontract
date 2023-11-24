@@ -12,7 +12,7 @@ import {
   Base58,
 } from "@koinos/sdk-as";
 import { kanvascontract } from "./proto/kanvascontract";
-import { collections } from "../../kanvasgodscontract/assembly/proto/collections";
+import { collections } from "../../collections/assembly/proto/collections";
 
 const SUPPLY_SPACE_ID = 0;
 const BALANCES_SPACE_ID = 1;
@@ -23,7 +23,7 @@ const CANVAS_HEIGHT_SPACE_ID = 5;
 const ALLOWANCES_SPACE_ID = 6;
 
 const KANVAS_GODS_CONTRACT_ADDRESS = Base58.decode(
-  "1KANGodsneBDiXyvGT5fYrfDcZpJCjxRQU"
+  "1KANGodsBD74xBuoBVoJE2x2PiRyDbfM2i"
 );
 const KANVAS_GODS_TOKENS_OF_ENTRY = 0x981c7e47;
 
@@ -608,16 +608,13 @@ export class Kanvascontract {
   _find_tier(token_list: string[]): u64 {
     let pixelsPerTx = this.DEFAULT_PIXELS_PER_TX;
     for (let i = 0; i < token_list.length; i++) {
-      let tokenId = u64.parse(token_list[i]);
+      let tokenId = U64.parseInt(token_list[i]);
       for (let j = 0; j < this.KANVAS_GODS_TIERS.length; j++) {
         let tier = this.KANVAS_GODS_TIERS[j];
         let px_per_tx = this.KANVAS_GODS_PIXELS_PER_TX[j];
         if (tokenId <= tier) {
           // Tier is found because they are ordered from highest to lowest
-          if (px_per_tx > pixelsPerTx)
-            // Only take if it is higher than the previous ones
-            pixelsPerTx = px_per_tx;
-          continue; // Go to next token of the list
+          if (px_per_tx > pixelsPerTx) pixelsPerTx = px_per_tx;
         }
       }
     }
@@ -670,9 +667,18 @@ export class Kanvascontract {
       place_pixels_arguments.length >= 1,
       "You need to place at least 1 pixel"
     );
+
+    const pixels_per_tx = this.pixels_per_tx_of(
+      new kanvascontract.pixels_per_tx_of_arguments(
+        args.place_pixel_arguments[0].from
+      )
+    );
+
     System.require(
-      place_pixels_arguments.length <= 5,
-      "You cannot place more than 5 pixels simultaneously"
+      place_pixels_arguments.length <= pixels_per_tx.value,
+      "You cannot place more than " +
+        pixels_per_tx.value +
+        " pixels simultaneously"
     );
 
     for (let i = 0; i < place_pixels_arguments.length; i++) {
@@ -756,9 +762,18 @@ export class Kanvascontract {
       erase_pixels_arguments.length >= 1,
       "You need to erase at least 1 pixel"
     );
+
+    const pixels_per_tx = this.pixels_per_tx_of(
+      new kanvascontract.pixels_per_tx_of_arguments(
+        args.erase_pixel_arguments[0].from
+      )
+    );
+
     System.require(
-      erase_pixels_arguments.length <= 5,
-      "You cannot place more than 5 pixels simultaneously"
+      erase_pixels_arguments.length <= pixels_per_tx.value,
+      "You cannot place more than " +
+        pixels_per_tx.value +
+        " pixels simultaneously"
     );
 
     for (let i = 0; i < erase_pixels_arguments.length; i++) {
