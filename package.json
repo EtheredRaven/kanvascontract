@@ -26,8 +26,8 @@
   },
   "scripts": {
     "lint": "eslint --max-warnings 0 --ext ts \"*/assembly/**/*.ts\"",
-    "build:debug": "koinos-sdk-as-cli build-all --generate_authorize debug 0 kanvascontract.proto",
-    "build:release": "koinos-sdk-as-cli build-all --generate_authorize release 0 kanvascontract.proto",
+    "build:debug": "RETURN_BUFFER_SIZE=524288 koinos-sdk-as-cli build-all --generate_authorize debug 0 kanvascontract.proto",
+    "build:release": "RETURN_BUFFER_SIZE=524288 koinos-sdk-as-cli build-all --generate_authorize release 0 kanvascontract.proto",
     "test": "koinos-sdk-as-cli run-tests",
     "ci": "jest -i",
     "ci:devcontainer": "ENV=DEVCONTAINER jest -i"

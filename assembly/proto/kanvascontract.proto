@@ -107,19 +107,6 @@ message pixel_count_of_result {
    uint64 value = 1 [jstype = JS_STRING];
 }
 
-// @description Place a new pixel
-// @read-only false
-message place_pixel_arguments {
-   bytes from = 1 [(koinos.btype) = ADDRESS];
-   pixel_object pixel_to_place = 2;
-}
-
-message place_pixel_result {
-   pixel_count_object pixel_count_object = 1;
-   pixel_count_object old_pixel_count_object = 2;
-   balance_object balance_object = 3;
-}
-
 // @description Pixels capacity (place or erase) of an adress based on the NFT owned
 // @read-only true
 message pixels_per_tx_of_arguments {
@@ -130,37 +117,35 @@ message pixels_per_tx_of_result {
    uint64 value = 1 [jstype = JS_STRING];
 }
 
+// @description Place a new pixel
+// @read-only false
+// @result empty_message
+message place_pixel_arguments {
+   bytes from = 1 [(koinos.btype) = ADDRESS];
+   pixel_object pixel_to_place = 2;
+}
+
 // @description Place a pack of new pixels
 // @read-only false
+// @result empty_message
 message place_pixels_arguments {
    repeated place_pixel_arguments place_pixel_arguments = 1;
 }
 
-message place_pixels_result {
-   repeated place_pixel_result place_pixel_results = 1;
-}
-
 // @description Erase an existing pixel
 // @read-only false
+// @result empty_message
 message erase_pixel_arguments {
    bytes from = 1 [(koinos.btype) = ADDRESS];
    uint64 posX = 2 [jstype = JS_STRING];
    uint64 posY = 3 [jstype = JS_STRING];
 }
 
-message erase_pixel_result {
-   pixel_count_object old_pixel_count_object = 1;
-   pixel_count_object new_pixel_count_object = 2;
-}
-
 // @description Erase a pack of existing pixels
 // @read-only false
+// @result empty_message
 message erase_pixels_arguments {
    repeated erase_pixel_arguments erase_pixel_arguments = 1;
-}
-
-message erase_pixels_result {
-   repeated erase_pixel_result erase_pixel_results = 1;
 }
 
 // @description Query a pixel at a specific position
@@ -240,8 +225,6 @@ message pixel_placed_event {
    pixel_object pixel_placed = 3;
    uint64 owner_pixel_count = 4 [jstype = JS_STRING];
    uint64 previous_owner_pixel_count = 5 [jstype = JS_STRING];
-   uint64 aComp = 6 [jstype = JS_STRING];
-   uint64 bComp = 7 [jstype = JS_STRING];
 }
 
 message pixel_erased_event {

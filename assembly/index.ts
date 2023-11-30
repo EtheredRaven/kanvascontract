@@ -4,7 +4,7 @@ import { kanvascontract as ProtoNamespace } from "./proto/kanvascontract";
 
 export function main(): i32 {
   const contractArgs = System.getArguments();
-  let retbuf = new Uint8Array(1024);
+  let retbuf = new Uint8Array(524288);
 
   const c = new ContractClass();
 
@@ -132,16 +132,6 @@ export function main(): i32 {
       break;
     }
 
-    case 0xb20ac2e3: {
-      const args = Protobuf.decode<ProtoNamespace.place_pixel_arguments>(
-        contractArgs.args,
-        ProtoNamespace.place_pixel_arguments.decode
-      );
-      const res = c.place_pixel(args);
-      retbuf = Protobuf.encode(res, ProtoNamespace.place_pixel_result.encode);
-      break;
-    }
-
     case 0x05f688ca: {
       const args = Protobuf.decode<ProtoNamespace.pixels_per_tx_of_arguments>(
         contractArgs.args,
@@ -155,13 +145,23 @@ export function main(): i32 {
       break;
     }
 
+    case 0xb20ac2e3: {
+      const args = Protobuf.decode<ProtoNamespace.place_pixel_arguments>(
+        contractArgs.args,
+        ProtoNamespace.place_pixel_arguments.decode
+      );
+      const res = c.place_pixel(args);
+      retbuf = Protobuf.encode(res, ProtoNamespace.empty_message.encode);
+      break;
+    }
+
     case 0xce7c0995: {
       const args = Protobuf.decode<ProtoNamespace.place_pixels_arguments>(
         contractArgs.args,
         ProtoNamespace.place_pixels_arguments.decode
       );
       const res = c.place_pixels(args);
-      retbuf = Protobuf.encode(res, ProtoNamespace.place_pixels_result.encode);
+      retbuf = Protobuf.encode(res, ProtoNamespace.empty_message.encode);
       break;
     }
 
@@ -171,7 +171,7 @@ export function main(): i32 {
         ProtoNamespace.erase_pixel_arguments.decode
       );
       const res = c.erase_pixel(args);
-      retbuf = Protobuf.encode(res, ProtoNamespace.erase_pixel_result.encode);
+      retbuf = Protobuf.encode(res, ProtoNamespace.empty_message.encode);
       break;
     }
 
@@ -181,7 +181,7 @@ export function main(): i32 {
         ProtoNamespace.erase_pixels_arguments.decode
       );
       const res = c.erase_pixels(args);
-      retbuf = Protobuf.encode(res, ProtoNamespace.erase_pixels_result.encode);
+      retbuf = Protobuf.encode(res, ProtoNamespace.empty_message.encode);
       break;
     }
 

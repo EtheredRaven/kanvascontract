@@ -735,141 +735,6 @@ export namespace kanvascontract {
     }
   }
 
-  export class place_pixel_arguments {
-    static encode(message: place_pixel_arguments, writer: Writer): void {
-      if (message.from.length != 0) {
-        writer.uint32(10);
-        writer.bytes(message.from);
-      }
-
-      const unique_name_pixel_to_place = message.pixel_to_place;
-      if (unique_name_pixel_to_place !== null) {
-        writer.uint32(18);
-        writer.fork();
-        pixel_object.encode(unique_name_pixel_to_place, writer);
-        writer.ldelim();
-      }
-    }
-
-    static decode(reader: Reader, length: i32): place_pixel_arguments {
-      const end: usize = length < 0 ? reader.end : reader.ptr + length;
-      const message = new place_pixel_arguments();
-
-      while (reader.ptr < end) {
-        const tag = reader.uint32();
-        switch (tag >>> 3) {
-          case 1:
-            message.from = reader.bytes();
-            break;
-
-          case 2:
-            message.pixel_to_place = pixel_object.decode(
-              reader,
-              reader.uint32()
-            );
-            break;
-
-          default:
-            reader.skipType(tag & 7);
-            break;
-        }
-      }
-
-      return message;
-    }
-
-    from: Uint8Array;
-    pixel_to_place: pixel_object | null;
-
-    constructor(
-      from: Uint8Array = new Uint8Array(0),
-      pixel_to_place: pixel_object | null = null
-    ) {
-      this.from = from;
-      this.pixel_to_place = pixel_to_place;
-    }
-  }
-
-  @unmanaged
-  export class place_pixel_result {
-    static encode(message: place_pixel_result, writer: Writer): void {
-      const unique_name_pixel_count_object = message.pixel_count_object;
-      if (unique_name_pixel_count_object !== null) {
-        writer.uint32(10);
-        writer.fork();
-        pixel_count_object.encode(unique_name_pixel_count_object, writer);
-        writer.ldelim();
-      }
-
-      const unique_name_old_pixel_count_object = message.old_pixel_count_object;
-      if (unique_name_old_pixel_count_object !== null) {
-        writer.uint32(18);
-        writer.fork();
-        pixel_count_object.encode(unique_name_old_pixel_count_object, writer);
-        writer.ldelim();
-      }
-
-      const unique_name_balance_object = message.balance_object;
-      if (unique_name_balance_object !== null) {
-        writer.uint32(26);
-        writer.fork();
-        balance_object.encode(unique_name_balance_object, writer);
-        writer.ldelim();
-      }
-    }
-
-    static decode(reader: Reader, length: i32): place_pixel_result {
-      const end: usize = length < 0 ? reader.end : reader.ptr + length;
-      const message = new place_pixel_result();
-
-      while (reader.ptr < end) {
-        const tag = reader.uint32();
-        switch (tag >>> 3) {
-          case 1:
-            message.pixel_count_object = pixel_count_object.decode(
-              reader,
-              reader.uint32()
-            );
-            break;
-
-          case 2:
-            message.old_pixel_count_object = pixel_count_object.decode(
-              reader,
-              reader.uint32()
-            );
-            break;
-
-          case 3:
-            message.balance_object = balance_object.decode(
-              reader,
-              reader.uint32()
-            );
-            break;
-
-          default:
-            reader.skipType(tag & 7);
-            break;
-        }
-      }
-
-      return message;
-    }
-
-    pixel_count_object: pixel_count_object | null;
-    old_pixel_count_object: pixel_count_object | null;
-    balance_object: balance_object | null;
-
-    constructor(
-      pixel_count_object: pixel_count_object | null = null,
-      old_pixel_count_object: pixel_count_object | null = null,
-      balance_object: balance_object | null = null
-    ) {
-      this.pixel_count_object = pixel_count_object;
-      this.old_pixel_count_object = old_pixel_count_object;
-      this.balance_object = balance_object;
-    }
-  }
-
   export class pixels_per_tx_of_arguments {
     static encode(message: pixels_per_tx_of_arguments, writer: Writer): void {
       if (message.owner.length != 0) {
@@ -941,6 +806,61 @@ export namespace kanvascontract {
     }
   }
 
+  export class place_pixel_arguments {
+    static encode(message: place_pixel_arguments, writer: Writer): void {
+      if (message.from.length != 0) {
+        writer.uint32(10);
+        writer.bytes(message.from);
+      }
+
+      const unique_name_pixel_to_place = message.pixel_to_place;
+      if (unique_name_pixel_to_place !== null) {
+        writer.uint32(18);
+        writer.fork();
+        pixel_object.encode(unique_name_pixel_to_place, writer);
+        writer.ldelim();
+      }
+    }
+
+    static decode(reader: Reader, length: i32): place_pixel_arguments {
+      const end: usize = length < 0 ? reader.end : reader.ptr + length;
+      const message = new place_pixel_arguments();
+
+      while (reader.ptr < end) {
+        const tag = reader.uint32();
+        switch (tag >>> 3) {
+          case 1:
+            message.from = reader.bytes();
+            break;
+
+          case 2:
+            message.pixel_to_place = pixel_object.decode(
+              reader,
+              reader.uint32()
+            );
+            break;
+
+          default:
+            reader.skipType(tag & 7);
+            break;
+        }
+      }
+
+      return message;
+    }
+
+    from: Uint8Array;
+    pixel_to_place: pixel_object | null;
+
+    constructor(
+      from: Uint8Array = new Uint8Array(0),
+      pixel_to_place: pixel_object | null = null
+    ) {
+      this.from = from;
+      this.pixel_to_place = pixel_to_place;
+    }
+  }
+
   export class place_pixels_arguments {
     static encode(message: place_pixels_arguments, writer: Writer): void {
       const unique_name_place_pixel_arguments = message.place_pixel_arguments;
@@ -981,46 +901,6 @@ export namespace kanvascontract {
 
     constructor(place_pixel_arguments: Array<place_pixel_arguments> = []) {
       this.place_pixel_arguments = place_pixel_arguments;
-    }
-  }
-
-  export class place_pixels_result {
-    static encode(message: place_pixels_result, writer: Writer): void {
-      const unique_name_place_pixel_results = message.place_pixel_results;
-      for (let i = 0; i < unique_name_place_pixel_results.length; ++i) {
-        writer.uint32(10);
-        writer.fork();
-        place_pixel_result.encode(unique_name_place_pixel_results[i], writer);
-        writer.ldelim();
-      }
-    }
-
-    static decode(reader: Reader, length: i32): place_pixels_result {
-      const end: usize = length < 0 ? reader.end : reader.ptr + length;
-      const message = new place_pixels_result();
-
-      while (reader.ptr < end) {
-        const tag = reader.uint32();
-        switch (tag >>> 3) {
-          case 1:
-            message.place_pixel_results.push(
-              place_pixel_result.decode(reader, reader.uint32())
-            );
-            break;
-
-          default:
-            reader.skipType(tag & 7);
-            break;
-        }
-      }
-
-      return message;
-    }
-
-    place_pixel_results: Array<place_pixel_result>;
-
-    constructor(place_pixel_results: Array<place_pixel_result> = []) {
-      this.place_pixel_results = place_pixel_results;
     }
   }
 
@@ -1085,68 +965,6 @@ export namespace kanvascontract {
     }
   }
 
-  @unmanaged
-  export class erase_pixel_result {
-    static encode(message: erase_pixel_result, writer: Writer): void {
-      const unique_name_old_pixel_count_object = message.old_pixel_count_object;
-      if (unique_name_old_pixel_count_object !== null) {
-        writer.uint32(10);
-        writer.fork();
-        pixel_count_object.encode(unique_name_old_pixel_count_object, writer);
-        writer.ldelim();
-      }
-
-      const unique_name_new_pixel_count_object = message.new_pixel_count_object;
-      if (unique_name_new_pixel_count_object !== null) {
-        writer.uint32(18);
-        writer.fork();
-        pixel_count_object.encode(unique_name_new_pixel_count_object, writer);
-        writer.ldelim();
-      }
-    }
-
-    static decode(reader: Reader, length: i32): erase_pixel_result {
-      const end: usize = length < 0 ? reader.end : reader.ptr + length;
-      const message = new erase_pixel_result();
-
-      while (reader.ptr < end) {
-        const tag = reader.uint32();
-        switch (tag >>> 3) {
-          case 1:
-            message.old_pixel_count_object = pixel_count_object.decode(
-              reader,
-              reader.uint32()
-            );
-            break;
-
-          case 2:
-            message.new_pixel_count_object = pixel_count_object.decode(
-              reader,
-              reader.uint32()
-            );
-            break;
-
-          default:
-            reader.skipType(tag & 7);
-            break;
-        }
-      }
-
-      return message;
-    }
-
-    old_pixel_count_object: pixel_count_object | null;
-    new_pixel_count_object: pixel_count_object | null;
-
-    constructor(
-      old_pixel_count_object: pixel_count_object | null = null,
-      new_pixel_count_object: pixel_count_object | null = null
-    ) {
-      this.old_pixel_count_object = old_pixel_count_object;
-      this.new_pixel_count_object = new_pixel_count_object;
-    }
-  }
-
   export class erase_pixels_arguments {
     static encode(message: erase_pixels_arguments, writer: Writer): void {
       const unique_name_erase_pixel_arguments = message.erase_pixel_arguments;
@@ -1187,46 +1005,6 @@ export namespace kanvascontract {
 
     constructor(erase_pixel_arguments: Array<erase_pixel_arguments> = []) {
       this.erase_pixel_arguments = erase_pixel_arguments;
-    }
-  }
-
-  export class erase_pixels_result {
-    static encode(message: erase_pixels_result, writer: Writer): void {
-      const unique_name_erase_pixel_results = message.erase_pixel_results;
-      for (let i = 0; i < unique_name_erase_pixel_results.length; ++i) {
-        writer.uint32(10);
-        writer.fork();
-        erase_pixel_result.encode(unique_name_erase_pixel_results[i], writer);
-        writer.ldelim();
-      }
-    }
-
-    static decode(reader: Reader, length: i32): erase_pixels_result {
-      const end: usize = length < 0 ? reader.end : reader.ptr + length;
-      const message = new erase_pixels_result();
-
-      while (reader.ptr < end) {
-        const tag = reader.uint32();
-        switch (tag >>> 3) {
-          case 1:
-            message.erase_pixel_results.push(
-              erase_pixel_result.decode(reader, reader.uint32())
-            );
-            break;
-
-          default:
-            reader.skipType(tag & 7);
-            break;
-        }
-      }
-
-      return message;
-    }
-
-    erase_pixel_results: Array<erase_pixel_result>;
-
-    constructor(erase_pixel_results: Array<erase_pixel_result> = []) {
-      this.erase_pixel_results = erase_pixel_results;
     }
   }
 
@@ -1898,16 +1676,6 @@ export namespace kanvascontract {
         writer.uint32(40);
         writer.uint64(message.previous_owner_pixel_count);
       }
-
-      if (message.aComp != 0) {
-        writer.uint32(48);
-        writer.uint64(message.aComp);
-      }
-
-      if (message.bComp != 0) {
-        writer.uint32(56);
-        writer.uint64(message.bComp);
-      }
     }
 
     static decode(reader: Reader, length: i32): pixel_placed_event {
@@ -1937,14 +1705,6 @@ export namespace kanvascontract {
             message.previous_owner_pixel_count = reader.uint64();
             break;
 
-          case 6:
-            message.aComp = reader.uint64();
-            break;
-
-          case 7:
-            message.bComp = reader.uint64();
-            break;
-
           default:
             reader.skipType(tag & 7);
             break;
@@ -1959,25 +1719,19 @@ export namespace kanvascontract {
     pixel_placed: pixel_object | null;
     owner_pixel_count: u64;
     previous_owner_pixel_count: u64;
-    aComp: u64;
-    bComp: u64;
 
     constructor(
       from: Uint8Array = new Uint8Array(0),
       previous_owner: Uint8Array = new Uint8Array(0),
       pixel_placed: pixel_object | null = null,
       owner_pixel_count: u64 = 0,
-      previous_owner_pixel_count: u64 = 0,
-      aComp: u64 = 0,
-      bComp: u64 = 0
+      previous_owner_pixel_count: u64 = 0
     ) {
       this.from = from;
       this.previous_owner = previous_owner;
       this.pixel_placed = pixel_placed;
       this.owner_pixel_count = owner_pixel_count;
       this.previous_owner_pixel_count = previous_owner_pixel_count;
-      this.aComp = aComp;
-      this.bComp = bComp;
     }
   }
 

@@ -6,6 +6,9 @@ import {
   authority,
   chain,
   StringBytes,
+  Base64,
+  value,
+  system_calls,
 } from "@koinos/sdk-as";
 import { Kanvascontract } from "../Kanvascontract";
 import { kanvascontract } from "../proto/kanvascontract";
@@ -800,9 +803,6 @@ describe("kanvas", () => {
       new kanvascontract.pixel_object(998, 999, 101, 102, 103, 104, "test")
     );
     const res = knv.place_pixel(args);
-    expect(res.balance_object!.value).toBe(100000000);
-    expect(res.old_pixel_count_object!.value).toBe(0);
-    expect(res.pixel_count_object!.value).toBe(1);
 
     const pixelCountArgs1 = new kanvascontract.pixel_count_of_arguments(
       MOCK_ACCT1
@@ -848,7 +848,7 @@ describe("kanvas", () => {
     );
   });
 
-  it("should place several pixel and get the right pixel counts", () => {
+  it("should place several pixels and get the right pixel counts", () => {
     const knv = new Kanvascontract();
 
     MockVM.setContractArguments(new Uint8Array(0));
@@ -895,13 +895,7 @@ describe("kanvas", () => {
         new kanvascontract.pixel_object(996, 997, 105, 106, 107, 108, "test1")
       ),
     ]);
-    const res = knv.place_pixels(args);
-    expect(res.place_pixel_results[0].balance_object!.value).toBe(200000000);
-    expect(res.place_pixel_results[0].old_pixel_count_object!.value).toBe(0);
-    expect(res.place_pixel_results[0].pixel_count_object!.value).toBe(1);
-    expect(res.place_pixel_results[1].balance_object!.value).toBe(200000000);
-    expect(res.place_pixel_results[1].old_pixel_count_object!.value).toBe(1);
-    expect(res.place_pixel_results[1].pixel_count_object!.value).toBe(2);
+    knv.place_pixels(args);
 
     const pixelCountArgs1 = new kanvascontract.pixel_count_of_arguments(
       MOCK_ACCT1
@@ -1264,8 +1258,6 @@ describe("kanvas", () => {
       new kanvascontract.pixel_object(1, 2, 100, 101, 102, 103, "test")
     );
     const res = knv.place_pixel(placePixelArgs);
-    expect(res.old_pixel_count_object!.value).toBe(0);
-    expect(res.pixel_count_object!.value).toBe(1);
 
     const pixelCountArgs = new kanvascontract.pixel_count_of_arguments(
       MOCK_ACCT1
@@ -1282,8 +1274,6 @@ describe("kanvas", () => {
       new kanvascontract.pixel_object(1, 2, 200, 201, 202, 203, "test2")
     );
     const res2 = knv.place_pixel(placePixelArgs2);
-    expect(res2.old_pixel_count_object!.value).toBe(0);
-    expect(res2.pixel_count_object!.value).toBe(1);
 
     // Expect ACCT1 to have 0 pixels and ACCT2 to have one (overrided ACCT1 pixel)
     const pixelCountArgs1 = new kanvascontract.pixel_count_of_arguments(
@@ -1478,14 +1468,12 @@ describe("kanvas", () => {
       new kanvascontract.pixel_object(998, 999, 101, 102, 103, 104, "test")
     );
     const res = knv.place_pixel(args);
-    expect(res.pixel_count_object!.value).toBe(1);
 
     const args1 = new kanvascontract.place_pixel_arguments(
       MOCK_ACCT1,
       new kanvascontract.pixel_object(999, 999, 101, 102, 103, 104, "test 1")
     );
     const res1 = knv.place_pixel(args1);
-    expect(res1.pixel_count_object!.value).toBe(2);
 
     // Erase 1 pixel
     const erase_args = new kanvascontract.erase_pixel_arguments(
@@ -1494,8 +1482,6 @@ describe("kanvas", () => {
       999
     );
     const erase_res = knv.erase_pixel(erase_args);
-    expect(erase_res.new_pixel_count_object!.value).toBe(1);
-    expect(erase_res.old_pixel_count_object!.value).toBe(2);
 
     // Check pixel count
     const pixelCountArgs = new kanvascontract.pixel_count_of_arguments(
@@ -1511,8 +1497,6 @@ describe("kanvas", () => {
       999
     );
     const erase_res1 = knv.erase_pixel(erase_args1);
-    expect(erase_res1.new_pixel_count_object!.value).toBe(0);
-    expect(erase_res1.old_pixel_count_object!.value).toBe(1);
 
     // Check pixel count
     const pixelCountArgs1 = new kanvascontract.pixel_count_of_arguments(

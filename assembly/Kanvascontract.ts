@@ -26,6 +26,7 @@ const KANVAS_GODS_CONTRACT_ADDRESS = Base58.decode(
   "1KANGodsBD74xBuoBVoJE2x2PiRyDbfM2i"
 );
 const KANVAS_GODS_TOKENS_OF_ENTRY = 0x981c7e47;
+System.setSystemBufferSize(524288);
 
 export class Kanvascontract {
   _contractId: Uint8Array;
@@ -47,6 +48,7 @@ export class Kanvascontract {
   KANVAS_GODS_PIXELS_PER_TX: u64[] = [100, 50];
 
   constructor() {
+    System.setSystemBufferSize(524288);
     this._contractId = System.getContractId();
     this._supply = new Storage.Obj(
       this._contractId,
@@ -152,7 +154,7 @@ export class Kanvascontract {
   balance_of(
     args: kanvascontract.balance_of_arguments
   ): kanvascontract.balance_of_result {
-    const owner = args.owner!;
+    const owner = args.owner;
 
     const balanceObj = this._balances.get(owner)!;
 
@@ -305,8 +307,8 @@ export class Kanvascontract {
   transfer(
     args: kanvascontract.transfer_arguments
   ): kanvascontract.empty_message {
-    const from = args.from!;
-    const to = args.to!;
+    const from = args.from;
+    const to = args.to;
     const value = args.value;
 
     System.require(!Arrays.equal(from, to), "Cannot transfer to self");
@@ -357,7 +359,7 @@ export class Kanvascontract {
    * @external
    */
   mint(args: kanvascontract.mint_arguments): kanvascontract.empty_message {
-    const to = args.to!;
+    const to = args.to;
     const value = args.value;
 
     const isAuthorized = this.check_authority(this._contractId, false, 0);
@@ -394,7 +396,7 @@ export class Kanvascontract {
    * @external
    */
   burn(args: kanvascontract.burn_arguments): kanvascontract.empty_message {
-    const from = args.from!;
+    const from = args.from;
     const value = args.value;
 
     const isAuthorized = this.check_authority(this._contractId, false, 0);
@@ -437,7 +439,7 @@ export class Kanvascontract {
   pixel_count_of(
     args: kanvascontract.pixel_count_of_arguments
   ): kanvascontract.pixel_count_of_result {
-    const owner = args.owner!;
+    const owner = args.owner;
 
     const pixelCount = this._pixelCounts.get(owner)!;
 
@@ -492,8 +494,8 @@ export class Kanvascontract {
    */
   place_pixel(
     args: kanvascontract.place_pixel_arguments
-  ): kanvascontract.place_pixel_result {
-    const from = args.from!;
+  ): kanvascontract.empty_message {
+    const from = args.from;
     const pixel_to_place = args.pixel_to_place!;
     const posX = pixel_to_place.posX;
     const posY = pixel_to_place.posY;
@@ -576,12 +578,7 @@ export class Kanvascontract {
       pixelAtPosition.owner,
       newPixel,
       pixelCount.value,
-      previousOwnerPixelCount.value,
-      SafeMath.mul(
-        SafeMath.add(pixelCount.value, 1),
-        this._pow(10, this._decimals)
-      ),
-      kanvasBalance.value
+      previousOwnerPixelCount.value
     );
     System.event(
       "kanvascontract.pixel_placed_event",
@@ -592,13 +589,7 @@ export class Kanvascontract {
       impacted
     );
 
-    const res = new kanvascontract.place_pixel_result();
-    res.pixel_count_object = this._pixelCounts.get(from);
-    res.old_pixel_count_object = new kanvascontract.pixel_count_object(
-      oldPixelCountValue
-    );
-    res.balance_object = new kanvascontract.balance_object(kanvasBalance.value);
-    return res;
+    return new kanvascontract.empty_message();
   }
 
   /**
@@ -658,10 +649,8 @@ export class Kanvascontract {
    */
   place_pixels(
     args: kanvascontract.place_pixels_arguments
-  ): kanvascontract.place_pixels_result {
-    let place_pixels_arguments = args.place_pixel_arguments!;
-    const res = new kanvascontract.place_pixels_result();
-    res.place_pixel_results = [];
+  ): kanvascontract.empty_message {
+    let place_pixels_arguments = args.place_pixel_arguments;
 
     System.require(
       place_pixels_arguments.length >= 1,
@@ -675,19 +664,16 @@ export class Kanvascontract {
     );
 
     System.require(
-      place_pixels_arguments.length <= pixels_per_tx.value,
+      (place_pixels_arguments.length as u64) <= pixels_per_tx.value,
       "You cannot place more than " +
-        pixels_per_tx.value +
+        pixels_per_tx.value.toString() +
         " pixels simultaneously"
     );
 
-    for (let i = 0; i < place_pixels_arguments.length; i++) {
-      let place_pixel_arguments = place_pixels_arguments[i];
-      let place_pixel_results = this.place_pixel(place_pixel_arguments);
-      res.place_pixel_results.push(place_pixel_results);
-    }
+    for (let i = 0; i < place_pixels_arguments.length; i++)
+      this.place_pixel(place_pixels_arguments[i]);
 
-    return res;
+    return new kanvascontract.empty_message();
   }
 
   /**
@@ -696,8 +682,8 @@ export class Kanvascontract {
    */
   erase_pixel(
     args: kanvascontract.erase_pixel_arguments
-  ): kanvascontract.erase_pixel_result {
-    const from = args.from!;
+  ): kanvascontract.empty_message {
+    const from = args.from;
     const posX = args.posX;
     const posY = args.posY;
 
@@ -739,12 +725,7 @@ export class Kanvascontract {
       impacted
     );
 
-    const res = new kanvascontract.erase_pixel_result();
-    res.new_pixel_count_object = pixelCount;
-    res.old_pixel_count_object = new kanvascontract.pixel_count_object(
-      oldPixelCountValue
-    );
-    return res;
+    return new kanvascontract.empty_message();
   }
 
   /**
@@ -753,10 +734,8 @@ export class Kanvascontract {
    */
   erase_pixels(
     args: kanvascontract.erase_pixels_arguments
-  ): kanvascontract.erase_pixels_result {
-    let erase_pixels_arguments = args.erase_pixel_arguments!;
-    const res = new kanvascontract.erase_pixels_result();
-    res.erase_pixel_results = [];
+  ): kanvascontract.empty_message {
+    let erase_pixels_arguments = args.erase_pixel_arguments;
 
     System.require(
       erase_pixels_arguments.length >= 1,
@@ -770,19 +749,16 @@ export class Kanvascontract {
     );
 
     System.require(
-      erase_pixels_arguments.length <= pixels_per_tx.value,
+      (erase_pixels_arguments.length as u64) <= pixels_per_tx.value,
       "You cannot place more than " +
-        pixels_per_tx.value +
+        pixels_per_tx.value.toString() +
         " pixels simultaneously"
     );
 
-    for (let i = 0; i < erase_pixels_arguments.length; i++) {
-      let erase_pixel_arguments = erase_pixels_arguments[i];
-      let erase_pixel_result = this.erase_pixel(erase_pixel_arguments);
-      res.erase_pixel_results.push(erase_pixel_result);
-    }
+    for (let i = 0; i < erase_pixels_arguments.length; i++)
+      this.erase_pixel(erase_pixels_arguments[i]);
 
-    return res;
+    return new kanvascontract.empty_message();
   }
 
   /**

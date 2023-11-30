@@ -144,22 +144,6 @@ export class Kanvascontract {
     return res;
   }
 
-  place_pixel(
-    args: kanvascontract.place_pixel_arguments
-  ): kanvascontract.place_pixel_result {
-    // const from = args.from;
-    // const pixel_to_place = args.pixel_to_place;
-
-    // YOUR CODE HERE
-
-    const res = new kanvascontract.place_pixel_result();
-    // res.pixel_count_object = ;
-    // res.old_pixel_count_object = ;
-    // res.balance_object = ;
-
-    return res;
-  }
-
   pixels_per_tx_of(
     args: kanvascontract.pixels_per_tx_of_arguments
   ): kanvascontract.pixels_per_tx_of_result {
@@ -173,44 +157,53 @@ export class Kanvascontract {
     return res;
   }
 
+  place_pixel(
+    args: kanvascontract.place_pixel_arguments
+  ): kanvascontract.empty_message {
+    // const from = args.from;
+    // const pixel_to_place = args.pixel_to_place;
+
+    // YOUR CODE HERE
+
+    const res = new kanvascontract.empty_message();
+
+    return res;
+  }
+
   place_pixels(
     args: kanvascontract.place_pixels_arguments
-  ): kanvascontract.place_pixels_result {
+  ): kanvascontract.empty_message {
     // const place_pixel_arguments = args.place_pixel_arguments;
 
     // YOUR CODE HERE
 
-    const res = new kanvascontract.place_pixels_result();
-    // res.place_pixel_results = ;
+    const res = new kanvascontract.empty_message();
 
     return res;
   }
 
   erase_pixel(
     args: kanvascontract.erase_pixel_arguments
-  ): kanvascontract.erase_pixel_result {
+  ): kanvascontract.empty_message {
     // const from = args.from;
     // const posX = args.posX;
     // const posY = args.posY;
 
     // YOUR CODE HERE
 
-    const res = new kanvascontract.erase_pixel_result();
-    // res.old_pixel_count_object = ;
-    // res.new_pixel_count_object = ;
+    const res = new kanvascontract.empty_message();
 
     return res;
   }
 
   erase_pixels(
     args: kanvascontract.erase_pixels_arguments
-  ): kanvascontract.erase_pixels_result {
+  ): kanvascontract.empty_message {
     // const erase_pixel_arguments = args.erase_pixel_arguments;
 
     // YOUR CODE HERE
 
-    const res = new kanvascontract.erase_pixels_result();
-    // res.erase_pixel_results = ;
+    const res = new kanvascontract.empty_message();
 
     return res;
   }
