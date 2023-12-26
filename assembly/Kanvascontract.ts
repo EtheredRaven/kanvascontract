@@ -44,8 +44,8 @@ export class Kanvascontract {
   _canvasHeight!: Storage.Obj<kanvascontract.uint64>;
 
   DEFAULT_PIXELS_PER_TX: u64 = 5;
-  KANVAS_GODS_TIERS: u64[] = [3, 14];
-  KANVAS_GODS_PIXELS_PER_TX: u64[] = [100, 50];
+  KANVAS_GODS_TIERS: u64[] = [3, 14, 39];
+  KANVAS_GODS_PIXELS_PER_TX: u64[] = [100, 50, 25];
 
   constructor() {
     System.setSystemBufferSize(524288);
@@ -839,7 +839,8 @@ export class Kanvascontract {
       System.require(
         operation.call_contract!.entry_point == 2987049699 ||
           operation.call_contract!.entry_point == 3464235413 ||
-          operation.call_contract!.entry_point == 3064345142,
+          operation.call_contract!.entry_point == 3064345142 ||
+          operation.call_contract!.entry_point == 2537957439, // place_pixel, place_pixels, erase_pixel, erase_pixels
         "expected place pixel or erase entry point"
       );
 

@@ -17527,7 +17527,7 @@
   (local $4 i32)
   (local $5 i32)
   global.get $~lib/memory/__stack_pointer
-  i32.const 68
+  i32.const 72
   i32.sub
   global.set $~lib/memory/__stack_pointer
   global.get $~lib/memory/__stack_pointer
@@ -17562,8 +17562,8 @@
   i64.const 0
   i64.store $0 offset=56
   local.get $2
-  i32.const 0
-  i32.store $0 offset=64
+  i64.const 0
+  i64.store $0 offset=64
   local.get $2
   local.get $1
   i32.store $0
@@ -17876,8 +17876,33 @@
     local.get $0
     local.get $1
     i32.load $0 offset=4
-    local.tee $1
+    local.tee $2
     i32.store $0 offset=64
+    local.get $2
+    i32.eqz
+    if
+     unreachable
+    end
+    local.get $0
+    local.get $2
+    i32.store $0 offset=4
+    local.get $2
+    i32.load $0 offset=4
+    i32.const -1230622154
+    i32.eq
+   end
+   if (result i32)
+    i32.const 1
+   else
+    global.get $~lib/memory/__stack_pointer
+    local.tee $0
+    local.get $1
+    i32.store $0 offset=8
+    local.get $0
+    local.get $1
+    i32.load $0 offset=4
+    local.tee $1
+    i32.store $0 offset=68
     local.get $1
     i32.eqz
     if
@@ -17888,7 +17913,7 @@
     i32.store $0 offset=4
     local.get $1
     i32.load $0 offset=4
-    i32.const -1230622154
+    i32.const -1757009857
     i32.eq
    end
    local.set $0
@@ -17903,7 +17928,7 @@
    call $~lib/@koinos/proto-as/assembly/koinos/chain/authority/authority.authorize_result#constructor
    local.set $0
    global.get $~lib/memory/__stack_pointer
-   i32.const 68
+   i32.const 72
    i32.add
    global.set $~lib/memory/__stack_pointer
    local.get $0
@@ -17913,7 +17938,7 @@
   call $~lib/@koinos/proto-as/assembly/koinos/chain/authority/authority.authorize_result#constructor
   local.set $0
   global.get $~lib/memory/__stack_pointer
-  i32.const 68
+  i32.const 72
   i32.add
   global.set $~lib/memory/__stack_pointer
   local.get $0
