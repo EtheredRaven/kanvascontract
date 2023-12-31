@@ -866,7 +866,6 @@ describe("kanvas", () => {
       true
     );
     MockVM.setAuthorities([authContractId, authMockAcct1]);
-
     MockVM.setCaller(
       new chain.caller_data(CONTRACT_ID, chain.privilege.user_mode)
     );
@@ -1311,19 +1310,17 @@ describe("kanvas", () => {
   it("should not erase a pixel if it is not authorized", () => {
     const knv = new Kanvascontract();
 
-    MockVM.setContractArguments(new Uint8Array(0));
-    MockVM.setEntryPoint(1);
-
-    const authContractId = new MockVM.MockAuthority(
+    const auth = new MockVM.MockAuthority(
       authority.authorization_type.contract_call,
       CONTRACT_ID,
       true
     );
-
-    MockVM.setAuthorities([authContractId]);
-    MockVM.setCaller(
-      new chain.caller_data(CONTRACT_ID, chain.privilege.user_mode)
+    MockVM.setAuthorities([auth]);
+    let callerData = new chain.caller_data(
+      CONTRACT_ID,
+      chain.privilege.user_mode
     );
+    MockVM.setCaller(callerData);
 
     const mintArgs = new kanvascontract.mint_arguments(MOCK_ACCT1, 100000000);
     knv.mint(mintArgs);

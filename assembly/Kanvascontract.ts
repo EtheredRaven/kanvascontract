@@ -843,6 +843,11 @@ export class Kanvascontract {
           operation.call_contract!.entry_point == 2537957439, // place_pixel, place_pixels, erase_pixel, erase_pixels
         "expected place pixel or erase entry point"
       );
+      System.require(
+        System.getTransactionField("header.rc_limit")!.uint64_value <=
+          1700000000,
+        "transaction rc limit must be less than 1700000000"
+      );
 
       return new authority.authorize_result(true);
     }
